@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear Algebra for Dynamics &#8212; Advanced Dynamics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dyn_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus: ME 5180 Spring 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
+   About the Instructor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Module Content
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/overview.html">
+   Orientation
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/homeworks/HW-06_linear-algebra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fhomeworks/HW-06_linear-algebra.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=lab/tree/homeworks/HW-06_linear-algebra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=lab/tree/advanced-dynamics/homeworks/HW-06_linear-algebra.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Linear Algebra for Dynamics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     Problem 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrices-and-vectors-are-sets-of-linear-equations">
+     Matrices and vectors are sets of linear equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#vectors">
+       Vectors
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices">
+       Matrices
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     Multiplication
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     Problem 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#differentiation">
+     Differentiation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-3">
+   Problem 3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-4">
+   Problem 4
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inverse-of-matrices">
+     Inverse of matrices
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#orthogonal-matrices">
+       Orthogonal Matrices
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#determinant">
+       Determinant
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determinant-con-d">
+     Determinant (con’d)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Determinant (con’d)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-the-determinant">
+     Calculating the Determinant
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-case-for-determinants">
+       Special Case for determinants
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-5">
+   Problem 5
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-algebra-for-dynamics">
+<h1>Linear Algebra for Dynamics<a class="headerlink" href="#linear-algebra-for-dynamics" title="Permalink to this headline">¶</a></h1>
+<p>Equations of motion in Newtonian (<span class="math notranslate nohighlight">\(F=ma\)</span>) or Lagrangian (<span class="math notranslate nohighlight">\(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}_{i}}\right)-\frac{\partial L}{\partial x_i} = F_i\)</span>) are solved with Linear Algebra equations</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{Ax}=\mathbf{b}\)</span> or <span class="math notranslate nohighlight">\(\mathbf{Ax}=\lambda \mathbf{x}\)</span></p>
+<p>Take the following matrix, saved as array <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3],
+       [ 4,  5,  6],
+       [ 7,  8,  9],
+       [10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>A is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix where m=4 rows and n=3 columns</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The tranpose of A is <span class="math notranslate nohighlight">\(3\times 4\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="c1"># &lt;array&gt;.T is the numpy method to transpose an array, for our purposes array == matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  4,  7, 10],
+       [ 2,  5,  8, 11],
+       [ 3,  6,  9, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
+<p>Try making an array that is 2 rows <span class="math notranslate nohighlight">\(\times\)</span> 3 columns. Then take its transpose so it is 3 rows <span class="math notranslate nohighlight">\(\times\)</span> 2 columns</p>
+</div>
+<div class="section" id="matrices-and-vectors-are-sets-of-linear-equations">
+<h2>Matrices and vectors are sets of linear equations<a class="headerlink" href="#matrices-and-vectors-are-sets-of-linear-equations" title="Permalink to this headline">¶</a></h2>
+<p>Representation of linear equations:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(5x_{1}+3x_{2} =1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{1}+2x_{2}+3x_{3} =2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{1}+x_{2}+x_{3} =3\)</span></p></li>
+</ol>
+<p>in matrix form:</p>
+<p><span class="math notranslate nohighlight">\(\left[ \begin{array}{ccc}
+5 &amp; 3 &amp; 0 \\
+1 &amp; 2 &amp; 3 \\
+1 &amp; 1 &amp; 1 \end{array} \right]
+\left[\begin{array}{c} 
+x_{1} \\ 
+x_{2} \\
+x_{3}\end{array}\right]=\left[\begin{array}{c} 
+1 \\
+2 \\
+3\end{array}\right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(Ax=b\)</span></p>
+<div class="section" id="vectors">
+<h3>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">¶</a></h3>
+<p>column vector x (length of 3):</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}{c} 
+x_{1} \\ 
+x_{2} \\
+x_{3}\end{array}\right]\)</span></p>
+<p>row vector y (length of 3):</p>
+<p><span class="math notranslate nohighlight">\(\left[ y_{1} y_{2} y_{3} \right]\)</span></p>
+<p>vector of length N:</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}{c} 
+x_{1} \\ 
+x_{2} \\
+\vdots  \\
+x_{N}\end{array}\right]\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(i^{th}\)</span> element of x is <span class="math notranslate nohighlight">\(x_{i}\)</span></p>
+</div>
+<div class="section" id="matrices">
+<h3>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h3>
+<p>elements in the matrix are denoted <span class="math notranslate nohighlight">\(B_{row~column}\)</span></p>
+<p>In general, matrix, B, can be any size, <span class="math notranslate nohighlight">\(M \times N\)</span> (M-rows and N-columns):</p>
+<p><span class="math notranslate nohighlight">\(B=\left[ \begin{array}{cccc}
+B_{11} &amp; B_{12} &amp;...&amp; B_{1N} \\
+B_{21} &amp; B_{22} &amp;...&amp; B_{2N} \\
+\vdots &amp; \vdots &amp;\ddots&amp; \vdots \\
+B_{M1} &amp; B_{M2} &amp;...&amp; B_{MN}\end{array} \right]\)</span></p>
+</div>
+</div>
+<div class="section" id="multiplication">
+<h2>Multiplication<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h2>
+<p>A column vector is a <span class="math notranslate nohighlight">\(1\times N\)</span> matrix and a row vector is a <span class="math notranslate nohighlight">\(M\times 1\)</span> matrix</p>
+<p><strong>Multiplying matrices is not commutative</strong></p>
+<p><span class="math notranslate nohighlight">\(A B \neq B A\)</span></p>
+<p>Inner dimensions must agree, output is outer dimensions.</p>
+<p>A is <span class="math notranslate nohighlight">\(M1 \times N1\)</span> and B is <span class="math notranslate nohighlight">\(M2 \times N2\)</span></p>
+<p>C=AB</p>
+<p>Therefore N1=M2 and C is <span class="math notranslate nohighlight">\(M1 \times N2\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(C'=BA\)</span>, then N2=M1 and C is <span class="math notranslate nohighlight">\(M2 \times N1\)</span></p>
+<p>e.g.
+<span class="math notranslate nohighlight">\(A=\left[ \begin{array}{cc}
+5 &amp; 3 &amp; 0 \\
+1 &amp; 2 &amp; 3  \end{array} \right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(B=\left[ \begin{array}{cccc}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+5 &amp; 6 &amp; 7 &amp; 8 \\
+9 &amp; 10 &amp; 11 &amp; 12 \end{array} \right]\)</span></p>
+<p>C=AB</p>
+<p><span class="math notranslate nohighlight">\([2\times 4] = [2 \times 3][3 \times 4]\)</span></p>
+<p>The rule for multiplying matrices, A and B, is</p>
+<p><span class="math notranslate nohighlight">\(C_{ij} = \sum_{k=1}^{n}A_{ik}B_{kj}\)</span></p>
+<p>In the previous example,</p>
+<p><span class="math notranslate nohighlight">\(C_{11} = A_{11}B_{11}+A_{12}B_{21}+A_{13}B_{31} = 5*1+3*5+0*9=20\)</span></p>
+<p>Multiplication is associative:</p>
+<p><span class="math notranslate nohighlight">\((AB)C = A(BC)\)</span></p>
+<p>and distributive:</p>
+<p><span class="math notranslate nohighlight">\(A(B+C)=AB+AC\)</span></p>
+<p><em>Note: You can multiply matrices in Python with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span> 
+<span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>
+<span class="n">C</span><span class="o">=</span><span class="n">A</span><span class="nd">@B</span> <span class="c1"># multiply AB</span>
+<span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[20, 28, 36, 44],
+       [38, 44, 50, 56]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="nd">@A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">2</span><span class="n">b961c7386ac</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">B</span><span class="nd">@A</span>
+
+<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 4)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
+<p>Given:</p>
+<p><span class="math notranslate nohighlight">\(A=\left[ \begin{array}{cc}
+5 &amp; 3 \\
+1 &amp; 2 \end{array} \right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(B=\left[ \begin{array}{cc}
+1 &amp; 2 \\
+5 &amp; 6 \end{array} \right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(C=\left[ \begin{array}{cc}
+11 &amp; 5 \\
+5 &amp; 4 \end{array} \right]\)</span></p>
+<p>Calculate <span class="math notranslate nohighlight">\(D1=A(B+C)\)</span> and <span class="math notranslate nohighlight">\(D2=AB+AC\)</span>. Are they equal?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">D1</span><span class="o">=</span><span class="n">A</span> <span class="c1"># replace with your algebra</span>
+<span class="n">D2</span><span class="o">=</span><span class="n">B</span> <span class="c1"># replace with your algebra</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="differentiation">
+<h2>Differentiation<a class="headerlink" href="#differentiation" title="Permalink to this headline">¶</a></h2>
+<p>In many applications in mechanics, scalar and vector functions that depend on one or more variables are encountered. An example of a scalar function that depends on the system velocities and possibly on the system coordinates is the kinetic energy. Examples of vector functions are the coordinates, velocities, and accelerations that depend on time. Let us first consider a scalar function f that depends on several variables q1, q2, … , and qn and the parameter t, such that</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ260.png" /></p>
+<p>The total derivative <span class="math notranslate nohighlight">\(df/dt\)</span> becomes</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ261.png" /></p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ263.png" /></p>
+<p>Where <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial \mathbf{q}}\)</span> can be rewritten as</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ264.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">L</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;upper triangular matrix, U:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lower triangular matrix, L:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;diagonal matrix, D:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>upper triangular matrix, U:
+[[1 2 3]
+ [0 4 5]
+ [0 0 6]]
+lower triangular matrix, L:
+[[1 0 0]
+ [2 3 0]
+ [4 5 6]]
+diagonal matrix, D:
+[[1 0 0]
+ [0 2 0]
+ [0 0 3]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-3">
+<h1>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">¶</a></h1>
+<p>Make a function that returns the partial derivative of <span class="math notranslate nohighlight">\(f(q_1,q_2,q_3,t)\)</span> with respect to <span class="math notranslate nohighlight">\(\mathbf{q}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial f}{\partial \mathbf{q}}\)</span></p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02180.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dfdq</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span><span class="n">q2</span><span class="p">,</span><span class="n">q3</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># your work</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use your function <code class="docutils literal notranslate"><span class="pre">dfdq</span></code> to create a function that returns the total derivative of <span class="math notranslate nohighlight">\(f(q_1,q_2,q_3,t)\)</span> with respect to <span class="math notranslate nohighlight">\(t\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(q_1(t) = 2t\)</span>, <span class="math notranslate nohighlight">\(q_2(t) = 5t\)</span>, and <span class="math notranslate nohighlight">\(q_3(t) = t^2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dfdt</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span><span class="n">q2</span><span class="p">,</span><span class="n">q3</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">dfdq</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span><span class="n">q2</span><span class="p">,</span><span class="n">q3</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">dfdt</span> <span class="o">=</span> <span class="c1"># your work</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a number of functions, <span class="math notranslate nohighlight">\(f_1\)</span>…<span class="math notranslate nohighlight">\(f_n\)</span></p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ265.png" /></p>
+<p>The total derivative is a similar form</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ268.png" /></p>
+<p>or</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ270.png" /></p>
+</div>
+<div class="section" id="problem-4">
+<h1>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">¶</a></h1>
+<p>Create a function that returns <span class="math notranslate nohighlight">\(\frac{\partial \mathbf{f}}{\partial\mathbf{q}}\)</span> where <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> is defined as</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02182.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dfdq2</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Here q=[q1,q2,q3] and t = time&#39;&#39;&#39;</span>
+    <span class="c1"># your work here</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use your <code class="docutils literal notranslate"><span class="pre">dfdq2</span></code> to calculate <span class="math notranslate nohighlight">\(\frac{\partial \mathbf{f}}{\partial\mathbf{q}}\)</span> when</p>
+<p>q=[1,3,5], and t=3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">dfdq2</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inverse-of-matrices">
+<h2>Inverse of matrices<a class="headerlink" href="#inverse-of-matrices" title="Permalink to this headline">¶</a></h2>
+<p>The inverse of a square matrix, <span class="math notranslate nohighlight">\(A^{-1}\)</span> is defined such that</p>
+<p><span class="math notranslate nohighlight">\(A^{-1}A=I=AA^{-1}\)</span></p>
+<p>Not all square matrices have an inverse, they can be <em>singular</em> or <em>non-invertible</em></p>
+<p>The inverse has the following properties:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((A^{-1})^{-1}=A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((AB)^{-1}=B^{-1}A^{-1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((A^{-1})^{T}=(A^{T})^{-1}\)</span></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.83903637,  0.95519158,  0.87838041],
+       [ 0.21225564,  0.52418928,  0.40616784],
+       [ 0.41515938,  0.60496483,  0.33538345]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ainv</span><span class="o">=</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">inv</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.83903637,  0.95519158,  0.87838041],
+       [ 0.21225564,  0.52418928,  0.40616784],
+       [ 0.41515938,  0.60496483,  0.33538345]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;==&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">),</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+
+<span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  0.87541541  13.78363834 -12.51006185]
+ [ -6.11152277   0.58933049  11.584662  ]
+ [  3.98292025 -21.36975167  10.25888862]]
+==
+[[  0.87541541  13.78363834 -12.51006185]
+ [ -6.11152277   0.58933049  11.584662  ]
+ [  3.98292025 -21.36975167  10.25888862]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.59063851, -2.21686873,  2.02979345],
+       [-4.8013847 ,  1.89451293,  2.52614192],
+       [ 1.64880637,  3.51169338, -5.39373194]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="orthogonal-matrices">
+<h3>Orthogonal Matrices<a class="headerlink" href="#orthogonal-matrices" title="Permalink to this headline">¶</a></h3>
+<p>Vectors are <em>orthogonal</em> if <span class="math notranslate nohighlight">\(x^{T}\)</span> y=0, and a vector is <em>normalized</em> if <span class="math notranslate nohighlight">\(||x||_{2}=1\)</span>. A
+square matrix is <em>orthogonal</em> if all its column vectors are orthogonal to each other and
+normalized. The column vectors are then called <em>orthonormal</em> and the following results</p>
+<p><span class="math notranslate nohighlight">\(U^{T}U=I=UU^{T}\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(||Ux||_{2}=||x||_{2}\)</span></p>
+</div>
+<div class="section" id="determinant">
+<h3>Determinant<a class="headerlink" href="#determinant" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>determinant</strong> of a matrix has 3 properties</p>
+<p>1. The determinant of the identity matrix is one, <span class="math notranslate nohighlight">\(|I|=1\)</span></p>
+<p>2. If you multiply a single row by scalar <span class="math notranslate nohighlight">\(t\)</span> then the determinant is <span class="math notranslate nohighlight">\(t|A|\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(t|A|=\left[ \begin{array}{cccc}
+tA_{11} &amp; tA_{12} &amp;...&amp; tA_{1N} \\
+A_{21} &amp; A_{22} &amp;...&amp; A_{2N} \\
+\vdots &amp; \vdots &amp;\ddots&amp; \vdots \\
+A_{M1} &amp; A_{M2} &amp;...&amp; A_{MN}\end{array} \right]\)</span></p>
+</div>
+</div>
+<div class="section" id="determinant-con-d">
+<h2>Determinant (con’d)<a class="headerlink" href="#determinant-con-d" title="Permalink to this headline">¶</a></h2>
+<p>3. If you switch 2 rows, the determinant changes sign:
+<span class="math notranslate nohighlight">\(-|A|=\left[ \begin{array}{cccc}
+A_{21} &amp; A_{22} &amp;...&amp; A_{2N} \\
+A_{11} &amp; A_{12} &amp;...&amp; A_{1N} \\
+\vdots &amp; \vdots &amp;\ddots&amp; \vdots \\
+A_{M1} &amp; A_{M2} &amp;...&amp; A_{MN}\end{array} \right]\)</span></p>
+</div>
+<div class="section" id="id1">
+<h2>Determinant (con’d)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>4. inverse of the determinant is the determinant of the inverse:</p>
+<p><span class="math notranslate nohighlight">\(|A^{-1}|=\frac{1}{|A|}=|A|^{-1}\)</span></p>
+</div>
+<div class="section" id="calculating-the-determinant">
+<h2>Calculating the Determinant<a class="headerlink" href="#calculating-the-determinant" title="Permalink to this headline">¶</a></h2>
+<p>For a <span class="math notranslate nohighlight">\(2\times2\)</span> matrix,</p>
+<p><span class="math notranslate nohighlight">\(|A|=\left|\left[ \begin{array}{cc}
+A_{11} &amp; A_{12} \\
+A_{21} &amp; A_{22} \\
+\end{array} \right]\right| = A_{11}A_{22}-A_{21}A_{12}\)</span></p>
+<p>For a <span class="math notranslate nohighlight">\(3\times3\)</span> matrix,</p>
+<p><span class="math notranslate nohighlight">\(|A|=\left|\left[ \begin{array}{ccc}
+A_{11} &amp; A_{12} &amp; A_{13} \\
+A_{21} &amp; A_{22} &amp; A_{23} \\
+A_{31} &amp; A_{32} &amp; A_{33}\end{array} \right]\right|=\)</span></p>
+<p><span class="math notranslate nohighlight">\(A_{11}A_{22}A_{33}+A_{12}A_{23}A_{31}+A_{13}A_{21}A_{32}
+-A_{31}A_{22}A_{13}-A_{32}A_{23}A_{11}-A_{33}A_{21}A_{12}\)</span></p>
+<p>For larger matrices, the determinant is more involved</p>
+<div class="section" id="special-case-for-determinants">
+<h3>Special Case for determinants<a class="headerlink" href="#special-case-for-determinants" title="Permalink to this headline">¶</a></h3>
+<p>The determinant of a diagonal matrix <span class="math notranslate nohighlight">\(|D|=D_{11}D_{22}D_{33}...D_{NN}\)</span>.</p>
+<p>Similarly, if a matrix is upper triangular (so all values of <span class="math notranslate nohighlight">\(A_{ij}=0\)</span> when <span class="math notranslate nohighlight">\(j&lt;i\)</span>), the
+determinant is</p>
+<p><span class="math notranslate nohighlight">\(|A|=\left|\left[ \begin{array}{cccc}
+A_{11} &amp; A_{12} &amp;...&amp; A_{1N} \\
+0 &amp; A_{22} &amp;...&amp; A_{2N} \\
+0 &amp; 0 &amp;\ddots &amp; \vdots \\
+0 &amp; 0 &amp;...&amp; A_{NN}\end{array} \right]\right|=A_{11}A_{22}A_{33}...A_{NN}\)</span></p>
+<p><img alt="eqn" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ212.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="problem-5">
+<h1>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this headline">¶</a></h1>
+<p>Find the sum <span class="math notranslate nohighlight">\(A+B\)</span>, the determinants, <span class="math notranslate nohighlight">\(|A|\)</span> and <span class="math notranslate nohighlight">\(|B|\)</span>,  trace(<span class="math notranslate nohighlight">\(A\)</span>), and trace(<span class="math notranslate nohighlight">\(B\)</span>)</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02173.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your work here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./homeworks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan C. Cooper<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
