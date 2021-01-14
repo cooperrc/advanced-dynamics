@@ -1,4 +1,4 @@
-Welcome to Applied Mechanics II - Engineering Dynamics
+Welcome to ME 5180 - Dynamics
 ============================
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
 alt="Creative Commons License" style="border-width:0"
@@ -7,31 +7,39 @@ work is licensed under a <a rel="license"
 href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
 Attribution 4.0 International License</a>.
 
-<img src="https://imgs.xkcd.com/comics/newton_and_leibniz.png" alt="Newton
-invents calculus xkcd.com" title="Newton and Leibniz XKCD">
+<!-- <img src="./images/always_Newton.png" alt="Newton lays claim to -->
+<!-- engineering " title="Newton always has been"/> -->
 
-Applied Mechanics II (or Dynamics) is the study of how things move and interact.
-We are limiting our study to Newtonian mechanics. We won't consider quantum
-effects like wave-particle duality or relativistic effects. Our current interest
-is to describe free and constrained motion much less than the speed of light and
-with mass much larger than an atom, but much smaller than the sun (~1e-27 < m <
-2e30 kg). 
+![Newton: always has
+been](./images/always_Newton.png)
 
-The two founding scientists of classical dynamics are [Galileo
-Galilei](https://en.wikipedia.org/wiki/Galileo_Galilei) (1564-1642) and [Isaac
-Newton](https://en.wikipedia.org/wiki/Isaac_Newton) (1642-1726). Galileo
-described the geometry of moving objects and helped define our understanding of
-kinematics. Newton defined three kinetic laws that helped describe how force,
-impact, and energy relate to changes in motion. 
+Dynamics is the study of how things move and interact. It sets the
+foundation for almost every Mechanical engineering discipline: solid
+mechanics, fluid mechanics, controls, vibrations, etc.
+We are limiting our study to classical mechanics.  
 
-This course explores the geometry of motion and the effect of forces,
-impact, and energy in engineering. __Kinematics__ is the study of the
+We have four conditions for classical mechanics:
+1. mass of objects is constant
+2. mass of objects >> mass of atomic particles
+3. velocity << speed of light
+4. time is short (less than millenia) and mass is small (less than the
+sun or black holes)
+
+> Note: We won't consider quantum effects like wave-particle duality or
+> relativistic effects. 
+
+This course derives equations of motion for multibody systems using
+__kinematics__ and __kinetics__. __Kinematics__ is the study of the
 geometry of motion. __Kinetics__ is the study of forces, impacts, and
-energy on objects. 
+energy on objects.  Your goal is to build general equations of motion using [__Lagrange
+equations__](https://en.wikipedia.org/wiki/Lagrangian_mechanics). We
+will build the foundation for more advanced rigid body dynamic software
+in Python. 
 
 <p><strong>Note:</strong> See the course schedule for specific due dates</p> 
 <iframe
-width="600" height="400" style="border-width: 0;"
-src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=dWNvbm4uZWR1X3ZlaHJhNTdiZW5yNmhydTdoczc5OTdxcDUwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23616161&amp;showTitle=1&amp;mode=AGENDA&amp;showTabs=1&amp;showCalendars=0"
-frameborder="0" scrolling="no"></iframe>
+src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=Y19sbDc3NWhvaGY0cGk2azRlcXR2bGNwbTcxa0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23A79B8E&amp;mode=AGENDA&amp;showCalendars=0&amp;showPrint=1"
+style="border:solid 1px #777" width="600" height="400" frameborder="0"
+scrolling="no"></iframe>
+
 
