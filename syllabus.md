@@ -83,7 +83,7 @@ __available through UConn Library O'Reilly subscription__
 McGraw-Hill.](https://www.amazon.com/Schaums-Outline-Lagrangian-Dynamics-1967-06-01/dp/B017MYQFP0):
 $15-$30 via Amazon or other textbook marketer
 
-[_Engineering Dynamics_ by Ryan C.
+[_Advanced Dynamics_ by Ryan C.
 Cooper](https://cooperrc.github.io/advanced-dynamics/intro.html) this is
 a _work in progress_. It will host our syllabus and assignments. I
 encourage you to suggest edits and add issues using the [GitHub
