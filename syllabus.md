@@ -1,11 +1,11 @@
 # Syllabus: ME 5180 Spring 2021
 ## Course and Instructor Information
 
-**Course Title:** CE2120 - Applied Mechanics II
+**Course Title:** ME5180 - Dynamics
 
 **Format:** Online
 
-**Prerequisite:** CE 2110 and MATH 2110 or 2130
+**Prerequisite:** Advanced Calculus and Introductory Physics
 
 **Instructor**: Prof. Ryan C. Cooper
 [***ryan.c.cooper\@uconn.edu***](mailto:ryan.c.cooper@uconn.edu)
