@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Problem 1 &#8212; Advanced Dynamics</title>
+    <title>Homework #3 work in progress &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -48,8 +48,6 @@
     <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -59,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Homework #5 - work in progress" href="HW_05.html" />
+    <link rel="prev" title="Homework #2 - work in progress" href="HW_02.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,7 +98,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../syllabus.html">
    Syllabus: ME 5180 Spring 2021
@@ -118,6 +118,69 @@
   <a class="reference internal" href="../module_00/overview.html">
    Orientation
   </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../assignments.html">
+   Advanced Dynamics Exercises
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_02.html">
+     Homework #2 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Homework #3
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_05.html">
+     Homework #5 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_06.html">
+     Homework #6 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_07.html">
+     Homework #7  Kinematics -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_08.html">
+     Homework #8 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_09.html">
+     Homework #9 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -230,34 +293,32 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
    Problem 1
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#intro-to-function-definitions">
    Intro to function definitions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#building-our-own-functions">
-     Building our own functions.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#euler-approximation">
-     Euler approximation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#runge-kutta">
-     Runge-Kutta
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-our-own-functions">
+   Building our own functions.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#euler-approximation">
+   Euler approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#runge-kutta">
+   Runge-Kutta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-2">
    Problem 2
   </a>
@@ -298,9 +359,11 @@
 </div>
 </div>
 </div>
+<div class="section" id="homework-3-work-in-progress">
+<h1>Homework #3 <em>work in progress</em><a class="headerlink" href="#homework-3-work-in-progress" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="problem-1">
-<h1>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h1>
-<p><img alt="Pendulum bob attached to springs" src="homeworks/./f3-6.png" /></p>
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
 <p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
 string from the point p. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
@@ -323,6 +386,7 @@ springs, show that the pendulum oscillates with a period of</p>
 
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">);</span>
 <span class="c1"># your work</span>
+<span class="c1"># your new solutions, convert rad to deg with 180/pi</span>
 <span class="c1"># a_inf = </span>
 <span class="c1"># a_20 = </span>
 
@@ -336,12 +400,12 @@ springs, show that the pendulum oscillates with a period of</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">f49ab22630d3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># a_20 =</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> 
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_inf</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">a45e0080344d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># a_20 =</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_inf</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;a_inf&#39; is not defined
 </pre></div>
@@ -358,7 +422,8 @@ springs, show that the pendulum oscillates with a period of</p>
 </div>
 </div>
 <div class="section" id="intro-to-function-definitions">
-<h1>Intro to function definitions<a class="headerlink" href="#intro-to-function-definitions" title="Permalink to this headline">¶</a></h1>
+<h2>Intro to function definitions<a class="headerlink" href="#intro-to-function-definitions" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="building-our-own-functions">
 <h2>Building our own functions.<a class="headerlink" href="#building-our-own-functions" title="Permalink to this headline">¶</a></h2>
 <p>Functions are saved in memory you can define them with anonymous functions <code class="docutils literal notranslate"><span class="pre">lambda</span></code> and function definitions <code class="docutils literal notranslate"><span class="pre">def</span></code></p>
@@ -501,10 +566,9 @@ springs, show that the pendulum oscillates with a period of</p>
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="problem-2">
-<h1>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h1>
-<p><img alt="Pendulum bob attached to springs" src="homeworks/./f3-6.png" /></p>
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
 <p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
 string from the point p. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
@@ -553,6 +617,7 @@ springs, show that the pendulum oscillates with a period of</p>
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -582,6 +647,8 @@ springs, show that the pendulum oscillates with a period of</p>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="HW_02.html" title="previous page">Homework #2 - <em>work in progress</em></a>
+    <a class='right-next' id="next-link" href="HW_05.html" title="next page">Homework #5 - <em>work in progress</em></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

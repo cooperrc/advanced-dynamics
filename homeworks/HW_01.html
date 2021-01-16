@@ -130,21 +130,6 @@
      Homework 1 - Jupyter and Python
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#problem-1">
-     Problem 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#problem-2-border">
-     Problem 2: Border
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#problem-3">
-     Problem 3
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -258,82 +243,78 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Homework 1 - Jupyter and Python
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arrays-and-lists">
+   Arrays and lists
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array-slicing">
+   Array slicing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array-computations">
+   Array computations
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arrays-and-lists">
-     Arrays and lists
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-single-arrays">
+     Working with single arrays
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-slicing">
-     Array slicing
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-multiple-arrays">
+     Working with multiple arrays
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-computations">
-     Array computations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#working-with-single-arrays">
-       Working with single arrays
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#working-with-multiple-arrays">
-       Working with multiple arrays
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-and-modifying-arrays">
-     Creating and modifying arrays
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectorized-computations">
-     “Vectorized” computations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exercise-euclidean-distance-2-points">
-       Exercise: Euclidean distance (2 points)
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-and-modifying-arrays">
+   Creating and modifying arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vectorized-computations">
+   “Vectorized” computations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-euclidean-distance-2-points">
+     Exercise: Euclidean distance (2 points)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-1">
    Problem 1
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creating-multidimensional-arrays">
-     Creating multidimensional arrays
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accessing-and-modifying-multidimensional-array-elements">
-     Accessing and modifying multidimensional array elements
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-multidimensional-arrays">
+   Creating multidimensional arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-and-modifying-multidimensional-array-elements">
+   Accessing and modifying multidimensional array elements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-2-border">
    Problem 2: Border
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-3">
    Problem 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vector-algebra-with-arrays">
+   Vector algebra with Arrays
   </a>
  </li>
 </ul>
@@ -916,14 +897,14 @@ Complete the function <code>euclidean_distance</code> below to compute $d(a,b)$,
 <div class="alert alert-warning">Remember that you need to execute the cell above (with your definition of <code>euclidean_distance</code>), and then run the cell below to check your answer. If you make changes to the cell with your answer, you will need to <i>first</i> re-run that cell, and <i>then</i> re-run the test cell to check your answer again.</div>
 </div>
 </div>
-</div>
 <div class="section" id="problem-1">
-<h1>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h1>
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
 <p>Show that for a=[0 3 0] and b=[4 0 0], the euclidean distance is 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show work</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1167,9 +1148,8 @@ arr2: [ 0  1  4  3  8  5 12  7 16  9]
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="problem-2-border">
-<h1>Problem 2: Border<a class="headerlink" href="#problem-2-border" title="Permalink to this headline">¶</a></h1>
+<h2>Problem 2: Border<a class="headerlink" href="#problem-2-border" title="Permalink to this headline">¶</a></h2>
 <p>Write a function to create a 2D array of arbitrary shape. This array should have all zero values, except for the elements around the border (i.e., the first and last rows, and the first and last columns), which should have a value of one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1205,7 +1185,7 @@ arr2: [ 0  1  4  3  8  5 12  7 16  9]
 </div>
 </div>
 <div class="section" id="problem-3">
-<h1>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">¶</a></h1>
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">¶</a></h2>
 <p>Below a 2D array, <code class="docutils literal notranslate"><span class="pre">A88</span></code> is created that reshapes the integers 1 through 64 into
 an <span class="math notranslate nohighlight">\(8\times8\)</span> array. Create a new 1-D array that only contains the last
 column of <code class="docutils literal notranslate"><span class="pre">a8</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">[8,</span> <span class="pre">16,</span> <span class="pre">24,</span> <span class="pre">32,</span> <span class="pre">40,</span> <span class="pre">48,</span> <span class="pre">56,</span> <span class="pre">64]</span></code>.</p>
@@ -1214,6 +1194,92 @@ column of <code class="docutils literal notranslate"><span class="pre">a8</span>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A88</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">65</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="c1"># a8 = your work</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vector-algebra-with-arrays">
+<h2>Vector algebra with Arrays<a class="headerlink" href="#vector-algebra-with-arrays" title="Permalink to this headline">¶</a></h2>
+<p>You can represent physics vectors with 1D arrays. If you have a chosen basis set, you can save the components of the vector. Consider the following example, a force, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, is applied to a an object and it moves one meter along the x-axis. The force has three components, <span class="math notranslate nohighlight">\(\mathbf{F} = 2\hat{i}+3\hat{j}+0\hat{k}~N\)</span>.</p>
+<p>You can determine the work done by the force using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">np.dot</span></code></a> as such</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;work done by F is </span><span class="si">{}</span><span class="s1"> N-m&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>work done by F is 2 N-m
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="n">quiv</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">([],[],[],[])</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">quiv</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">([],[])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+    
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">F</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+    
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">53</span><span class="o">-</span><span class="n">eca8124aca18</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">quiv</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">([],[],[],[])</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+
+<span class="ne">TypeError</span>: cannot unpack non-iterable Quiver object
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/lib/python3.8/site-packages/matplotlib/quiver.py:699: RuntimeWarning: Mean of empty slice.
+  amean = a.mean()
+/opt/miniconda3/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+</pre></div>
+</div>
+<img alt="../_images/HW_01_122_2.png" src="../_images/HW_01_122_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quiv</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">([</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">quiv</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">([</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

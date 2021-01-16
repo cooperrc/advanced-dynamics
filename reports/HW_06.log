@@ -17,33 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-l=1
-m=0.1 
-k=20 
-g=9.81
-P=2*pi/np.sqrt(2*k*g/(2*k*l+m*g))
-
-t=np.linspace(0,2*P);
-# your work
-# your new solutions, convert rad to deg with 180/pi
-# a_inf = 
-# a_20 = 
-
-plt.plot(t,a_inf)
-plt.plot(t,a_20)
-plt.xlabel('time (s)')
-plt.ylabel('angle (deg)')
+B@A
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-4-a45e0080344d>[0m in [0;36m<module>[0;34m[0m
-[1;32m     11[0m [0;31m# a_20 =[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     12[0m [0;34m[0m[0m
-[0;32m---> 13[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mt[0m[0;34m,[0m[0ma_inf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     14[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mt[0m[0;34m,[0m[0ma_20[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     15[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'time (s)'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mNameError[0m: name 'a_inf' is not defined
-NameError: name 'a_inf' is not defined
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-6-2b961c7386ac>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mB[0m[0;34m@[0m[0mA[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mValueError[0m: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 4)
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 4)
 
