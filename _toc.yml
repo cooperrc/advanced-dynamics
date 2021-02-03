@@ -9,6 +9,11 @@
   sections:
   - file: module_00/participation
   - file: homeworks/HW_01
+- file: getting-started/README
+  sections:
+  - file: getting-started/01_interactions
+  - file: getting-started/02_Working_with_Python
+  - file: getting-started/03_Numerical_error
 - file: assignments
   sections:
   - file: homeworks/HW_02
