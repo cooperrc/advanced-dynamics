@@ -87,7 +87,7 @@ $15-$30 via Amazon or other textbook marketer
 Cooper](https://cooperrc.github.io/advanced-dynamics/intro.html) this is
 a _work in progress_. It will host our syllabus and assignments. I
 encourage you to suggest edits and add issues using the [GitHub
-repository](https://github.com/cooperrc/engineering-dynamics).
+repository](https://github.com/cooperrc/advanced-dynamics).
 
 ### Recommended textbooks
 
@@ -125,7 +125,8 @@ updates.
 | Participation\*\* | 20 % | Online Campuswire forum |
 
 \* Note on Quizzes: Quizzes are based upon previous week's material.
-They are  
+They are open-resource and timed. You will submit a scan of your work
+and a short (10-30 seconds) video to HuskyCT. 
 
 \*\* Note on Participation: 
 1.  The reading assignments have Campuswire discussions. You must
@@ -199,10 +200,6 @@ The software/technical requirements for this course include:
     Statement*](http://www.blackboard.com/Platforms/Learn/Resources/Accessibility.aspx),
     [*HuskyCT/ Blackboard Privacy
     Policy*](http://www.blackboard.com/footer/privacy-policy.aspx))
--   Respondus Lockdown Browser with Monitor (inside HuskyCT/Blackboard)
-    [*Privacy Polic*](https://web.respondus.com/privacy/)y,
-    [*Accessibility
-    Statement*](https://support.respondus.com/support/index.php?/Knowledgebase/Article/View/187/0/is-lockdown-browser-accessible-to-those-with-disabilities)
 -   [*Adobe Acrobat
     Reader*](http://www.adobe.com/products/acrobat/readstep2.html)
     ([*Adobe Reader Accessibility
