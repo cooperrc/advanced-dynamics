@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework #3 work in progress &#8212; Advanced Dynamics</title>
+    <title>HW_03 - Nonlinear solutions &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Homework #5 - work in progress" href="HW_05.html" />
+    <link rel="next" title="Homework #3 work in progress" href="HW_04.html" />
     <link rel="prev" title="Homework #2" href="HW_02.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -165,6 +165,11 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_04.html">
      Homework #3
      <em>
       work in progress
@@ -209,6 +214,20 @@
      <em>
       work in progress
      </em>
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../quiz_work/quizzes.html">
+   Quiz Review Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_01.html">
+     Building Quiz_01
     </a>
    </li>
   </ul>
@@ -325,34 +344,67 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-solution">
+   Numerical solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-f-c-with-lambda">
+     Define
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f(c)
+      </span>
+     </code>
+     with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       lambda
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solve-f-c-sol-0-with-fsolve">
+     Solve
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       f(c_sol)=0
+      </span>
+     </code>
+     with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       fsolve
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plug-into-catenary-equation">
+   Plug into catenary equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-1">
    Problem 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intro-to-function-definitions">
-   Intro to function definitions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#building-our-own-functions">
-   Building our own functions.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#euler-approximation">
-   Euler approximation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#runge-kutta">
-   Runge-Kutta
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-2">
    Problem 2
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-goal">
+     <strong>
+      Your goal:
+     </strong>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -365,283 +417,282 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="hw-03-nonlinear-solutions">
+<h1>HW_03 - Nonlinear solutions<a class="headerlink" href="#hw-03-nonlinear-solutions" title="Permalink to this headline">¶</a></h1>
+<p><img alt="hanging chain variational solution" src="https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/aec6660b-716d-4530-ac9a-ee080b56d7c3/08_hanging.png" /></p>
+<p>Creating a solution for the hanging chain, we reached a point where the constants required a nonlinear solution to an algebraic equation,</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d2dc03dff028</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bbb40a30a5e1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
 </div>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(x) = \cosh \frac{\rho g a}{2c} - \cosh\frac{\rho g x}{c}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(L = \int_{-a/2}^{a/2}\cosh\frac{\rho g x}{c}dx \rightarrow L = \frac{c}{\rho g} \sinh\frac{\rho g a}{c}\)</span></p></li>
+</ol>
+<p>The second equation does not have an “analytical” solution. Where “analytical” refers to an equation with seperable input/output. What you need is a “numerical” solution to equation 2:</p>
+<p>what <span class="math notranslate nohighlight">\(c\)</span> will satisfy this equation?</p>
+<p><span class="math notranslate nohighlight">\(f(c)=L - \frac{c}{\rho g} \sinh\frac{\rho g a}{c}=0\)</span></p>
+<p>These problems often come up when engineering systems have large displacements or large rotations that cannot be ignored. One way to approach this problem is to <em>guess</em> the solution. You could try:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>c=</p></th>
+<th class="head"><p>f(c)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>c=0</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\infty\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>c=50</p></td>
+<td><p>-0.022</p></td>
+</tr>
+<tr class="row-even"><td><p>c=100</p></td>
+<td><p>0.07</p></td>
+</tr>
+<tr class="row-odd"><td><p>c=200</p></td>
+<td><p>0.09</p></td>
+</tr>
+</tbody>
+</table>
+<p>If you happen to guess numbers that change the sign of <span class="math notranslate nohighlight">\(f(c)\)</span>, then you know one interval where <span class="math notranslate nohighlight">\(f(c_{solution})=0\)</span> must have been true. I find it helps to plot the function to see where the solution may exist</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setdefaults</span><span class="p">():</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">F</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">L</span><span class="o">-</span><span class="n">c</span><span class="o">/</span><span class="n">rho</span><span class="o">/</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">a</span><span class="o">/</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">F</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(c)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(c)=0&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(c)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(c)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/HW_03_4_1.png" src="../_images/HW_03_4_1.png" />
+</div>
+</div>
+<div class="section" id="numerical-solution">
+<h2>Numerical solution<a class="headerlink" href="#numerical-solution" title="Permalink to this headline">¶</a></h2>
+<p>We can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html"><code class="docutils literal notranslate"><span class="pre">fsolve</span></code></a> to automate the guess-and-check method. You need 2 things:</p>
+<ol class="simple">
+<li><p>a function <code class="docutils literal notranslate"><span class="pre">f(c)</span></code> that returns the result <span class="math notranslate nohighlight">\(f(c)=L - \frac{c}{\rho g} \sinh\frac{\rho g a}{c}=0\)</span></p></li>
+<li><p>an initial guess, <code class="docutils literal notranslate"><span class="pre">c_0</span></code></p></li>
+</ol>
+<p>Numerical solutions always require an initial guess for the solution and they will iterate until your function <code class="docutils literal notranslate"><span class="pre">f(c_sol)</span></code> <span class="math notranslate nohighlight">\(\approx0\)</span>.</p>
+<blockquote>
+<div><p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> has more advanced features than ‘guess-and-check’, but at its core it uses algorithms to reduce the number of guesses and checks.</p>
+</div></blockquote>
+<div class="section" id="define-f-c-with-lambda">
+<h3>Define <code class="docutils literal notranslate"><span class="pre">f(c)</span></code> with <code class="docutils literal notranslate"><span class="pre">lambda</span></code><a class="headerlink" href="#define-f-c-with-lambda" title="Permalink to this headline">¶</a></h3>
+<p>In Python, you can use the <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions"><code class="docutils literal notranslate"><span class="pre">lambda</span></code></a> function to create functions in one line. The other way to create a function is using <a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions"><code class="docutils literal notranslate"><span class="pre">def</span></code></a>.</p>
+<blockquote>
+<div><p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">def</span></code> is a much richer way to create functions in Python. We will use it later when we want more involved functions.</p>
+</div></blockquote>
+<p>Here, you define the function <code class="docutils literal notranslate"><span class="pre">f(c)</span></code> with <code class="docutils literal notranslate"><span class="pre">lambda</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">L</span><span class="o">-</span><span class="n">c</span><span class="o">/</span><span class="n">rho</span><span class="o">/</span><span class="n">g</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">a</span><span class="o">/</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setdefaults</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21081614830202033
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="homework-3-work-in-progress">
-<h1>Homework #3 <em>work in progress</em><a class="headerlink" href="#homework-3-work-in-progress" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="solve-f-c-sol-0-with-fsolve">
+<h3>Solve <code class="docutils literal notranslate"><span class="pre">f(c_sol)=0</span></code> with <code class="docutils literal notranslate"><span class="pre">fsolve</span></code><a class="headerlink" href="#solve-f-c-sol-0-with-fsolve" title="Permalink to this headline">¶</a></h3>
+<p>The numerical solver, <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>, is part of the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code></a> library. Import the function with the <code class="docutils literal notranslate"><span class="pre">from</span></code>…<code class="docutils literal notranslate"><span class="pre">import</span></code>-command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, you can solve for the value of <code class="docutils literal notranslate"><span class="pre">c_sol</span></code> that creates a solution to <code class="docutils literal notranslate"><span class="pre">f(c_sol)=0</span></code>. Use the function, <code class="docutils literal notranslate"><span class="pre">f</span></code> and an initial guess, <code class="docutils literal notranslate"><span class="pre">c0=40</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c0</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">c_sol</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c_sol = </span><span class="si">{}</span><span class="s1"> and f(c_sol) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_sol</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">f</span><span class="p">(</span><span class="n">c_sol</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c_sol = 22.671522641015084 and f(c_sol) = [1.62092562e-14]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plug-into-catenary-equation">
+<h2>Plug into catenary equation<a class="headerlink" href="#plug-into-catenary-equation" title="Permalink to this headline">¶</a></h2>
+<p>Now, you have a solution for <span class="math notranslate nohighlight">\(c\)</span> that describes the hanging chain. Plug it into the original equation</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(y(x) = \cosh \frac{\rho g a}{2c} - \cosh\frac{\rho g x}{c}\)</span></p></li>
+</ol>
+<p>and plot the final shape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.9</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.9</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mf">0.9</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">c_sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="mf">9.81</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">c_sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-axis (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y(x) - chain location (m)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y(x) - chain location (m)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/HW_03_15_1.png" src="../_images/HW_03_15_1.png" />
+</div>
+</div>
+</div>
 <div class="section" id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
-<p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
-string from the point p. This point is free to move along a straight horizontal line under
-the action of the springs, each having a constant k. Assume that the mass is displaced
-only slightly from the equilibrium position and released. Neglecting the mass of the
-springs, show that the pendulum oscillates with a period of</p>
-<p><span class="math notranslate nohighlight">\(P=2\pi\sqrt{\frac{mg+2kr}{2kg}}\)</span></p>
-<p>if you use a first-order Taylor series approximation for <span class="math notranslate nohighlight">\(\sin\theta\approx\theta\)</span> and <span class="math notranslate nohighlight">\(\cos\theta\approx 1\)</span></p>
-<p>Solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span> if m=0.1 kg, r=1 m, <span class="math notranslate nohighlight">\(\theta(0)\)</span>=pi/6 rad, and <span class="math notranslate nohighlight">\(\dot{\theta}(0)\)</span>=0 rad/s for
-2 cases:</p>
-<p>a. k=20 N/m</p>
-<p>b. k=<span class="math notranslate nohighlight">\(\infty\)</span> N/m</p>
-<p>c. Plot the solutions of <span class="math notranslate nohighlight">\(\theta(t)\)</span> for 2 periods on one figure</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">m</span><span class="o">=</span><span class="mf">0.1</span> 
-<span class="n">k</span><span class="o">=</span><span class="mi">20</span> 
-<span class="n">g</span><span class="o">=</span><span class="mf">9.81</span>
-<span class="n">P</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="p">))</span>
-
-<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">);</span>
-<span class="c1"># your work</span>
-<span class="c1"># your new solutions, convert rad to deg with 180/pi</span>
-<span class="c1"># a_inf = </span>
-<span class="c1"># a_20 = </span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_inf</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle (deg)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span><span class="n">root</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="intro-to-function-definitions">
-<h2>Intro to function definitions<a class="headerlink" href="#intro-to-function-definitions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="building-our-own-functions">
-<h2>Building our own functions.<a class="headerlink" href="#building-our-own-functions" title="Permalink to this headline">¶</a></h2>
-<p>Functions are saved in memory you can define them with anonymous functions <code class="docutils literal notranslate"><span class="pre">lambda</span></code> and function definitions <code class="docutils literal notranslate"><span class="pre">def</span></code></p>
-<p>Example of storing a function in memory</p>
-<p><span class="math notranslate nohighlight">\(f(x,y) = (xy^{3}-x^{3}y)\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
-<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.099
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">);</span> <span class="c1"># 10 data points from -1 to 1</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">);</span> <span class="c1"># 10 data points from -1 to 1</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c1"># 100 data points from -1 to 1 on the x- and y-axes</span>
-<span class="n">Z</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">);</span><span class="c1"># Z=f(X,Y) evaluated at the 100 data points</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">)</span> <span class="c1"># also pcolor, countour, ...</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fd1386a8b70&gt;
-</pre></div>
-</div>
-<img alt="../_images/HW_03_9_1.png" src="../_images/HW_03_9_1.png" />
-</div>
-</div>
-<p><strong>For more plotting examples and options check out the <a class="reference external" href="https://matplotlib.org/gallery/index.html">Matplotlib gallery</a></strong></p>
-<p>Here we will define a function called <code class="docutils literal notranslate"><span class="pre">my_ode</span></code> for a single-DOF forced spring-mass-damper:</p>
-<p><span class="math notranslate nohighlight">\(\ddot{x}+2\dot{x}+9x=\cos(2t)\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Help documentation for &quot;my_ode&quot;</span>
-<span class="sd">     input is time, t (s) and r=[position (m); velocity (m/s)] and time</span>
-<span class="sd">     output is dr=[velocity (m/s); acceleration (m/s/s)] at time, t</span>
-<span class="sd">     the ODE is defined by:</span>
-<span class="sd">    </span>
-<span class="sd">     a = -2*v-9*x+cos(t/2)&quot;&quot;&quot;</span>
-    
-    <span class="n">dr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-    <span class="n">dr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">dr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=-</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">9</span><span class="o">*</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">dr</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Given any <code class="docutils literal notranslate"><span class="pre">[position,</span> <span class="pre">velocity]</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code>, the defined <code class="docutils literal notranslate"><span class="pre">my_ode</span></code> returns the velocity and acceleration:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_ode</span><span class="p">(</span><span class="mi">0</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  2., -12.])
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="euler-approximation">
-<h2>Euler approximation<a class="headerlink" href="#euler-approximation" title="Permalink to this headline">¶</a></h2>
-<p>The simplest integration routine is the Euler approximation. A first-order Taylor series expansion about the current timestep:</p>
-<p><span class="math notranslate nohighlight">\(r_{i+1}=r_{i}+\frac{dr_{i}}{dt}\Delta t\)</span></p>
-<p>We can integrate the equation as such</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span>
-<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># (start, stop, by some incr)</span>
-<span class="n">x0</span><span class="o">=</span><span class="mf">0.1</span>
-<span class="n">v0</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span><span class="n">v0</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
-    <span class="n">dr</span><span class="o">=</span><span class="n">my_ode</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span>
-    <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">+</span><span class="n">dr</span><span class="o">*</span><span class="n">dt</span>
-    
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;position (m)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;position (m)&#39;)
-</pre></div>
-</div>
-<img alt="../_images/HW_03_17_1.png" src="../_images/HW_03_17_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="runge-kutta">
-<h2>Runge-Kutta<a class="headerlink" href="#runge-kutta" title="Permalink to this headline">¶</a></h2>
-<p>Using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> in Python you can use more advanced integration routines, such as <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-1">Runge-Kutta 5(4)</a>, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-3">Runge-Kutta 3(2)</a>, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-7">Adams/BDF method</a>, etc.</p>
-<p>Numerical integration algorithms for differential equations:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span> <span class="c1"># import the ordinary differential equation integrator in Python</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r23</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">my_ode</span><span class="p">,[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],[</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">],</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK23&#39;</span><span class="p">);</span>
-<span class="n">r45</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">my_ode</span><span class="p">,[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],[</span><span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">],</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">);</span> <span class="c1"># default = &#39;RK45&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r23</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r23</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r45</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r45</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;RK23&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
-<span class="c1">#axis([0 10 -0.2 0.3])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;position (m)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;position (m)&#39;)
-</pre></div>
-</div>
-<img alt="../_images/HW_03_20_1.png" src="../_images/HW_03_20_1.png" />
-</div>
-</div>
+<p>Plot the solution for two hanging chains, the same as we did above:</p>
+<p><span class="math notranslate nohighlight">\(g = 9.81~m/s/s\)</span>
+<span class="math notranslate nohighlight">\(L = 1~m\)</span>
+<span class="math notranslate nohighlight">\(rho = 5~kg/m\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(a = 0.9~m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a = 0.7~m\)</span></p></li>
+</ol>
 </div>
 <div class="section" id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
-<p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
-string from the point p. This point is free to move along a straight horizontal line under
-the action of the springs, each having a constant k. Assume that the mass is displaced
-only slightly from the equilibrium position and released. Neglecting the mass of the
-springs, show that the pendulum oscillates with a period of</p>
-<p><span class="math notranslate nohighlight">\(P=2\pi\sqrt{\frac{mg+2kr}{2kg}}\)</span></p>
-<p>solve for the nonlinear equations of motion and use the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to determine <span class="math notranslate nohighlight">\(\theta(t)\)</span></p>
-<p>Solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span> if m=0.1 kg, r=1 m, <span class="math notranslate nohighlight">\(\theta(0)\)</span>=pi/6 rad, and <span class="math notranslate nohighlight">\(\dot{\theta}(0)\)</span>=0 rad/s for</p>
-<p>k=20 N/m</p>
-<p>Plot the linear and nonlinear solutions of <span class="math notranslate nohighlight">\(\theta(t)\)</span> for 2 periods on one figure</p>
+<p><img alt="four-bar linkage design" src="../_images/4bar.svg" /></p>
+<p>In the four-bar linkage show above there are 3 bodies moving in 2D (9 DOF) and 4 pins (8 constraints). The linkage configuration is constrained by the two nonlinear equations</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(l_1\sin\theta_1+l_2\sin\theta_2-l_3\sin\theta_3 -d_y = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(l_1\cos\theta_1+l_2\cos\theta_2-l_3\cos\theta_3 -d_x = 0\)</span></p></li>
+</ol>
+<p>If you have one of the angles,<span class="math notranslate nohighlight">\(\theta_1\)</span>, you can use equations 1 and 2 to solve for the other two angles, <span class="math notranslate nohighlight">\(\theta_2~and\theta_3\)</span> using <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> only now the input is a vector with two values and the output is a vector with two values.</p>
+<p><span class="math notranslate nohighlight">\(\bar{f}(\bar{x})= \left[\begin{array}{c}
+f_1(\theta_2,~\theta_3) \\ 
+f_2(\theta_2,~\theta_3)\end{array}\right]=\left[\begin{array}{c}
+l_1\sin\theta_1+l_2\sin\theta_2-l_3\sin\theta_3 -d_y\\
+l_1\cos\theta_1+l_2\cos\theta_2-l_3\cos\theta_3 -d_x
+\end{array}\right]\)</span></p>
+<p>The linkage system has the following properties:</p>
+<ul class="simple">
+<li><p>link 1: <span class="math notranslate nohighlight">\(l_1 = 0.5~m\)</span></p></li>
+<li><p>link 2: <span class="math notranslate nohighlight">\(l_2 = 1~m\)</span></p></li>
+<li><p>link 3: <span class="math notranslate nohighlight">\(l_3 = 1~m\)</span></p></li>
+</ul>
+<p>when <span class="math notranslate nohighlight">\(\theta_1=90^o\)</span>, <span class="math notranslate nohighlight">\(\theta_2=0^o\)</span>, and <span class="math notranslate nohighlight">\(\theta_3=90^o\)</span>. So the two grounded pins have a fixed relative position, <span class="math notranslate nohighlight">\(r_{3/1} = d_x\hat{i}+d_y\hat{j} = 1\hat{i}-0.5\hat{j}\)</span>.</p>
+<p>Below, the definition of <code class="docutils literal notranslate"><span class="pre">Fbar</span></code> is defined for <span class="math notranslate nohighlight">\(\bar{f}(\bar{x})\)</span> and the function is satisfied for <span class="math notranslate nohighlight">\(\theta_1=\theta_3=90^o\)</span> and <span class="math notranslate nohighlight">\(\theta_2=0^o\)</span>. Then, the links are plotted with <code class="docutils literal notranslate"><span class="pre">rx</span></code> and <code class="docutils literal notranslate"><span class="pre">ry</span></code>, where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(rx = \left[\begin{array}~0\\l_1\cos(\theta_1)\\l_1\cos(\theta_1)+l_2\cos(\theta_2)\\ l_1\cos(\theta_1) + l_2\cos(\theta_2)-l_3\cos(\theta_3)\end{array}\right]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(ry = \left[\begin{array}~0\\l_1\sin(\theta_1)\\l_1\sin(\theta_1)+l_2\sin(\theta_2)\\ l_1\sin(\theta_1)+l_2\sin(\theta_2)-l_3\sin(\theta_3)\end{array}\right]\)</span></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bob_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,):</span>
-    <span class="sd">&quot;&quot;&quot; Help documentation for &quot;bob_ode&quot;</span>
-<span class="sd">     input is time, t (s) and r=[position p (m), angle (rad), velocity p (m/s), angle velocity (rad/s)] and time</span>
-<span class="sd">     output is dr=[velocity p (m/s), angle velocity (rad/s), accel p (m/s/s), angle accel (rad/s/s)] at time, t</span>
-<span class="sd">     the ODE is defined by:</span>
-<span class="sd">    </span>
-<span class="sd">     dr = f(t,r)&quot;&quot;&quot;</span>
-    <span class="n">l</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">m</span><span class="o">=</span><span class="mf">0.1</span> 
-    <span class="n">k</span><span class="o">=</span><span class="mi">20</span> 
-    <span class="n">g</span><span class="o">=</span><span class="mf">9.81</span>
-    <span class="n">dr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-    <span class="n">dr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">dr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-    <span class="c1"># your work here</span>
-    <span class="c1"># dr[2] =...</span>
-    <span class="c1"># dr[3] =... </span>
-    <span class="k">return</span> <span class="n">dr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Fbar</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">l3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">dy</span><span class="p">,</span>
+                           <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">l3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="n">dx</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="p">))</span>
-<span class="n">r</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">bob_ode</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span> <span class="c1"># default = &#39;RK45&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;nonlinear&#39;</span><span class="p">)</span> <span class="c1"># &lt;-------------- your new plot, convert rad to deg with 180/pi</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span> <span class="c1"># from problem 1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle (deg)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span> 
+<span class="n">Fbar</span><span class="p">(</span><span class="n">x90</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.00000000e+00, -1.11022302e-16])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span>
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">l3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+<span class="n">ry</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span>
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span>
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> 
+               <span class="n">l1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">+</span><span class="n">l2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">l3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x90</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rx</span><span class="p">,</span><span class="n">ry</span><span class="p">,</span><span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 1.5, -0.6, 0.6)
+</pre></div>
+</div>
+<img alt="../_images/HW_03_22_1.png" src="../_images/HW_03_22_1.png" />
+</div>
+</div>
+<div class="section" id="your-goal">
+<h3><strong>Your goal:</strong><a class="headerlink" href="#your-goal" title="Permalink to this headline">¶</a></h3>
+<p>Change the angle to <span class="math notranslate nohighlight">\(\theta_1=45^o,~135^o,~and~180^o\)</span>. Plot the three configurations like above. Use <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> to find <span class="math notranslate nohighlight">\(\theta_2~and~\theta_3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your work here</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -677,7 +728,7 @@ springs, show that the pendulum oscillates with a period of</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="HW_02.html" title="previous page">Homework #2</a>
-    <a class='right-next' id="next-link" href="HW_05.html" title="next page">Homework #5 - <em>work in progress</em></a>
+    <a class='right-next' id="next-link" href="HW_04.html" title="next page">Homework #3 <em>work in progress</em></a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
