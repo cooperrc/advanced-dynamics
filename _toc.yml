@@ -18,9 +18,13 @@
   sections:
   - file: homeworks/HW_02
   - file: homeworks/HW_03
+  - file: homeworks/HW_04
   - file: homeworks/HW_05
   - file: homeworks/HW_06
   - file: homeworks/HW_07
   - file: homeworks/HW_08
   - file: homeworks/HW_09
+- file: quiz_work/quizzes
+  sections:
+  - file: quiz_work/making-quiz_01
 
