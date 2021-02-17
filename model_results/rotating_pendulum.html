@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotating Pendulum solution - integrating equation of motion &#8212; Advanced Dynamics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dynamics Homeworks" href="../assignments.html" />
+    <link rel="prev" title="Modeling results" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dyn_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus: ME 5180 Spring 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
+   About the Instructor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Module Content
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../module_00/overview.html">
+   Orientation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/participation.html">
+     Participation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_01.html">
+     Homework 1 - Jupyter and Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../getting-started/README.html">
+   Getting started with Python and Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/01_interactions.html">
+     Interacting with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/02_Working_with_Python.html">
+     Working with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/03_Numerical_error.html">
+     Numerical Error
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="intro.html">
+   Modeling results
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Rotating Pendulum solution - integrating equation of motion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../assignments.html">
+   Dynamics Homeworks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_03.html">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_04.html">
+     Homework #3
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_05.html">
+     Homework #5 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_06.html">
+     Homework #6 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_07.html">
+     Homework #7  Kinematics -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_08.html">
+     Homework #8 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_09.html">
+     Homework #9 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../quiz_work/quizzes.html">
+   Quiz Review Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_01.html">
+     Building Quiz_01
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/model_results/rotating_pendulum.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fmodel_results/rotating_pendulum.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/model_results/rotating_pendulum.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/model_results/rotating_pendulum.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-numerical-solution">
+   Building a numerical solution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-ode-for-rotating-pendulum">
+   Define ODE for rotating pendulum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-equation-of-motion">
+   Solving the equation of motion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualize-the-motion-with-animations">
+   Visualize the motion
+   <em>
+    with animations
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bbb40a30a5e1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="rotating-pendulum-solution-integrating-equation-of-motion">
+<h1>Rotating Pendulum solution - integrating equation of motion<a class="headerlink" href="#rotating-pendulum-solution-integrating-equation-of-motion" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Creating equation of motion for rotating pendulum" src="../_images/09_rotation.png" /></p>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>In this <a class="reference external" href="https://youtu.be/GnxKLPP6n2c">lecture</a> you solve for the the natural frequency of a pendulum in a rotating reference frame. The result is an equation of motion as such</p>
+<p><span class="math notranslate nohighlight">\(\ddot{\theta} = \left(\Omega^2\cos\theta -\frac{g}{l}\right)\sin\theta +\frac{a\Omega^2}{l}\cos\theta\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\Omega\)</span> is the rotation rate of the frame holding the pendulum, <span class="math notranslate nohighlight">\(a\)</span> is the distance from the point of rotation, <span class="math notranslate nohighlight">\(l\)</span> is the pendulum length, and <span class="math notranslate nohighlight">\(\theta\)</span> is the generalized coordinate that describes the pendulum’s position in the rotating reference frame.</p>
+<p>Consider the cases</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>case</p></th>
+<th class="head"><p>natural frequency</p></th>
+<th class="head"><p>function <span class="math notranslate nohighlight">\(\theta(t)\)</span> for <span class="math notranslate nohighlight">\(\theta&lt;&lt;1\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\Omega = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{g}{l}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta(t) = \sin\omega t\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\Omega \neq 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{g}{l}-\Omega^2\cos\theta}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\theta(t) = \sin\omega t+\theta_{offset}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>These solutions only account for small angles, if <span class="math notranslate nohighlight">\(\Omega^2\cos\theta&gt;\frac{g}{l}\)</span>, the natural frequency becomes imaginary and the solution is an exponential growth, assuming <span class="math notranslate nohighlight">\(\sin\theta=\theta\)</span>. The actual solution, shouldn’t have an angular speed that keeps growing.</p>
+</div>
+<div class="section" id="building-a-numerical-solution">
+<h2>Building a numerical solution<a class="headerlink" href="#building-a-numerical-solution" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using differential equations to solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span>, you can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></a> to create a numerical solution to the differential equation.</p>
+<p>A <strong>numerical solution</strong> does not return a mathematical function. Instead, it returns the predicted solution based upon the differential equations. The simplest numerical solution is the <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_method">Euler integration</a>. Consider an exponential decay ODE,</p>
+<p><span class="math notranslate nohighlight">\(\frac{dy}{dt} = -2y\)</span></p>
+<p>The exact solution is <span class="math notranslate nohighlight">\(y(t) = y_0e^{-2t}\)</span>, but you can approximate this solution without doing any calculus. Make the approximation</p>
+<p><span class="math notranslate nohighlight">\(\frac{\Delta y}{\Delta t} = -2y\)</span></p>
+<p>Now, you have an algebraic equation,</p>
+<p><span class="math notranslate nohighlight">\(\frac{y_{i+1}-y_{i}}{\Delta t} = -2y_i\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is a chosen timestep <em>the smaller the better</em>, <span class="math notranslate nohighlight">\(y_i\)</span> is the current value of <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(y_{i+1}\)</span> is the approximated next value of <span class="math notranslate nohighlight">\(y\)</span>. Consider the initial condition <span class="math notranslate nohighlight">\(y(0)=2\)</span> and take a time step of <span class="math notranslate nohighlight">\(\Delta t =0.1\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_{i+1} = y_{i}-2y_{i}\Delta t\)</span></p>
+<p><span class="math notranslate nohighlight">\(y(\Delta t) = 2 - 2(0.1) = 1.8\)</span></p>
+<p>The exact solution is <span class="math notranslate nohighlight">\(y(0.1) = 1.637\)</span>, you can make more exact solutions with smaller steps as seen below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ynum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">ynum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ynum</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;5 step Euler&#39;</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ynum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">ynum</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">ynum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">ynum</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;20 step Euler&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;exact e^(-2t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="../_images/rotating_pendulum_3_1.png" src="../_images/rotating_pendulum_3_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="define-ode-for-rotating-pendulum">
+<h2>Define ODE for rotating pendulum<a class="headerlink" href="#define-ode-for-rotating-pendulum" title="Permalink to this headline">¶</a></h2>
+<p>Numerical integration requires first-order differential equations, but here you have a second-order differential equation. You can rewrite your single second-order equation of motion as two first-order equations of motion as such</p>
+<p><span class="math notranslate nohighlight">\(\bar{y} = [\theta,~\dot{\theta}]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\dot{\bar{y}} = [\dot{\theta},~\ddot{\theta}]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\ddot{\theta} = f(t,\theta, \dot{\theta})\rightarrow \dot{\bar{y}} = f(t,~\bar{y})\)</span></p>
+<p>take a look at the function defining the derived equation of motion, <code class="docutils literal notranslate"><span class="pre">pend_rot(t,</span> <span class="pre">y)</span></code></p>
+<ul class="simple">
+<li><p>first output is taken from the input, <code class="docutils literal notranslate"><span class="pre">dy[0]</span> <span class="pre">=</span> <span class="pre">y[1]</span></code>: <span class="math notranslate nohighlight">\(\frac{d}{dt}\theta = \dot{\theta}\)</span></p></li>
+<li><p>the second output is taken from the equation of motion directly, <code class="docutils literal notranslate"><span class="pre">dy[1]=</span></code> <span class="math notranslate nohighlight">\(\ddot{\theta} = \left(\Omega^2\cos\theta -\frac{g}{l}\right)\sin\theta +\frac{a\Omega^2}{l}\cos\theta\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pend_rot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    function that defines 2 first-order ODEs for a rotating pendulum</span>
+<span class="sd">    arguments:</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t: current time</span>
+<span class="sd">    y: current angle and angular velocity of pendulum [theta (rad), dtheta(rad/s)]</span>
+<span class="sd">    w: rotation rate of frame in (rad/s)</span>
+<span class="sd">    l: length of pendulum arm</span>
+<span class="sd">    a: distance from point of rotation</span>
+<span class="sd">    </span>
+<span class="sd">    outputs:</span>
+<span class="sd">    --------</span>
+<span class="sd">    dy: derivative of y at time t [dtheta (rad/s), ddtheta(rad/s/s)] </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dy</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mf">9.81</span><span class="o">/</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="n">a</span><span class="o">*</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">l</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solving-the-equation-of-motion">
+<h2>Solving the equation of motion<a class="headerlink" href="#solving-the-equation-of-motion" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have defined <code class="docutils literal notranslate"><span class="pre">pend_rot</span></code>, you can import <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> and solve for <span class="math notranslate nohighlight">\(\theta\)</span> as a function of time.</p>
+<ul class="simple">
+<li><p>Import <code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>plug in values for the constants and solve for one full cycle at
+<span class="math notranslate nohighlight">\(\Omega=1~rad/s\)</span>
+i.e. <span class="math notranslate nohighlight">\(1~cycle\frac{2\pi~rad}{cycle}\frac{1~rad}{s}\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">g</span><span class="o">=</span><span class="mf">9.81</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">my_ode</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">pend_rot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">my_ode</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> 
+                <span class="n">t_eval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="mi">600</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your results are now saved in the variable <code class="docutils literal notranslate"><span class="pre">sol</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sol.t</span></code>: array of points in time where the integration returned a
+solution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sol.y</span></code>: array of two values (<code class="docutils literal notranslate"><span class="pre">sol.y[0]</span></code> = <span class="math notranslate nohighlight">\(\theta(t)\)</span> and <code class="docutils literal notranslate"><span class="pre">sol.y[1]</span></code>
+= <span class="math notranslate nohighlight">\(\dot{\theta}(t))\)</span></p></li>
+</ul>
+<p>Plot the result to compare to a hanging pendulum. You used an initial
+resting state with <span class="math notranslate nohighlight">\(\theta(0) = \frac{\pi}{12}\)</span>. The non-rotating
+solution is</p>
+<p><span class="math notranslate nohighlight">\(\theta(t) = \frac{\pi}{6}\cos\sqrt{\frac{g}{l}} t\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;rotating at </span><span class="si">{}</span><span class="s1"> rad/s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;rotating at 0 rad/s&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle (rad)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rotating_pendulum_11_0.png" src="../_images/rotating_pendulum_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="visualize-the-motion-with-animations">
+<h2>Visualize the motion <em>with animations</em><a class="headerlink" href="#visualize-the-motion-with-animations" title="Permalink to this headline">¶</a></h2>
+<p>This is great, but what does the motion look like? Now, use the
+kinematic definitions to define 3D coordinates of the frame and pendulum
+arm.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{P/O} = (a+y_2)\cos(\Omega t) \hat{i} +(a+y_2)\sin\Omega t \hat{j}
++(a-x_2)\hat{k} = x_1\hat{i} +y_1\hat{j}+z_1 \hat{k}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_2= l\sin\theta\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y_2= l\cos\theta\)</span></p></li>
+<li><p>link arm goes from <span class="math notranslate nohighlight">\((0,~0,~0) \rightarrow (0,~0,~a) \rightarrow
+(a\cos\Omega t, a\sin\Omega t, a)\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span>
+<span class="n">x1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]))</span> <span class="c1"># x1-coordinate over time</span>
+<span class="n">y1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">l</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]))</span> <span class="c1"># y1-coordinate over time</span>
+<span class="n">z1</span><span class="o">=</span><span class="n">a</span><span class="o">-</span><span class="n">l</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]);</span>          <span class="c1"># z1-coordinate over time</span>
+<span class="n">linkx</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+               <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+               <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])])</span>
+<span class="n">linky</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+                <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+                <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])])</span>
+<span class="n">linkz</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+                <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">)),</span> 
+                <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">1</span><span class="p">))])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The kinematics are now defined for the pendulum and frame in the fixed,
+3D coordinate system. You can import <code class="docutils literal notranslate"><span class="pre">animation</span></code> and plot the frame and
+pendulum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, you set up the 3D axes for plotting and the line updating
+functions, <code class="docutils literal notranslate"><span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">animate</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">line1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="p">[])</span>
+<span class="n">line2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+<span class="n">line3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.2</span><span class="p">)</span>
+
+<span class="c1">#ax.view_init(elev=10., azim=10)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x-position (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y-position (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z-position (m)&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">line1</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">line1</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([])</span>
+    <span class="n">line2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">line2</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([])</span>
+    <span class="n">line3</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">line3</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line1</span><span class="p">,</span> <span class="n">line2</span><span class="p">,</span> <span class="n">line3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">line1</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">linkx</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="n">linky</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">line1</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">(</span><span class="n">linkz</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">line2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">linkx</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">x1</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="n">linky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y1</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="n">line2</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([</span><span class="n">linkz</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">z1</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="n">line3</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x1</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span> <span class="n">y1</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">line3</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">(</span><span class="n">z1</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line1</span><span class="p">,</span> <span class="n">line2</span><span class="p">,</span> <span class="n">line3</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rotating_pendulum_17_0.png" src="../_images/rotating_pendulum_17_0.png" />
+</div>
+</div>
+<p>Now, animate the motion of the pendulum and its path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                               <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, you created a general solution for nonlinear
+differential equations. You did this by:</p>
+<ul class="simple">
+<li><p>creating 2 first-order differential equations from one second-order
+differential equation</p></li>
+<li><p>defining a function that returns the derivative based upon the current
+state <span class="math notranslate nohighlight">\((\theta,~\dot{\theta})\)</span></p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to integrate the differential equations</p></li>
+</ul>
+<p>Once you had a solution, you processed the results by:</p>
+<ul class="simple">
+<li><p>plotting the generalized coordinate vs time</p></li>
+<li><p>comparing the solution to a known result</p></li>
+<li><p>plugging the generalized coordinate into the defining kinematics</p></li>
+<li><p>creating a 3D animation of your solution</p></li>
+</ul>
+<p><strong>Nice work!</strong></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./model_results"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Modeling results</a>
+    <a class='right-next' id="next-link" href="../assignments.html" title="next page">Dynamics Homeworks</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan C. Cooper<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
