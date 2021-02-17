@@ -14,6 +14,9 @@
   - file: getting-started/01_interactions
   - file: getting-started/02_Working_with_Python
   - file: getting-started/03_Numerical_error
+- file: model_results/intro
+  sections:
+  - file: model_results/rotating_pendulum
 - file: assignments
   sections:
   - file: homeworks/HW_02
