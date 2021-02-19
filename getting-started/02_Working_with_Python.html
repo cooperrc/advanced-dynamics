@@ -47,6 +47,8 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -242,6 +244,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../quiz_work/making-quiz_01.html">
      Building Quiz_01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_02.html">
+     Building Quiz 02
     </a>
    </li>
   </ul>
@@ -1073,8 +1080,7 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <p>Visualizing the dimensions of the <code class="docutils literal notranslate"><span class="pre">a_3D</span></code> array can be tricky, so here is a diagram that will help you to understand how the dimensions are assigned: each dimension is shown as  a coordinate axis. For a 3D array, on the “x axis”, we have the sub-arrays that themselves are two-dimensional (matrices). We have two of these 2D sub-arrays, in this case; each one has 3 rows and 4 columns. Study this sketch carefully, while comparing with how the array <code class="docutils literal notranslate"><span class="pre">a_3D</span></code> is printed out above.</p>
-<img alt="../_images/3d_array_sketch.png" src="../_images/3d_array_sketch.png" />
-<p>When we have multidimensional arrays, we can access slices of their elements by slicing on each dimension. This is one of the advantages of using arrays: we cannot do this with lists.</p>
+<img src="../images/3d_array_sketch.png" style="width: 400px;"/> <p>When we have multidimensional arrays, we can access slices of their elements by slicing on each dimension. This is one of the advantages of using arrays: we cannot do this with lists.</p>
 <p>Let’s access some elements of our 2D array called <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1270,8 +1276,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 80, 5, 16, 84, 42, 11, 60, 57, 55]
-[24, 62, 49, 55, 8, 78, 99, 89, 28, 31]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[54, 95, 74, 52, 30, 7, 49, 58, 75, 61]
+[12, 7, 80, 13, 41, 44, 3, 60, 61, 49]
 </pre></div>
 </div>
 </div>
@@ -1288,8 +1294,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15 µs, sys: 2 µs, total: 17 µs
-Wall time: 18.1 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 0 ns, sys: 22 µs, total: 22 µs
+Wall time: 23.6 µs
 </pre></div>
 </div>
 </div>
@@ -1301,7 +1307,7 @@ Wall time: 18.1 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[31, 142, 54, 71, 92, 120, 110, 149, 85, 86]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[66, 102, 154, 65, 71, 51, 52, 118, 136, 110]
 </pre></div>
 </div>
 </div>
@@ -1327,8 +1333,8 @@ Wall time: 18.1 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[62 94 35 90 16 79 23 50 99 55]
-[89 36 81 71 28 98 12 11 48 62]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[49 76 46 11 74 37 29 14 83 93]
+[23 91 47 14 82 68 24 80 81 26]
 </pre></div>
 </div>
 </div>
@@ -1342,8 +1348,8 @@ Wall time: 18.1 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 20 µs, sys: 4 µs, total: 24 µs
-Wall time: 25.7 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 1 µs, total: 8 µs
+Wall time: 11 µs
 </pre></div>
 </div>
 </div>
@@ -1397,16 +1403,6 @@ Wall time: 25.7 µs
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="n">a0d2faabd9e9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="set-up-default-plotting-parameters">
@@ -1436,7 +1432,7 @@ Wall time: 25.7 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f856cb8b910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb21bac0dc0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_103_1.png" src="../_images/02_Working_with_Python_103_1.png" />
@@ -1553,8 +1549,8 @@ of the two indices from 0 to 9 e.g. A_99[3,2]=6 and A_99[4,4]=16.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 97 µs, sys: 12 µs, total: 109 µs
-Wall time: 114 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21 µs, sys: 3 µs, total: 24 µs
+Wall time: 26.5 µs
 </pre></div>
 </div>
 </div>
@@ -1598,11 +1594,11 @@ stdev of A_99 20.054612935681405
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 39.4 ms, sys: 0 ns, total: 39.4 ms
-Wall time: 37.1 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.9 ms, sys: 3.23 ms, total: 19.1 ms
+Wall time: 21.4 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fa6d5b5e890&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fb21b1260a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_118_2.png" src="../_images/02_Working_with_Python_118_2.png" />
