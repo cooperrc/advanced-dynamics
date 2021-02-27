@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -186,10 +184,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_04.html">
-     Homework #3
-     <em>
-      work in progress
-     </em>
+     Homework #4
     </a>
    </li>
    <li class="toctree-l2">
@@ -249,6 +244,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../quiz_work/making-quiz_02.html">
      Building Quiz 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_03.html">
+     Building Quiz_03
     </a>
    </li>
   </ul>
@@ -413,6 +413,18 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bbb40a30a5e1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
@@ -683,137 +695,6 @@ functions, <code class="docutils literal notranslate"><span class="pre">init</sp
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
                                <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
                                <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">d31ec1715c6c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                                <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>                                <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">__init__</span><span class="nt">(self, fig, func, frames, init_func, fargs, save_count, cache_frame_data, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1654</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_save_seq</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1655</span> 
-<span class="ne">-&gt; </span><span class="mi">1656</span>         <span class="n">TimedAnimation</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1657</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1658</span>         <span class="c1"># Need to reset the saved seq, since right now it will contain data</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">__init__</span><span class="nt">(self, fig, interval, repeat_delay, repeat, event_source, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1413</span>         <span class="k">if</span> <span class="n">event_source</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1414</span>             <span class="n">event_source</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">new_timer</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1415</span>         <span class="n">Animation</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">event_source</span><span class="o">=</span><span class="n">event_source</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1416</span>                            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1417</span> 
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">__init__</span><span class="nt">(self, fig, event_source, blit)</span>
-<span class="g g-Whitespace">    </span><span class="mi">943</span>                                                       <span class="bp">self</span><span class="o">.</span><span class="n">_stop</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blit</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">945</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setup_blit</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span> 
-<span class="g g-Whitespace">    </span><span class="mi">947</span>     <span class="k">def</span> <span class="nf">_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">_setup_blit</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1247</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_resize_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s1">&#39;resize_event&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1248</span>                                                        <span class="bp">self</span><span class="o">.</span><span class="n">_on_resize</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1249</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_post_draw</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blit</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1250</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1251</span>     <span class="k">def</span> <span class="nf">_on_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">_post_draw</span><span class="nt">(self, framedata, blit)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1200</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_blit_draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_drawn_artists</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1201</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1202</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1203</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1204</span>     <span class="c1"># The rest of the code in this class is to facilitate easy blitting</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/backend_bases.py</span> in <span class="ni">draw_idle</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2010</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_idle_drawing</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2011</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idle_draw_cntx</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">2012</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2013</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2014</span>     <span class="nd">@cbook</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;3.2&quot;</span><span class="p">)</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py</span> in <span class="ni">draw</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span>              <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">_wait_cursor_for_draw_cm</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span>               <span class="k">else</span> <span class="n">nullcontext</span><span class="p">()):</span>
-<span class="ne">--&gt; </span><span class="mi">407</span>             <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>             <span class="c1"># A GUI class may be need to update a window using this draw, so</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>             <span class="c1"># don&#39;t forget to call the superclass.</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/artist.py</span> in <span class="ni">draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>                 <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> 
-<span class="ne">---&gt; </span><span class="mi">41</span>             <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>             <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/figure.py</span> in <span class="ni">draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span> 
-<span class="ne">-&gt; </span><span class="mi">1870</span>         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_event</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1871</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1872</span>     <span class="k">def</span> <span class="nf">draw_artist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/backend_bases.py</span> in <span class="ni">draw_event</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1757</span>         <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;draw_event&#39;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1758</span>         <span class="n">event</span> <span class="o">=</span> <span class="n">DrawEvent</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1759</span>         <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1760</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1761</span>     <span class="k">def</span> <span class="nf">resize_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">process</span><span class="nt">(self, s, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">229</span>                         <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span>                     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>                         <span class="k">raise</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">_exception_printer</span><span class="nt">(exc)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">def</span> <span class="nf">_exception_printer</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">if</span> <span class="n">_get_running_interactive_framework</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;headless&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">81</span>         <span class="k">raise</span> <span class="n">exc</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/cbook/__init__.py</span> in <span class="ni">process</span><span class="nt">(self, s, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span>             <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>                 <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">224</span>                     <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>                 <span class="c1"># this does not capture KeyboardInterrupt, SystemExit,</span>
-<span class="g g-Whitespace">    </span><span class="mi">226</span>                 <span class="c1"># and GeneratorExit</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">_start</span><span class="nt">(self, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">957</span> 
-<span class="g g-Whitespace">    </span><span class="mi">958</span>         <span class="c1"># Now do any initial draw</span>
-<span class="ne">--&gt; </span><span class="mi">959</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_init_draw</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">960</span> 
-<span class="g g-Whitespace">    </span><span class="mi">961</span>         <span class="c1"># Add our callback for stepping the animation and</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/matplotlib/animation.py</span> in <span class="ni">_init_draw</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1704</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1705</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1706</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_drawn_artists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_func</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_blit</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1708</span>                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_drawn_artists</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">&lt;ipython-input-9-d3c6e4c167b7&gt;</span> in <span class="ni">init</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">line1</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">line1</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([])</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">line2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">line2</span><span class="o">.</span><span class="n">set_3d_properties</span><span class="p">([])</span>
-
-<span class="nn">/opt/miniconda3/lib/python3.8/site-packages/mpl_toolkits/mplot3d/art3d.py</span> in <span class="ni">set_3d_properties</span><span class="nt">(self, zs, zdir)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>         <span class="n">xs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_xdata</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>         <span class="n">ys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ydata</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">143</span>         <span class="n">zs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">zs</span><span class="p">,</span> <span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_verts3d</span> <span class="o">=</span> <span class="n">juggle_axes</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span><span class="p">,</span> <span class="n">zdir</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;shape&#39;
 </pre></div>
 </div>
 </div>

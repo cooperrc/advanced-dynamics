@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework #3 work in progress &#8212; Advanced Dynamics</title>
+    <title>Homework #4 &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -186,10 +184,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Homework #3
-     <em>
-      work in progress
-     </em>
+     Homework #4
     </a>
    </li>
    <li class="toctree-l2">
@@ -249,6 +244,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../quiz_work/making-quiz_02.html">
      Building Quiz 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_03.html">
+     Building Quiz_03
     </a>
    </li>
   </ul>
@@ -405,43 +405,41 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="n">d16fb3919cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setdefaults</span><span class="p">():</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setdefaults</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="homework-3-work-in-progress">
-<h1>Homework #3 <em>work in progress</em><a class="headerlink" href="#homework-3-work-in-progress" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="homework-4">
+<h1>Homework #4<a class="headerlink" href="#homework-4" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
-<p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
+<p><img alt="Pendulum bob attached to springs" src="../_images/spring_pendulum.svg" /></p>
+<p>The pendulum bob of mass m, shown in the figure above, is suspended by an inextensible
 string from the point p. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
 only slightly from the equilibrium position and released. Neglecting the mass of the
 springs, show that the pendulum oscillates with a period of</p>
 <p><span class="math notranslate nohighlight">\(P=2\pi\sqrt{\frac{mg+2kr}{2kg}}\)</span></p>
-<p>if you use a first-order Taylor series approximation for <span class="math notranslate nohighlight">\(\sin\theta\approx\theta\)</span> and <span class="math notranslate nohighlight">\(\cos\theta\approx 1\)</span></p>
+<p>use a first-order Taylor series approximation for <span class="math notranslate nohighlight">\(\sin\theta\approx\theta\)</span> and <span class="math notranslate nohighlight">\(\cos\theta\approx 1\)</span></p>
 <p>Solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span> if m=0.1 kg, r=1 m, <span class="math notranslate nohighlight">\(\theta(0)\)</span>=pi/6 rad, and <span class="math notranslate nohighlight">\(\dot{\theta}(0)\)</span>=0 rad/s for
 2 cases:</p>
 <p>a. k=20 N/m</p>
@@ -458,8 +456,8 @@ springs, show that the pendulum oscillates with a period of</p>
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">);</span>
 <span class="c1"># your work</span>
 <span class="c1"># your new solutions, convert rad to deg with 180/pi</span>
-<span class="c1"># a_inf = </span>
-<span class="c1"># a_20 = </span>
+<span class="n">a_inf</span> <span class="o">=</span> <span class="n">t</span> <span class="c1"># create solution for k=infty</span>
+<span class="n">a_20</span> <span class="o">=</span> <span class="n">t</span> <span class="c1"># create solution for k=20 N/m</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_inf</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">)</span>
@@ -469,18 +467,10 @@ springs, show that the pendulum oscillates with a period of</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">a45e0080344d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># a_20 =</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_inf</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;a_inf&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;angle (deg)&#39;)
 </pre></div>
 </div>
+<img alt="../_images/HW_04_2_1.png" src="../_images/HW_04_2_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -525,10 +515,10 @@ springs, show that the pendulum oscillates with a period of</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fd1386a8b70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f9822c45340&gt;
 </pre></div>
 </div>
-<img alt="../_images/HW_04_9_1.png" src="../_images/HW_04_9_1.png" />
+<img alt="../_images/HW_04_6_1.png" src="../_images/HW_04_6_1.png" />
 </div>
 </div>
 <p><strong>For more plotting examples and options check out the <a class="reference external" href="https://matplotlib.org/gallery/index.html">Matplotlib gallery</a></strong></p>
@@ -571,7 +561,7 @@ springs, show that the pendulum oscillates with a period of</p>
 <p>The simplest integration routine is the Euler approximation. A first-order Taylor series expansion about the current timestep:</p>
 <p><span class="math notranslate nohighlight">\(r_{i+1}=r_{i}+\frac{dr_{i}}{dt}\Delta t\)</span></p>
 <p>We can integrate the equation as such</p>
-<div class="cell docutils container">
+<!-- #endregion --><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span>
 <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span> <span class="c1"># (start, stop, by some incr)</span>
@@ -599,7 +589,7 @@ springs, show that the pendulum oscillates with a period of</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;position (m)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/HW_04_17_1.png" src="../_images/HW_04_17_1.png" />
+<img alt="../_images/HW_04_13_1.png" src="../_images/HW_04_13_1.png" />
 </div>
 </div>
 </div>
@@ -633,27 +623,42 @@ springs, show that the pendulum oscillates with a period of</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;position (m)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/HW_04_20_1.png" src="../_images/HW_04_20_1.png" />
+<img alt="../_images/HW_04_17_1.png" src="../_images/HW_04_17_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
-<p><img alt="Pendulum bob attached to springs" src="https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no" /></p>
-<p>The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
-string from the point p. This point is free to move along a straight horizontal line under
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;eOvwiYRroso&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/eOvwiYRroso"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p><img alt="Compound pendulum bob attached tosprings" src="../_images/spring_compound.svg" /></p>
+<p>The pendulum arm of mass m, shown in the figure above, is held in place by two springs. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
 only slightly from the equilibrium position and released. Neglecting the mass of the
-springs, show that the pendulum oscillates with a period of</p>
-<p><span class="math notranslate nohighlight">\(P=2\pi\sqrt{\frac{mg+2kr}{2kg}}\)</span></p>
-<p>solve for the nonlinear equations of motion and use the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to determine <span class="math notranslate nohighlight">\(\theta(t)\)</span></p>
-<p>Solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span> if m=0.1 kg, r=1 m, <span class="math notranslate nohighlight">\(\theta(0)\)</span>=pi/6 rad, and <span class="math notranslate nohighlight">\(\dot{\theta}(0)\)</span>=0 rad/s for</p>
+springs, solve for the nonlinear equations of motion and use the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to determine <span class="math notranslate nohighlight">\(\theta(t)\)</span></p>
+<p>Solve for <span class="math notranslate nohighlight">\(\theta(t)\)</span> if m=1 kg, L=1 m, <span class="math notranslate nohighlight">\(\theta(0)\)</span>=pi/6 rad, and <span class="math notranslate nohighlight">\(\dot{\theta}(0)\)</span>=0 rad/s for</p>
 <p>k=20 N/m</p>
-<p>Plot the linear and nonlinear solutions of <span class="math notranslate nohighlight">\(\theta(t)\)</span> for 2 periods on one figure</p>
+<p>Plot the nonlinear solutions of <span class="math notranslate nohighlight">\(\theta(t)\)</span> for 2 periods on one figure</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bob_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,):</span>
-    <span class="sd">&quot;&quot;&quot; Help documentation for &quot;bob_ode&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,):</span>
+    <span class="sd">&quot;&quot;&quot; Help documentation for &quot;my_ode&quot;</span>
 <span class="sd">     input is time, t (s) and r=[position p (m), angle (rad), velocity p (m/s), angle velocity (rad/s)] and time</span>
 <span class="sd">     output is dr=[velocity p (m/s), angle velocity (rad/s), accel p (m/s/s), angle accel (rad/s/s)] at time, t</span>
 <span class="sd">     the ODE is defined by:</span>
@@ -677,14 +682,19 @@ springs, show that the pendulum oscillates with a period of</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="p">))</span>
-<span class="n">r</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">bob_ode</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span> <span class="c1"># default = &#39;RK45&#39;</span>
+<span class="n">r</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">my_ode</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span> <span class="c1"># default = &#39;RK45&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;nonlinear&#39;</span><span class="p">)</span> <span class="c1"># &lt;-------------- your new plot, convert rad to deg with 180/pi</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a_20</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span> <span class="c1"># from problem 1</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle (deg)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;angle (deg)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/HW_04_22_1.png" src="../_images/HW_04_22_1.png" />
 </div>
 </div>
 </div>

@@ -17,44 +17,25 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+import numpy as np
+from scipy import linalg
 import matplotlib.pyplot as plt
-
-from matplotlib import animation, rc
-from IPython.display import HTML
-
-fig, ax = plt.subplots()
-
-ax.set_xlim(( 0, 2))
-ax.set_ylim((-0.1, 2))
-
-line, = ax.plot([], [], 's')
-quiv, = ax.quiver([],[],[],[])
-
-def init():
-    line.set_data([], [])
-    quiv.set_UVC([],[])
-    return (line,)
-    
-def animate(i):
-    x = np.linspace(0, 1, 100)
-    line.set_data(x[i], 0)
-    plt.quiver(x[i],0,F[0],F[1])
-    return (line,)
-    
-anim = animation.FuncAnimation(fig, animate, init_func=init,
-                               frames=100, interval=20, blit=True)
-
-HTML(anim.to_html5_video())
+plt.style.use('fivethirtyeight')
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    #"font.serif": ["Palatino"],
+})
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-[0;32m<ipython-input-53-eca8124aca18>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0manimation[0m[0;34m,[0m [0mrc[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;32mfrom[0m [0mIPython[0m[0;34m.[0m[0mdisplay[0m [0;32mimport[0m [0mHTML[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m [0;34m[0m[0m
+[0;32m<ipython-input-1-02317648b55c>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfrom[0m [0mscipy[0m [0;32mimport[0m [0mlinalg[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mstyle[0m[0;34m.[0m[0muse[0m[0;34m([0m[0;34m'fivethirtyeight'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m plt.rcParams.update({
 
 [0;31mModuleNotFoundError[0m: No module named 'matplotlib'
 ModuleNotFoundError: No module named 'matplotlib'

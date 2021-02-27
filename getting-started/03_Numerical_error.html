@@ -47,8 +47,6 @@
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -186,10 +184,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_04.html">
-     Homework #3
-     <em>
-      work in progress
-     </em>
+     Homework #4
     </a>
    </li>
    <li class="toctree-l2">
@@ -249,6 +244,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../quiz_work/making-quiz_02.html">
      Building Quiz 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_03.html">
+     Building Quiz_03
     </a>
    </li>
   </ul>
@@ -521,7 +521,7 @@
 code under BSD 3-Clause License © 2020 R.C. Cooper</strong></p>
 <div class="section" id="freefall-model-computational-solution">
 <h2>Freefall Model Computational solution<a class="headerlink" href="#freefall-model-computational-solution" title="Permalink to this headline">¶</a></h2>
-<img src="./images/freefall.png" style="width: 200px;"/> 
+<img alt="../_images/freefall.png" src="../_images/freefall.png" />
 <p>Here is our first computational mechanics model.</p>
 <p>An object falling is subject to the force of</p>
 <ul class="simple">
@@ -545,6 +545,17 @@ code under BSD 3-Clause License © 2020 R.C. Cooper</strong></p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e0e1492b7973</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
@@ -724,7 +735,7 @@ at time 12.00 s, speed is 47.77 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;velocity (m/s)&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0,0.5,&#39;velocity (m/s)&#39;)
 </pre></div>
 </div>
 <img alt="../_images/03_Numerical_error_18_1.png" src="../_images/03_Numerical_error_18_1.png" />
@@ -832,7 +843,7 @@ First 27 digits of pi      = 3.141592653589793238462643383
 </div>
 </div>
 <p>In order to store the number in a computer you can only use so many bits, shown below is the <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">64-bit standard for floating point numbers</a>:</p>
-<img src="./images/1236px-IEEE_754_Double_Floating_Point_Format.png" style="width: 400px;"/> 
+<img alt="../_images/1236px-IEEE_754_Double_Floating_Point_Format.png" src="../_images/1236px-IEEE_754_Double_Floating_Point_Format.png" />
 <p>Where the sign is either + or -, the exponent is a power of two as in, <span class="math notranslate nohighlight">\(2^{exponent}\)</span>, and the fraction (or base) is the binary representation of the number, <span class="math notranslate nohighlight">\(1+\sum_{i=1}^{52}b_i2^{-i}\)</span>. We examine the floating point number representation to highlight that any number you store in a computer is an approximation of the real number you are trying to save. With 64-bit floating point numbers, these approximations are <strong>extremely</strong> good.</p>
 <ol class="simple">
 <li><p>Floating point arithmetic</p></li>
@@ -915,15 +926,8 @@ maximum relative error = 2.22044604925031308085e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">f3bca8cd75a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">s2</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mi">500</span><span class="o">*</span><span class="n">eps</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;summation 1+eps/2 over &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s1">&#39; minus 1 =&#39;</span><span class="p">,(</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;*eps=&#39;</span><span class="p">,(</span><span class="n">s2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;s&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>summation 1+eps/2 over  1000  minus 1 = 0.0
+500.0 *eps= 1.11022302463e-13
 </pre></div>
 </div>
 </div>
