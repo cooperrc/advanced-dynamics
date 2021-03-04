@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound pendulum with spring supports &#8212; Advanced Dynamics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dynamics Homeworks" href="../assignments.html" />
+    <link rel="prev" title="Rotating Pendulum solution - integrating equation of motion" href="rotating_pendulum.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dyn_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus: ME 5180 Spring 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
+   About the Instructor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Module Content
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../module_00/overview.html">
+   Orientation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/participation.html">
+     Participation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_01.html">
+     Homework 1 - Jupyter and Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../getting-started/README.html">
+   Getting started with Python and Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/01_interactions.html">
+     Interacting with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/02_Working_with_Python.html">
+     Working with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/03_Numerical_error.html">
+     Numerical Error
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="intro.html">
+   Modeling results
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="rotating_pendulum.html">
+     Rotating Pendulum solution - integrating equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Compound pendulum with spring supports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../assignments.html">
+   Dynamics Homeworks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_03.html">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_04.html">
+     Homework #4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_05.html">
+     Homework #5 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_06.html">
+     Homework #6 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_07.html">
+     Homework #7  Kinematics -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_08.html">
+     Homework #8 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_09.html">
+     Homework #9 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../quiz_work/quizzes.html">
+   Quiz Review Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_01.html">
+     Building Quiz_01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_02.html">
+     Building Quiz 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../quiz_work/making-quiz_03.html">
+     Building Quiz_03
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/model_results/spring-pendulum.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fmodel_results/spring-pendulum.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/model_results/spring-pendulum.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/model_results/spring-pendulum.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenvector-solution">
+   Eigenvector solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solve-for-eigenvalues-and-eigenvectors">
+     Solve for eigenvalues and eigenvectors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-solution-for-theta-t-and-x-t">
+     Define the solution for
+     <span class="math notranslate nohighlight">
+      \(\theta(t)\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(x(t)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plug-in-initial-conditions-and-solve-for-integration-constants">
+     Plug in initial conditions and solve for integration constants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plug-in-integration-constants-and-plot-results">
+     Plug in integration constants and plot results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-solution-solve-ivp">
+   Numerical solution -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     solve_ivp
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-first-order-differential-equations">
+     Set up first-order differential equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solve-initial-value-problem">
+     Solve initial value problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-analytical-and-numerical-solutions">
+     Compare analytical and numerical solutions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compound-pendulum-with-spring-supports">
+<h1>Compound pendulum with spring supports<a class="headerlink" href="#compound-pendulum-with-spring-supports" title="Permalink to this headline">¶</a></h1>
+<p><img alt="creating equations of motion" src="../_images/11_conservative-lagrangian.png" /></p>
+<p>In this notebook, you will use the two coupled equations of motion to create a <em>linear</em> solution for <span class="math notranslate nohighlight">\(\theta(t)~and~x(t)\)</span> for a compound pendulum supported by two springs.</p>
+<p>After creating the Lagrangian, <span class="math notranslate nohighlight">\(L=T-V\)</span>, and setting the variation in <span class="math notranslate nohighlight">\(\delta L=0\)</span>, you arrive at 2 coupled equations of motion:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{mL^2}{3}\ddot{\theta}+\frac{mL}{4}\ddot{x}\cos\theta-\frac{mgL}{2}\sin\theta = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m\ddot{x}+\frac{mL}{4}\ddot{\theta}\cos\theta-\frac{ml^2}{4}\dot{\theta}^2+2kx = 0\)</span></p></li>
+</ol>
+<p>Here, you can assume <span class="math notranslate nohighlight">\(\theta&lt;&lt;1\)</span> which results in three simplifications:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot{\theta}^2\approx 0\)</span> because if <span class="math notranslate nohighlight">\(\theta\)</span> is small, then <span class="math notranslate nohighlight">\(\dot{\theta}\)</span> small and squaring it is <em>really</em> small</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sin\theta \approx \theta\)</span> the first term in a Taylor series expanding at <span class="math notranslate nohighlight">\(\theta=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos\theta \approx 1\)</span> the first term in a Taylor series expanding at <span class="math notranslate nohighlight">\(\theta=0\)</span></p></li>
+</ol>
+<p>Now, you can separate the equations into a linear system  as such</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{M\ddot{q}+Kq}=\mathbf{0}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{q}=[\theta,~x]\)</span> are the generalized coordinates for the system. The equations are now</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\frac{mL^2}{3} &amp; \frac{mL}{4} \\
+\frac{mL}{4} &amp; m\end{array}\right]
+\left[\begin{array}
+~\ddot{\theta} \\
+\ddot{x}\end{array}\right]+
+\left[\begin{array}
+~\frac{mgL}{2} &amp; 0 \\
+0 &amp; 2k \end{array}\right]\left[\begin{array}
+~\theta \\
+x\end{array}\right]
+=0
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># kg</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># m</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># m/s/s</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># N/m</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">m</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="mi">4</span><span class="p">],[</span><span class="n">m</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">m</span><span class="p">]])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">k</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mass matrix:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;stiffness matrix:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mass matrix:
+[[0.33333333 0.25      ]
+ [0.25       1.        ]]
+stiffness matrix:
+[[ 4.905  0.   ]
+ [ 0.    40.   ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To create a solution, you can either</p>
+<ul class="simple">
+<li><p>solve the eigenvector problem</p></li>
+<li><p>create the ode function and solve with <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></p></li>
+</ul>
+<div class="section" id="eigenvector-solution">
+<h2>Eigenvector solution<a class="headerlink" href="#eigenvector-solution" title="Permalink to this headline">¶</a></h2>
+<p>The system of equations can be reframed as an eigenvalue-eigenvector problem because it is a linear system
+let <span class="math notranslate nohighlight">\(\mathbf{q} = \mathbf{u}e^{i\omega t}\)</span></p>
+<p><span class="math notranslate nohighlight">\((-\omega^2\mathbf{Mu+Ku})e^{i\omega t}=\mathbf{0}\)</span></p>
+<p>eigenvalue solutions take the <a class="reference external" href="http://fourier.eng.hmc.edu/e161/lectures/algebra/node7.html">form</a>:</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{(-\lambda B u+Au)}=\mathbf{0}.\)</span></p>
+<div class="section" id="solve-for-eigenvalues-and-eigenvectors">
+<h3>Solve for eigenvalues and eigenvectors<a class="headerlink" href="#solve-for-eigenvalues-and-eigenvectors" title="Permalink to this headline">¶</a></h3>
+<p>You can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.eig</span></code></a> to solve for the eigenvalues and eigenvectors as such</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
+
+<span class="n">e</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">e</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natural frequencies are:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eigenvectors are:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>natural frequencies are:
+[3.66604064+0.j 7.34177666+0.j]
+eigenvectors are:
+[[-0.99209315 -0.71802945]
+ [-0.12550371  0.69601272]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-the-solution-for-theta-t-and-x-t">
+<h3>Define the solution for <span class="math notranslate nohighlight">\(\theta(t)\)</span> and <span class="math notranslate nohighlight">\(x(t)\)</span><a class="headerlink" href="#define-the-solution-for-theta-t-and-x-t" title="Permalink to this headline">¶</a></h3>
+<p>The eigenvalue solution gives you the form of the equations for <span class="math notranslate nohighlight">\(\mathbf{q}(t)\)</span> as such</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\theta(t) \\
+x(t)\end{array}\right] = a_1\mathbf{u_1}e^{i\omega_1 t} + 
+                         a_2\mathbf{u_2}e^{i\omega_2 t} +
+                         a_3\mathbf{u_1}e^{-i\omega_1 t} +
+                         a_4\mathbf{u_2}e^{-i\omega_2 t}\)</span></p>
+</div>
+<div class="section" id="plug-in-initial-conditions-and-solve-for-integration-constants">
+<h3>Plug in initial conditions and solve for integration constants<a class="headerlink" href="#plug-in-initial-conditions-and-solve-for-integration-constants" title="Permalink to this headline">¶</a></h3>
+<p>There are 4 integration constants because there are two second order differential equations that were integrated two times. You can solve for <span class="math notranslate nohighlight">\(\mathbf{a}=[a_1,~a_2,~a_3,~a_4]\)</span> using the initial conditions as such</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\mathbf{u_1} &amp; \mathbf{u_2} &amp; \mathbf{u_1} &amp; \mathbf{u_2} \\
+i\omega_1\mathbf{u_1} &amp; i\omega_2\mathbf{u_2} &amp; -i\omega_1\mathbf{u_1} &amp; -i\omega_2\mathbf{u_2}
+\end{array}\right]
+\left[\begin{array}
+~a_1\\
+a_2\\
+a_3\\
+a_4\end{array}\right] =
+\left[\begin{array}
+~\theta(0)\\
+x(0)\\
+\dot{\theta}(0)\\
+\dot{x}(0)\end{array}\right]\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">],</span> <span class="p">[</span><span class="n">w</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">v</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above cell, you create the array with initial position and velocity as <code class="docutils literal notranslate"><span class="pre">q0</span></code> and use the array <code class="docutils literal notranslate"><span class="pre">C</span></code> to set up the system of equations using the eigenvectors and natural frequencies.</p>
+<p>Now, use <code class="docutils literal notranslate"><span class="pre">np.linalg.solve</span></code> to determine the constants, <span class="math notranslate nohighlight">\(\mathbf{a}=[a_1,~a_2,~a_3,~a_4]=\)</span> <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">q0</span><span class="p">)</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.2334229 +0.j, -0.04209038-0.j, -0.2334229 -0.j, -0.04209038+0.j])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plug-in-integration-constants-and-plot-results">
+<h3>Plug in integration constants and plot results<a class="headerlink" href="#plug-in-integration-constants-and-plot-results" title="Permalink to this headline">¶</a></h3>
+<p>Now, you have a solution for <span class="math notranslate nohighlight">\(\theta(t)~and~x(t)\)</span>. Define your independent variable, time <code class="docutils literal notranslate"><span class="pre">t</span></code>, and plot the solution. The definitions for <code class="docutils literal notranslate"><span class="pre">theta</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> are based upon the eigenvalue solution defined above as such</p>
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\theta(t) \\
+x(t)\end{array}\right] = a_1\mathbf{u_1}e^{i\omega_1 t} + 
+                         a_2\mathbf{u_2}e^{i\omega_2 t} +
+                         a_3\mathbf{u_1}e^{-i\omega_1 t} +
+                         a_4\mathbf{u_2}e^{-i\omega_2 t}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">+</span>\
+    <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p><strong>Note</strong>: The general solutions here could include imaginary numbers since the solution is <span class="math notranslate nohighlight">\(a e^{-i\omega t}\)</span>. You can check the imaginary components of <code class="docutils literal notranslate"><span class="pre">theta</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> with <code class="docutils literal notranslate"><span class="pre">.imag</span></code>. You should see the maximum and minium are <span class="math notranslate nohighlight">\(&lt;10^{-15}.\)</span></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">theta</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Analytical solutions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta[rad]~and~x[m]$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/spring-pendulum_14_0.png" src="../_images/spring-pendulum_14_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="numerical-solution-solve-ivp">
+<h2>Numerical solution - <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code><a class="headerlink" href="#numerical-solution-solve-ivp" title="Permalink to this headline">¶</a></h2>
+<p>The advantage to solving the system using the eigenvalue method is that you have an exact solution with analytical functions. This is only possible, for most situations, for <em>linear systems</em>. For <em>nonlinear systems</em>, you have to use a numerical integration technique such as Runge-Kutta or Euler integration. The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></a> function will create a numerical solution that is accurate for <em>linear</em> and <em>nonlinear</em> systems.</p>
+<p>First, set up a function that represents the two second-order differential equations as 4 first-order differential equations, <span class="math notranslate nohighlight">\(\dot{\mathbf{y}} = f(t,\mathbf{y})\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{y}=[\theta,~x,~\dot{\theta},~\dot{x}]\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot{y}_1 = y_3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{y}_2 = y_4\)</span></p></li>
+<li><p>&amp; 4.  <span class="math notranslate nohighlight">\(\left[\begin{array}
+~\frac{mL^2}{3} &amp; \frac{mL}{4} \\
+\frac{mL}{4} &amp; m\end{array}\right]
+\left[\begin{array}
+~\dot{y}_3 ~[\ddot{\theta}] \\
+\dot{y}_4 ~[\ddot{x}]\end{array}\right]=
+-\left[\begin{array}
+~\frac{mgL}{2} &amp; 0 \\
+0 &amp; 2k \end{array}\right]\left[\begin{array}
+~\theta \\
+x\end{array}\right]
+\)</span></p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: Equations 3 &amp; 4 will work with nonlinear equations too. You can define <span class="math notranslate nohighlight">\(\mathbf{M}=f(\theta,x)=\left[\begin{array}
+~\frac{mL^2}{3} &amp; \frac{mL}{4}\cos\theta \\
+\frac{mL}{4}\cos\theta &amp; m\end{array}\right]\)</span> where <span class="math notranslate nohighlight">\(\theta=y_1\)</span> and <span class="math notranslate nohighlight">\(x=y_2\)</span>. You can also use <span class="math notranslate nohighlight">\(-\mathbf{Kq}=-\left[\frac{mgL}{2}\sin\theta,~2kx-\frac{ml^2}{4}\dot{\theta}^2\right]\)</span> for the nonlinear stiffness component.</p>
+</div></blockquote>
+<div class="section" id="set-up-first-order-differential-equations">
+<h3>Set up first-order differential equations<a class="headerlink" href="#set-up-first-order-differential-equations" title="Permalink to this headline">¶</a></h3>
+<p>Below, you set up the 4 differential equations in the function, <code class="docutils literal notranslate"><span class="pre">couple_ode</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">couple_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    couple_ode(t, y) calculates the derivative of the state variable y </span>
+<span class="sd">    based upon the current time, t, and current state, </span>
+<span class="sd">    y = [theta, x, dtheta/dt, dx/dt]</span>
+<span class="sd">    </span>
+<span class="sd">    It is assumed that M and K were previously defined. If you update the mass</span>
+<span class="sd">    and stiffness arrays, you must rerun this function to update the ode</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t : current time</span>
+<span class="sd">    y : current state variable [theta, x, dtheta/dt, dx/dt]</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dy : the derivative of y [dtheta/dt, dx/dt, ddtheta, ddx] calculated with M and K arrays</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="o">-</span><span class="n">K</span><span class="nd">@y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solve-initial-value-problem">
+<h3>Solve initial value problem<a class="headerlink" href="#solve-initial-value-problem" title="Permalink to this headline">¶</a></h3>
+<p>The differential equations now exist as function defined in Python. You can test the function by running <code class="docutils literal notranslate"><span class="pre">couple_ode(t,</span> <span class="pre">q)</span></code> (as seen below, try some other value for <span class="math notranslate nohighlight">\(\theta~and~x\)</span>).</p>
+<p>Now, you can input initial conditions and time period to create a numerical solution with <code class="docutils literal notranslate"><span class="pre">solve_ivp(ode_function,</span> <span class="pre">[start-time,</span> <span class="pre">end-time],</span> <span class="pre">[y1(0),</span> <span class="pre">y2(0),</span> <span class="pre">y3(0),</span> <span class="pre">y4(0)])</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">couple_ode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.        , -1.81107692,  0.45276923])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="n">q0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># initial conditions copied from above</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">couple_ode</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">q0</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-analytical-and-numerical-solutions">
+<h3>Compare analytical and numerical solutions<a class="headerlink" href="#compare-analytical-and-numerical-solutions" title="Permalink to this headline">¶</a></h3>
+<p>Next, you can compare your analytical solution to your numerical solution. In this case, you should expect that the numerical solution will converge to the analytical solution. The analytical is the exact solution based upon the defined linear system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">theta</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;bo&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Numerical and analytical solutions</span><span class="se">\n</span><span class="s1">markers are numerical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta[rad]~and~x[m]$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/spring-pendulum_21_0.png" src="../_images/spring-pendulum_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">theta</span><span class="o">.</span><span class="n">real</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6f785e2d30&gt;]
+</pre></div>
+</div>
+<img alt="../_images/spring-pendulum_22_1.png" src="../_images/spring-pendulum_22_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, you solved a set of coupled second order differential equations using 2 methods:</p>
+<ol class="simple">
+<li><p>exact solution with eigenvalues and initial conditions</p></li>
+<li><p>approximate solution with <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> and initial conditions</p></li>
+</ol>
+<p>You compared the results by plotting the solutions.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./model_results"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="rotating_pendulum.html" title="previous page">Rotating Pendulum solution - integrating equation of motion</a>
+    <a class='right-next' id="next-link" href="../assignments.html" title="next page">Dynamics Homeworks</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan C. Cooper<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
