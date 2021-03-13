@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Quiz_05 &#8212; Advanced Dynamics</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Building Quiz_04" href="making-quiz_04.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dyn_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus: ME 5180 Spring 2021
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
+   About the Instructor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content.html">
+   Module Content
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../module_00/overview.html">
+   Orientation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/participation.html">
+     Participation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_01.html">
+     Homework 1 - Jupyter and Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../getting-started/README.html">
+   Getting started with Python and Scientific Computing
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/01_interactions.html">
+     Interacting with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/02_Working_with_Python.html">
+     Working with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/03_Numerical_error.html">
+     Numerical Error
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../model_results/intro.html">
+   Modeling results
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/rotating_pendulum.html">
+     Rotating Pendulum solution - integrating equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/spring-pendulum.html">
+     Compound pendulum with spring supports
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../assignments.html">
+   Dynamics Homeworks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_03.html">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_04.html">
+     Homework #4
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_05.html">
+     Homework #5 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_06.html">
+     Homework #6 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_07.html">
+     Homework #7  Kinematics -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_08.html">
+     Homework #8 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_09.html">
+     Homework #9 -
+     <em>
+      work in progress
+     </em>
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="quizzes.html">
+   Quiz Review Material
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_01.html">
+     Building Quiz_01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_02.html">
+     Building Quiz 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_03.html">
+     Building Quiz_03
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_04.html">
+     Building Quiz_04
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Building Quiz_05
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/quiz_work/making-quiz_05.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fquiz_work/making-quiz_05.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/quiz_work/making-quiz_05.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/quiz_work/making-quiz_05.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-solution">
+   Linear solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-plot-for-damped-system">
+     Phase plot for damped system
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximate-nonlinear-solution">
+   Approximate
+   <em>
+    nonlinear
+   </em>
+   solution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrate-the-exact-differential-equation-with-an-approximation">
+     Integrate the
+     <em>
+      exact
+     </em>
+     differential equation with an
+     <em>
+      approximation
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span> <span class="c1"># allow sqrt to return complex numbers</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-quiz-05">
+<h1>Building Quiz_05<a class="headerlink" href="#building-quiz-05" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Swinging pendulum in viscous fluid" src="../_images/pendulum-viscous.svg" /></p>
+<p>A pendulum is placed inside a viscous fluid. The motion of the pendulum is subject to 2 external forces:</p>
+<ul class="simple">
+<li><p>gravity: $<span class="math notranslate nohighlight">\(F_g = mg\)</span>$</p></li>
+<li><p>viscous damping: $<span class="math notranslate nohighlight">\(F_f =-b\mathbf{v}= -bL\dot{\theta}\hat{e}_{\theta}\)</span>$</p></li>
+</ul>
+<p>The final equation of motion is as such</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta}+\frac{b}{m}\dot{\theta}+\frac{g}{L}\sin\theta = 0\]</div>
+<p>a. Find the variation in the Lagrangian, $<span class="math notranslate nohighlight">\(\delta L\)</span>$</p>
+<p>b. Write the nonconservative virtual work, $<span class="math notranslate nohighlight">\(\delta W^{NC}\)</span>$</p>
+<p>c. Show that $<span class="math notranslate nohighlight">\(\delta L + \delta W^{NC}=0\)</span>$ results in the final equation of motion.</p>
+<div class="section" id="linear-solution">
+<h2>Linear solution<a class="headerlink" href="#linear-solution" title="Permalink to this headline">¶</a></h2>
+<p>Equation of motion in a linearized system:</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta}+\frac{b}{m}\dot{\theta}+\frac{g}{L}\theta = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta}+2\zeta\omega\dot{\theta}+\omega^2\theta = 0\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\omega = \sqrt{\frac{g}{L}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\zeta = \frac{b}{2m}\sqrt{\frac{l}{g}}\)</span></p></li>
+</ul>
+<p>This is a <a class="reference external" href="https://en.wikipedia.org/wiki/Harmonic_oscillator">damped harmonic oscillator</a>, so the solution will come in 3 forms:</p>
+<ol class="simple">
+<li><p>underdamped <span class="math notranslate nohighlight">\(\zeta&lt;1\)</span></p></li>
+<li><p>critically damped <span class="math notranslate nohighlight">\(\zeta = 1\)</span></p></li>
+<li><p>overdamped <span class="math notranslate nohighlight">\(\zeta &gt; 1\)</span></p></li>
+</ol>
+<p>Consider a pendulum with length, <span class="math notranslate nohighlight">\(L=1~m\)</span>, mass of <span class="math notranslate nohighlight">\(m=0.1~kg\)</span>, and 3 different damping ratios:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(\zeta\)</span></p></th>
+<th class="head"><p>b [kg/s]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1</p></td>
+<td><p>0.063</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.63</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1.25</p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\(\theta(t) = e^{-\zeta\omega t}(a_1 e^{i\omega t\sqrt{1-\zeta^2}} + a_2 e^{-i\omega t\sqrt{1-\zeta^2}})\)</span></p>
+<p><span class="math notranslate nohighlight">\(\dot{\theta}(t) = -\zeta\omega e^{-\zeta\omega t}(a_1 e^{i\omega t\sqrt{1-\zeta^2}} + a_2 e^{-i\omega t\sqrt{1-\zeta^2}})
++i\omega \sqrt{1-\zeta^2}e^{-\zeta\omega t}(a_1 e^{i\omega t\sqrt{1-\zeta^2}} - a_2 e^{-i\omega t\sqrt{1-\zeta^2}})\)</span></p>
+<div class="math notranslate nohighlight">
+\[\theta_0 = a_1 +a_2\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{\theta}_0 = -\zeta\omega (a_1 +a_2) +i\omega\sqrt{1-\zeta^2}(a_1-a_2)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A}
+\left[\begin{array} 
+~a_1 \\
+a_2
+\end{array}\right] =
+\left[\begin{array} 
+~\theta(0)\\ \dot{\theta}(0)\end{array}\right]\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} = 
+\left[\begin{array} 
+~1 &amp; 1 \\
+-\zeta\omega +i\omega\sqrt{1-\zeta^2} &amp; -\zeta\omega -i\omega\sqrt{1-\zeta^2}
+\end{array}\right]\end{split}\]</div>
+<blockquote>
+<div><p><strong>Note</strong>: The default <code class="docutils literal notranslate"><span class="pre">np.sqrt</span></code> returns an error if you ask for
+<code class="docutils literal notranslate"><span class="pre">np.sqrt(-1)</span></code>. Above, the <code class="docutils literal notranslate"><span class="pre">numpy.lib.scimath.sqrt</span></code> is imported to
+allow complex number algebra as such:
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy.lib.scimath</span> <span class="pre">import</span> <span class="pre">sqrt</span></code></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">find_constants</span><span class="p">(</span><span class="n">state0</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">z</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">z</span><span class="o">*</span><span class="n">w</span><span class="p">]])</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state0</span><span class="p">)</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">dtheta</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span>\
+                                              <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span><span class="o">+</span>\
+                        <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span>\
+                                              <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9999</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">find_constants</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">theta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;$\zeta$ = </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$ (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/making-quiz_05_9_0.png" src="../_images/making-quiz_05_9_0.png" />
+</div>
+</div>
+<div class="section" id="phase-plot-for-damped-system">
+<h3>Phase plot for damped system<a class="headerlink" href="#phase-plot-for-damped-system" title="Permalink to this headline">¶</a></h3>
+<p>The phase plot for a system plots the input state variables, i.e. <span class="math notranslate nohighlight">\(\theta~and~\dot{\theta}\)</span>. In a previous notebook, you looked at the results for an undamped system. With damping, both state variables move towards 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">=</span> <span class="mf">0.2</span> <span class="c1">#0.9999</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">pert</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">find_constants</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="o">+</span><span class="n">pert</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">dtheta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Phase plot for damped pendulum $\zeta$ = </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\dot{\theta}$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/making-quiz_05_11_0.png" src="../_images/making-quiz_05_11_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="approximate-nonlinear-solution">
+<h2>Approximate <em>nonlinear</em> solution<a class="headerlink" href="#approximate-nonlinear-solution" title="Permalink to this headline">¶</a></h2>
+<p>The final equation of motion is not linear for <span class="math notranslate nohighlight">\(\theta \approx 1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta}+\frac{b}{m}\dot{\theta}+\frac{g}{L}\sin\theta = 0.\]</div>
+<p>You can numerically integrate this equation for any angle <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<ol class="simple">
+<li><p>create 2 first-order differential equations <span class="math notranslate nohighlight">\(\dot{\mathbf{y}} = f(\mathbf{y})\)</span> where <span class="math notranslate nohighlight">\(\mathbf{y}=[\theta,~\dot{\theta}]\)</span></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> to integrate the equation with initial conditions</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">damped_pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">L</span><span class="p">)):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    damped_pendulum(t, y, z, w)</span>
+<span class="sd">    </span>
+<span class="sd">    Return the derivative for a damped pendulum system</span>
+<span class="sd">    dy[1] + 2*z*w*y[1] + w**2*sin(y[0])</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t: current time</span>
+<span class="sd">    y: current state = [theta (rad), dtheta/dt (rad/s)]</span>
+<span class="sd">    z: damping ratio (determined from eqn of motion)</span>
+<span class="sd">    w: natural frequency for linear system</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dy: derivative of state, y, at time, t </span>
+<span class="sd">        [dtheta/ddt (rad/s), ddtheta/ddt (rad/s/s)]</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">dy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="integrate-the-exact-differential-equation-with-an-approximation">
+<h3>Integrate the <em>exact</em> differential equation with an <em>approximation</em><a class="headerlink" href="#integrate-the-exact-differential-equation-with-an-approximation" title="Permalink to this headline">¶</a></h3>
+<p>The differential equation is now exact, but you don’t have a way to solve for the exact function <span class="math notranslate nohighlight">\(\theta(t)\)</span>. Use the function <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></a> to find the solution over a given time interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">10]</span></code> seconds and evaluated at the same points as the previous linear solution, <code class="docutils literal notranslate"><span class="pre">t_eval</span> <span class="pre">=</span> <span class="pre">t</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">damped_pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> 
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="c1"># timespan [ 0s to 10s]</span>
+                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="c1"># initial conditions [18 deg, 0 rad/s]</span>
+                <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">damped_pendulum</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> 
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="c1"># timespan [ 0s to 10s]</span>
+                <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="c1"># initial conditions [90 deg, 0 rad/s]</span>
+                <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$ (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Large and small angle oscillations for $\zeta=0.2$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/making-quiz_05_15_0.png" src="../_images/making-quiz_05_15_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping up<a class="headerlink" href="#wrapping-up" title="Permalink to this headline">¶</a></h2>
+<p>You have created 2 solutions for the damped pendulum differential equation:</p>
+<ol class="simple">
+<li><p>exact solution to the linearized differential equation</p></li>
+<li><p>approximate integration of the <em>exact</em> differential equation</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./quiz_work"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="making-quiz_04.html" title="previous page">Building Quiz_04</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Ryan C. Cooper<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
