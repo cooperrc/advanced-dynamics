@@ -17,20 +17,73 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+def cart_ode(t,r,w):
+    '''cart_ode(t,r,w)
+    
+    Set of 2 ODEs that return dx2/dt and d^2x2/dt^2 with input
+    x2 ddand dx2/dt, dr/dt = f(t,r)'''
+    Parameters
+    ----------
+    t: current time
+    r: current state [x, dx]
+    w: system rotation rate [rad/s]
+    Returns
+    -------
+    dy: derivative of current state [dx, ddx]
+    '''
+    dr=np.zeros(np.shape(r))
+    dr[0] = r[1]
+    dr[1] #= ... your equation here
+    return dr
+```
+
+2. Solve the `cart_ode` initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and $\omega$=0 rad/s
+
+```python
+x0=10
+v0=0
+w=0 # rad/s
+end_time=10 # choose an end time that displays one full period
+
+r0 = solve_ivp(lambda t,r: cart_ode(t,r,w),[0, end_time],[x0,v0])
+```
+
+3. Solve the `cart_ode` initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and $\omega$=1 rad/s
+
+```python
+x0=10
+v0=0
+w=3
+end_time=10 # choose an end time that displays one full period
+
+r1 = solve_ivp(lambda t,r: cart_ode(t,r,w),[0, end_time],[x0,v0])
+```
+
+4. Solve the `cart_ode` initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and $\omega$=2 rad/s
+
+```python
+x0=10
+v0=0
+w=6
+end_time=10 # choose an end time that displays one full period
+
+r2 = solve_ivp(lambda t,r: cart_ode(t,r,w),[0, end_time],[x0,v0])
+```
+
+5. Plot the three solutions together
+
+```python
 plt.plot(r0.t,r0.y[0],label='0 rad/s')
 plt.plot(r3.t,r3.y[0],label='3 rad/s')
 plt.plot(r6.t,r6.y[0],label='6 rad/s')
 plt.legend()
+```
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-9-f18560f0a3fe>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mr0[0m[0;34m.[0m[0mt[0m[0;34m,[0m[0mr0[0m[0;34m.[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m[0mlabel[0m[0;34m=[0m[0;34m'0 rad/s'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mr3[0m[0;34m.[0m[0mt[0m[0;34m,[0m[0mr3[0m[0;34m.[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m[0mlabel[0m[0;34m=[0m[0;34m'3 rad/s'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mr6[0m[0;34m.[0m[0mt[0m[0;34m,[0m[0mr6[0m[0;34m.[0m[0my[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m[0mlabel[0m[0;34m=[0m[0;34m'6 rad/s'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mlegend[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;36m  File [0;32m"<ipython-input-2-403723adc774>"[0;36m, line [0;32m7[0m
+[0;31m    ----------[0m
+[0m              ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mNameError[0m: name 'r3' is not defined
-NameError: name 'r3' is not defined
+SyntaxError: invalid syntax (<ipython-input-2-403723adc774>, line 7)
 

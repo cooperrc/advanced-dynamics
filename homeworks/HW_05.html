@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework #5 - work in progress &#8212; Advanced Dynamics</title>
+    <title>Homework #5 &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -201,10 +199,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Homework #5 -
-     <em>
-      work in progress
-     </em>
+     Homework #5
     </a>
    </li>
    <li class="toctree-l2">
@@ -381,6 +376,80 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-function-cart-ode-that-represents-the-equation-of-motion-for-the-car-in-terms-of-x-2">
+   1. Create a function,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cart_ode
+    </span>
+   </code>
+   , that represents the equation of motion for the car in terms of
+   <span class="math notranslate nohighlight">
+    \(x_2\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solve-the-cart-ode-initial-value-problem-for-x-0-10-m-dx-dt-0-0-m-s-and-omega-0-rad-s">
+   2. Solve the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cart_ode
+    </span>
+   </code>
+   initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and
+   <span class="math notranslate nohighlight">
+    \(\omega\)
+   </span>
+   =0 rad/s
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-1-rad-s">
+   3. Solve the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cart_ode
+    </span>
+   </code>
+   initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and
+   <span class="math notranslate nohighlight">
+    \(\omega\)
+   </span>
+   =1 rad/s
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-2-rad-s">
+   4. Solve the
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     cart_ode
+    </span>
+   </code>
+   initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and
+   <span class="math notranslate nohighlight">
+    \(\omega\)
+   </span>
+   =2 rad/s
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-three-solutions-together">
+   5. Plot the three solutions together
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -394,58 +463,52 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span> <span class="c1"># import the ordinary differential equation integrator in Python</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setdefaults</span><span class="p">():</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setdefaults</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span> <span class="c1"># import the ordinary differential equation integrator in Python</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="homework-5-work-in-progress">
-<h1>Homework #5 - <em>work in progress</em><a class="headerlink" href="#homework-5-work-in-progress" title="Permalink to this headline">¶</a></h1>
-<p><img alt="Whirling Roller-coaster" src="https://drive.google.com/thumbnail?id=1f0tVO6X1HDQiIRcADBUVx3HlnZjH3TZl&amp;authuser=0&amp;sz=w952-h932" /></p>
-<p>Consider your roller coaster design from HW #4. Assume the cart rolls on the track as a frictionless
+<div class="section" id="homework-5">
+<h1>Homework #5<a class="headerlink" href="#homework-5" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Whirling Roller-coaster" src="../_images/roller_coaster.svg" /></p>
+<p>A roller coaster is being designed on a parabolic track that rotates at a constant
+speed as seen in the figure above. Assume the cart rolls on the track as a frictionless
 point-mass of 100-kg. Determine the equations of motion in terms of the distance from the
 lowest point, <span class="math notranslate nohighlight">\(q_1=x_2\)</span>.</p>
-<ol class="simple">
-<li><p>Create a function, cart_ode, that represents the equation of motion for the car in terms of <span class="math notranslate nohighlight">\(x_2\)</span></p></li>
-</ol>
+<p>a. What is the kinetic energy of the cart?</p>
+<p>b. What is the potential energy of the cart?</p>
+<p>c. What is the equation of motion for the cart?</p>
+<div class="section" id="create-a-function-cart-ode-that-represents-the-equation-of-motion-for-the-car-in-terms-of-x-2">
+<h2>1. Create a function, <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code>, that represents the equation of motion for the car in terms of <span class="math notranslate nohighlight">\(x_2\)</span><a class="headerlink" href="#create-a-function-cart-ode-that-represents-the-equation-of-motion-for-the-car-in-terms-of-x-2" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cart_ode</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Set of 2 ODEs that return dx2/dt and d^2x2/dt^2 with input</span>
-<span class="sd">    x2 and dx2/dt, dr/dt = f(t,r)&#39;&#39;&#39;</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    cart_ode(t,r,w)</span>
+<span class="sd">    </span>
+<span class="sd">    Set of 2 ODEs that return dx2/dt and d^2x2/dt^2 with input</span>
+<span class="sd">    x2 and dx2/dt, dr/dt = f(t,r)</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    t: current time</span>
+<span class="sd">    r: current state [x, dx]</span>
+<span class="sd">    w: system rotation rate [rad/s]</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dy: derivative of current state [dx, ddx]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">dr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-    <span class="n">dr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">dr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">dr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#= ... your equation here</span>
     <span class="k">return</span> <span class="n">dr</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="simple">
-<li><p>Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=0 rad/s</p></li>
-</ol>
+</div>
+<div class="section" id="solve-the-cart-ode-initial-value-problem-for-x-0-10-m-dx-dt-0-0-m-s-and-omega-0-rad-s">
+<h2>2. Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=0 rad/s<a class="headerlink" href="#solve-the-cart-ode-initial-value-problem-for-x-0-10-m-dx-dt-0-0-m-s-and-omega-0-rad-s" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span><span class="o">=</span><span class="mi">10</span>
@@ -458,9 +521,9 @@ lowest point, <span class="math notranslate nohighlight">\(q_1=x_2\)</span>.</p>
 </div>
 </div>
 </div>
-<ol class="simple">
-<li><p>Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=1 rad/s</p></li>
-</ol>
+</div>
+<div class="section" id="solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-1-rad-s">
+<h2>3. Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=1 rad/s<a class="headerlink" href="#solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-1-rad-s" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span><span class="o">=</span><span class="mi">10</span>
@@ -473,9 +536,9 @@ lowest point, <span class="math notranslate nohighlight">\(q_1=x_2\)</span>.</p>
 </div>
 </div>
 </div>
-<ol class="simple">
-<li><p>Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=10 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=2 rad/s</p></li>
-</ol>
+</div>
+<div class="section" id="solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-2-rad-s">
+<h2>4. Solve the <code class="docutils literal notranslate"><span class="pre">cart_ode</span></code> initial value problem for x(0)=3 m, dx/dt(0)=0 m/s and <span class="math notranslate nohighlight">\(\omega\)</span>=2 rad/s<a class="headerlink" href="#solve-the-cart-ode-initial-value-problem-for-x-0-3-m-dx-dt-0-0-m-s-and-omega-2-rad-s" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span><span class="o">=</span><span class="mi">10</span>
@@ -488,32 +551,9 @@ lowest point, <span class="math notranslate nohighlight">\(q_1=x_2\)</span>.</p>
 </div>
 </div>
 </div>
-<ol class="simple">
-<li><p>Plot the three solutions together</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r0</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r0</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;0 rad/s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r3</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;3 rad/s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r6</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r6</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;6 rad/s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">f18560f0a3fe</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r0</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r0</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;0 rad/s&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r3</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;3 rad/s&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r6</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">r6</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;6 rad/s&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;r3&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/HW_05_13_1.png" src="../_images/HW_05_13_1.png" />
-</div>
+<div class="section" id="plot-the-three-solutions-together">
+<h2>5. Plot the three solutions together<a class="headerlink" href="#plot-the-three-solutions-together" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
