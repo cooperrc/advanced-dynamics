@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework #6 - work in progress &#8212; Advanced Dynamics</title>
+    <title>Homework #6 &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -59,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Homework #7 Kinematics - work in progress" href="HW_07.html" />
-    <link rel="prev" title="Homework #5 - work in progress" href="HW_05.html" />
+    <link rel="prev" title="Homework #5" href="HW_05.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -175,6 +173,11 @@
      Solving the equations of motion for a spinning top
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/pin-constraint.html">
+     Creating a pin constraint
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -201,18 +204,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="HW_05.html">
-     Homework #5 -
-     <em>
-      work in progress
-     </em>
+     Homework #5
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Homework #6 -
-     <em>
-      work in progress
-     </em>
+     Homework #6
     </a>
    </li>
    <li class="toctree-l2">
@@ -503,12 +500,23 @@
 </div>
 </div>
 </div>
-<div class="section" id="homework-6-work-in-progress">
-<h1>Homework #6 - <em>work in progress</em><a class="headerlink" href="#homework-6-work-in-progress" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="homework-6">
+<h1>Homework #6<a class="headerlink" href="#homework-6" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="linear-algebra-for-dynamics">
 <h2>Linear Algebra for Dynamics<a class="headerlink" href="#linear-algebra-for-dynamics" title="Permalink to this headline">¶</a></h2>
-<p>Equations of motion in Newtonian (<span class="math notranslate nohighlight">\(F=ma\)</span>) or Lagrangian (<span class="math notranslate nohighlight">\(\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}_{i}}\right)-\frac{\partial L}{\partial x_i} = F_i\)</span>) are solved with Linear Algebra equations</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{Ax}=\mathbf{b}\)</span> or <span class="math notranslate nohighlight">\(\mathbf{Ax}=\lambda \mathbf{x}\)</span></p>
+<p>Equations of motion in Newtonian (<span class="math notranslate nohighlight">\(F=ma\)</span>) or Lagrangian
+(<span class="math notranslate nohighlight">\(\frac{d}{dt}\left(\frac{\partial L}{\partial
+\dot{x}_{i}}\right)-\frac{\partial L}{\partial x_i} = F_i\)</span>) are solved
+with Linear Algebra equations. Specifically, the equations are a
+combination of differential and algebraic equations. Integrating the
+differential equations numerically is done with discrete steps, which creates
+another linear algebra problem.</p>
+<p>There are two main linear algebra problems that we are concerned with
+here</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{Ax}=\mathbf{b}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{Ax}=\lambda \mathbf{Bx}\)</span></p></li>
+</ol>
 <p>Take the following matrix, saved as array <code class="docutils literal notranslate"><span class="pre">A</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -974,7 +982,7 @@ A_{11} &amp; A_{12} &amp;...&amp; A_{1N} \\
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="HW_05.html" title="previous page">Homework #5 - <em>work in progress</em></a>
+    <a class='left-prev' id="prev-link" href="HW_05.html" title="previous page">Homework #5</a>
     <a class='right-next' id="next-link" href="HW_07.html" title="next page">Homework #7  Kinematics - <em>work in progress</em></a>
 
         </div>
