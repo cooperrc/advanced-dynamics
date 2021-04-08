@@ -45,8 +45,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -180,6 +178,11 @@
      Creating a pin constraint
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/embed-solution.html">
+     Embedding technique: solution of link pinned to ground at origin
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -216,10 +219,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_07.html">
-     Homework #7  Kinematics -
-     <em>
-      work in progress
-     </em>
+     Homework #7  Kinematics
     </a>
    </li>
    <li class="toctree-l2">
@@ -1304,8 +1304,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[31, 57, 82, 89, 64, 80, 46, 18, 68, 22]
-[22, 19, 90, 27, 25, 4, 76, 5, 56, 12]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[83, 12, 52, 73, 55, 94, 23, 72, 51, 31]
+[0, 51, 89, 78, 25, 65, 97, 49, 17, 75]
 </pre></div>
 </div>
 </div>
@@ -1322,8 +1322,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 7 µs, total: 14 µs
-Wall time: 16.2 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 8 µs, total: 16 µs
+Wall time: 19.3 µs
 </pre></div>
 </div>
 </div>
@@ -1335,7 +1335,7 @@ Wall time: 16.2 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[53, 76, 172, 116, 89, 84, 122, 23, 124, 34]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[83, 63, 141, 151, 80, 159, 120, 121, 68, 106]
 </pre></div>
 </div>
 </div>
@@ -1361,8 +1361,8 @@ Wall time: 16.2 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[22 88 84 41 28 13 99 21 48 60]
-[97 39 98 26 41 77 66 28 11 21]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[39  3 67 49 95 87 80 66 66 69]
+[50 54 87 60 77  1 92 75 67 88]
 </pre></div>
 </div>
 </div>
@@ -1376,8 +1376,8 @@ Wall time: 16.2 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 0 ns, total: 8 µs
-Wall time: 9.3 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 44 µs, sys: 0 ns, total: 44 µs
+Wall time: 51.3 µs
 </pre></div>
 </div>
 </div>
@@ -1460,7 +1460,7 @@ Wall time: 9.3 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6ef25824c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd3e91a51c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_103_1.png" src="../_images/02_Working_with_Python_103_1.png" />
@@ -1577,8 +1577,8 @@ of the two indices from 0 to 9 e.g. A_99[3,2]=6 and A_99[4,4]=16.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17 µs, sys: 10 µs, total: 27 µs
-Wall time: 27.9 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16 µs, sys: 7 µs, total: 23 µs
+Wall time: 25 µs
 </pre></div>
 </div>
 </div>
@@ -1622,11 +1622,11 @@ stdev of A_99 20.054612935681405
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14 ms, sys: 436 µs, total: 14.4 ms
-Wall time: 17 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 28.9 ms, sys: 2.42 ms, total: 31.3 ms
+Wall time: 32.6 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f6eea3337c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fd3e0f59130&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_118_2.png" src="../_images/02_Working_with_Python_118_2.png" />

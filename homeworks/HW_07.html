@@ -178,6 +178,11 @@
      Creating a pin constraint
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/embed-solution.html">
+     Embedding technique: solution of link pinned to ground at origin
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -487,7 +492,7 @@
         
               <div>
                 
-  <div class="cell tag_hide-cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
@@ -499,7 +504,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;-A1w46iqUlE&#39;</span><span class="p">)</span>
@@ -559,13 +564,13 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotA</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotA</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.70710678, -0.70710678],
-       [ 0.70710678,  0.70710678]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.5      , -0.8660254],
+       [ 0.8660254,  0.5      ]])
 </pre></div>
 </div>
 </div>
@@ -779,7 +784,7 @@ $<span class="math notranslate nohighlight">\(\theta^{1} = \omega t +\theta_0\)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbe8f48e460&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0712495400&gt;]
 </pre></div>
 </div>
 <img alt="../_images/HW_07_18_1.png" src="../_images/HW_07_18_1.png" />
@@ -1644,11 +1649,7 @@ LjQ1LjEwMA==
 0\\
 0\\
 0\end{array}\right]\)</span></p>
-<p>Here, you set up <code class="docutils literal notranslate"><span class="pre">Qd_slidercrank</span></code> that defines the right-hand-side of
-the acceleration of <span class="math notranslate nohighlight">\(\mathbf{C_q\ddot{q}}=\mathbf{Q}_d\)</span> and
-<code class="docutils literal notranslate"><span class="pre">Ct_slidercrank</span></code> as <span class="math notranslate nohighlight">\(\mathbf{C}_t\)</span>. You will use these functions to
-solve for <span class="math notranslate nohighlight">\(\frac{d\mathbf{q}}{dt}\)</span> and <span class="math notranslate nohighlight">\(\frac{d^2\mathbf{q}}{dt^2}\)</span>
-(<code class="docutils literal notranslate"><span class="pre">dq</span></code> and <code class="docutils literal notranslate"><span class="pre">ddq</span></code>, respectively).</p>
+<p>Here, you set up <code class="docutils literal notranslate"><span class="pre">vel_acc(q,t)</span></code> to return velocity and acceleration of <span class="math notranslate nohighlight">\(\mathbf{q_{i}}\)</span> components as <span class="math notranslate nohighlight">\(\frac{d\mathbf{q}}{dt}\)</span> and <span class="math notranslate nohighlight">\(\frac{d^2\mathbf{q}}{dt^2}\)</span> (<code class="docutils literal notranslate"><span class="pre">dq</span></code> and <code class="docutils literal notranslate"><span class="pre">ddq</span></code>, respectively)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Qd_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">dq</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
@@ -1738,7 +1739,7 @@ solve for <span class="math notranslate nohighlight">\(\frac{d\mathbf{q}}{dt}\)<
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;crank angle (rad)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/HW_07_37_1.png" src="../_images/HW_07_37_1.png" />
+<img alt="../_images/HW_07_38_1.png" src="../_images/HW_07_38_1.png" />
 </div>
 </div>
 </div>
