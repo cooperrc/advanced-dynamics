@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About the Instructor &#8212; Advanced Dynamics</title>
+    <title>Building Quiz 07 &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,10 +52,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Module Content" href="../content.html" />
-    <link rel="prev" title="Syllabus: ME 5180 Spring 2021" href="../syllabus.html" />
+    <link rel="prev" title="Building Quiz_06" href="making-quiz_06.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,8 +99,8 @@
    Syllabus: ME 5180 Spring 2021
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
    About the Instructor
   </a>
  </li>
@@ -109,12 +110,12 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="overview.html">
+  <a class="reference internal" href="../module_00/overview.html">
    Orientation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="participation.html">
+    <a class="reference internal" href="../module_00/participation.html">
      Participation
     </a>
    </li>
@@ -245,43 +246,43 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../quiz_work/quizzes.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="quizzes.html">
    Quiz Review Material
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_01.html">
+    <a class="reference internal" href="making-quiz_01.html">
      Building Quiz_01
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_02.html">
+    <a class="reference internal" href="making-quiz_02.html">
      Building Quiz 02
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_03.html">
+    <a class="reference internal" href="making-quiz_03.html">
      Building Quiz_03
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_04.html">
+    <a class="reference internal" href="making-quiz_04.html">
      Building Quiz_04
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_05.html">
+    <a class="reference internal" href="making-quiz_05.html">
      Building Quiz_05
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_06.html">
+    <a class="reference internal" href="making-quiz_06.html">
      Building Quiz_06
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../quiz_work/making-quiz_07.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Building Quiz 07
     </a>
    </li>
@@ -329,9 +330,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/module_00/meet_cooper.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/quiz_work/making-quiz_07.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -349,7 +350,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fmodule_00/meet_cooper.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fquiz_work/making-quiz_07.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -365,11 +366,54 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/quiz_work/making-quiz_07.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/quiz_work/making-quiz_07.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-approach">
+   Numerical approach
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sympy-approach">
+   SymPy approach
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -378,23 +422,114 @@
         
               <div>
                 
-  <div class="section" id="about-the-instructor">
-<h1>About the Instructor<a class="headerlink" href="#about-the-instructor" title="Permalink to this headline">¶</a></h1>
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/pvdID82aMEg" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Ryan C. Cooper, Ph.D.<br />
-Assistant Professor-in-Residence<br />
-Mechanical Engineering Department<br />
-University of Connecticut<br />
-191 Auditorium rd<br />
-Engineering Building II room 314<br />
-Storrs, CT 06269</p>
-<p><strong>email:</strong> <a class="reference external" href="mailto:ryan&#46;c&#46;cooper&#37;&#52;&#48;uconn&#46;edu">mailto:ryan<span>&#46;</span>c<span>&#46;</span>cooper<span>&#64;</span>uconn<span>&#46;</span>edu</a></p>
-<p><strong>Office hours:</strong> by appointment or on Campuswire</p>
-<p><strong>Preferred contact:</strong> post discussion questions on Campuswire, for personal
-questions reach out via email.</p>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-quiz-07">
+<h1>Building Quiz 07<a class="headerlink" href="#building-quiz-07" title="Permalink to this headline">¶</a></h1>
+<p><img alt="coordinates and path of bead" src="../_images/bead-path.svg" /></p>
+<p>A bead moves along a planar sinusoidal track. It does not rotate as it moves along the path, so the generalized coordinates are its x-position y-position, $<span class="math notranslate nohighlight">\(\mathbf{q} = [x,~y]\)</span>$. There are two constraints on the motion of the bead,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y = \sin x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x = 10 t\)</span>, where <span class="math notranslate nohighlight">\(t\)</span> is time in seconds.</p></li>
+</ul>
+<ol class="simple">
+<li><p>write the constraint equations, <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)\)</span>.</p></li>
+<li><p>write out the Jacobian of the constraints, <span class="math notranslate nohighlight">\(\mathbf{C_q}\)</span></p></li>
+<li><p>Invert the Jacobian to solve for <span class="math notranslate nohighlight">\(\dot{x}~and~\dot{y}\)</span>, using <span class="math notranslate nohighlight">\(\mathbf{C_q \dot{q}} = -\mathbf{C}_t\)</span></p></li>
+</ol>
+<div class="section" id="numerical-approach">
+<h2>Numerical approach<a class="headerlink" href="#numerical-approach" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">C</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cq</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">Cq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">Cq</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cq</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.,  1.],
+       [ 1.,  0.]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sympy-approach">
+<h2>SymPy approach<a class="headerlink" href="#sympy-approach" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;x, y, t&#39;</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+<span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}x\\y\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">y</span> <span class="o">-</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">t</span><span class="p">])</span>
+<span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}y - \sin{\left(x \right)}\\- 10 t + x\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}- \cos{\left(x \right)} &amp; 1\\1 &amp; 0\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -410,7 +545,7 @@ questions reach out via email.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./module_00"
+            path: "./quiz_work"
         },
         predefinedOutput: true
     }
@@ -422,8 +557,7 @@ questions reach out via email.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../syllabus.html" title="previous page">Syllabus: ME 5180 Spring 2021</a>
-    <a class='right-next' id="next-link" href="../content.html" title="next page">Module Content</a>
+    <a class='left-prev' id="prev-link" href="making-quiz_06.html" title="previous page">Building Quiz_06</a>
 
         </div>
         
