@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework #8 - work in progress &#8212; Advanced Dynamics</title>
+    <title>Homework #8 &#8212; Advanced Dynamics</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Homework #9 - work in progress" href="HW_09.html" />
+    <link rel="next" title="Quiz Review Material" href="../quiz_work/quizzes.html" />
     <link rel="prev" title="Homework #7 Kinematics" href="HW_07.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -229,18 +229,17 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Homework #8 -
-     <em>
-      work in progress
-     </em>
+     Homework #8
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="HW_09.html">
-     Homework #9 -
-     <em>
-      work in progress
-     </em>
+    <a class="reference internal" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
     </a>
    </li>
   </ul>
@@ -401,46 +400,46 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-solution-of-link-pinned-to-ground-at-origin">
-   A. Solution of link pinned to ground at origin
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#animate-the-motion">
-   Animate the motion
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Homework #8
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#initialize-the-lines-and-coordinate-system">
-     2. initialize the lines and coordinate system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot">
-     3. and 4. create your
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       init
-      </span>
-     </code>
-     and
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       animation
-      </span>
-     </code>
-     functions to update the lines on the plot
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-1">
+     Problem 1
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#display-the-result-in-an-html-video">
-       4. display the result in an HTML video
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#define-mathbf-a-and-mathbf-a-theta">
+       Define
+       <span class="math notranslate nohighlight">
+        \(\mathbf{A}\)
+       </span>
+       and
+       <span class="math notranslate nohighlight">
+        \(\mathbf{A}_\theta\)
+       </span>
       </a>
      </li>
     </ul>
    </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-2">
+     Problem 2
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+   $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+  </a>
  </li>
 </ul>
 
@@ -454,36 +453,47 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span><span class="n">root</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="homework-8-work-in-progress">
-<h1>Homework #8 - <em>work in progress</em><a class="headerlink" href="#homework-8-work-in-progress" title="Permalink to this headline">¶</a></h1>
-<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0323.png" /></p>
-<p>Create the equations of motion and solve the differential algebraic equations (DAE) for a two-bar system under the force of gravity. The system consists of two bars, <span class="math notranslate nohighlight">\(l^2=l^3\)</span>=1 m each <span class="math notranslate nohighlight">\(m^1=m^2\)</span>=1 kg. You can modify the solution for the one-bar system given in <strong>A</strong>.</p>
-<p>a. Use <span class="math notranslate nohighlight">\(\theta^2\)</span> and <span class="math notranslate nohighlight">\(\theta^3\)</span> as your independent coordinates</p>
-<p>b. Plot <span class="math notranslate nohighlight">\(\theta^2\)</span>-vs-t and <span class="math notranslate nohighlight">\(\theta^3\)</span>-vs-t if the system is released from rest at <span class="math notranslate nohighlight">\(\theta^2=\theta^3=0\)</span></p>
-<p>c. Plot <span class="math notranslate nohighlight">\(\theta^2\)</span>-vs-t and <span class="math notranslate nohighlight">\(\theta^3\)</span>-vs-t if the system is released from rest at <span class="math notranslate nohighlight">\(\theta^2=0\)</span> and <span class="math notranslate nohighlight">\(\theta^3=\pi/18\)</span></p>
-<p>d. Create an animation of (c)</p>
-<div class="section" id="a-solution-of-link-pinned-to-ground-at-origin">
-<h2>A. Solution of link pinned to ground at origin<a class="headerlink" href="#a-solution-of-link-pinned-to-ground-at-origin" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="homework-8">
+<h1>Homework #8<a class="headerlink" href="#homework-8" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
+<p><img alt="two bodies: sliding block and compound pendulum" src="../_images/spring_compound-2_bodies.svg" /></p>
+<p>For the system shown above, block one slides along the x-axis and is attached via a pin to a link, body 2. The system has the following characteristics,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m^1 = 0.1~kg\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(k = 40~N/m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{spring} = -k(R_x^1-0.2)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(l^2 = 1~m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^2 = 1~kg\)</span></p></li>
+</ul>
+<p>Use the <strong>embedding technique</strong> to solve for the dynamic response for the system. Separate the generalized coordinates are separated into <em>dependent</em> and <em>independent</em> coordinates as such</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{q} = [\mathbf{q}_d,~\mathbf{q}_i]\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{q}_d = [R_y^1,~\theta^1,~R_x^2,~R_y^2]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{q}_i = [R_x^1,~\theta^2]\)</span></p></li>
+</ul>
+<p>This distinction creates two second order differential equations, where <span class="math notranslate nohighlight">\(n=3\times(\#~bodies)\)</span> and <span class="math notranslate nohighlight">\(n_c=number~of~constraints\)</span>. The equations of motion are as such</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{B^TMB +B^TM\gamma-B^TQ_e = 0}\)</span></p>
+<p>where,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{B}=\left[\begin{array}{c}-\mathbf{C_{q_d}^{-1}C_{q_i}} \\\bar{I}\end{array}\right]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma = \left[\begin{array}{c}
+~\mathbf{-C_{q_d}^{-1}[(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}] \\
+\mathbf{0}\end{array}\right] = \left[\begin{array}{c}
+~\mathbf{C_{q_d}^{-1}[Q_d]} \\
+\mathbf{0}\end{array}\right]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{C_{q_d}}~and~\mathbf{C_{q_i}}\)</span> are the Jacobian of constraints for <em>dependent</em> and <em>independent</em> coordinates, respectively</p></li>
+</ul>
+<p>You will define the following functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C_sys</span></code> the 4 constraint equations for the system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cq_sys</span></code> the Jacobian of the system <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">C_sys/dq</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Bi_link</span></code> the array <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> that transforms <span class="math notranslate nohighlight">\(\delta \mathbf{q_i}\)</span> to <span class="math notranslate nohighlight">\(\delta \mathbf{q}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eom_sys</span></code> the final equation of motion using the embedding technique</p></li>
+</ul>
+<div class="section" id="define-mathbf-a-and-mathbf-a-theta">
+<h3>Define <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{A}_\theta\)</span><a class="headerlink" href="#define-mathbf-a-and-mathbf-a-theta" title="Permalink to this headline">¶</a></h3>
+<p>Here, you create two functions to rotate from the body coordinate system at angle <span class="math notranslate nohighlight">\(\theta\)</span> to the global coordinate system. The derivate, <span class="math notranslate nohighlight">\(\mathbf{A}_\theta\)</span> will be used in the Jacobian and equations of motion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotA</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
@@ -529,37 +539,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">C_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;2 constraint equations for 3 generalized coords</span>
-<span class="sd">       q=[R1x,R1y,a1]</span>
-<span class="sd">       q=[R1,     a1]</span>
-<span class="sd">         [0,1     2 ]</span>
-<span class="sd">         </span>
-<span class="sd">              1/</span>
-<span class="sd">              /     pinned link</span>
-<span class="sd">             O    </span>
-<span class="sd">       -----^^^-------------</span>
-<span class="sd">            </span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    q : numpy array for 9 generalized coordinates for bodies 1-3 in the slider crank</span>
-<span class="sd">        q = [q1]</span>
-<span class="sd">    t : current time</span>
-<span class="sd">    </span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    C : 2 constraint equation evaluations</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-    <span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">q1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">rotA</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">C</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Define Jacobian of pin constraint as <code class="docutils literal notranslate"><span class="pre">Cq_pin</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cq_pin</span><span class="p">(</span><span class="n">qi</span><span class="p">,</span> <span class="n">qj</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="n">uj</span><span class="p">):</span>
@@ -585,1049 +565,29 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cq_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;return Jacobian of C_slidercrank(q,t) = dC/dq_i</span>
-<span class="sd">       |dC1/dR1x dC1/dR1y dC1/da3 |</span>
-<span class="sd">       |dC2/dR1x dC2/dR1y dC2/da3 |</span>
-<span class="sd">    </span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    q : numpy array for 3 generalized coordinates for body 1 in the rotating link</span>
-<span class="sd">        q = [q1]</span>
-<span class="sd">    t : current time</span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    Cq : 2 rows x 3 columns Jacobian of constraints `C_link`   </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-    
-    <span class="n">Cq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-    <span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cq_pin</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">Cq</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Define some definitions for <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(A_\theta\)</span> and g</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">system</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;define gravity for m-s, ft-s,mm-s&#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">system</span><span class="o">==</span><span class="s1">&#39;ms&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mf">9.81</span>
-    <span class="k">elif</span> <span class="n">system</span><span class="o">==</span><span class="s1">&#39;fts&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mf">32.2</span>
-    <span class="k">elif</span> <span class="n">system</span><span class="o">==</span><span class="s1">&#39;mms&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mf">9.81e3</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;warning: system not defined yet, giving you 9.81 m/s/s&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="mf">9.81</span>
-  
-</pre></div>
-</div>
-</div>
-</div>
-<p>Define constraint formed by a pin constraint</p>
-<p>Define Jacobian of pin constraint</p>
-<p>The bar uses the first three columns of the pin-constraint Jacobian</p>
-<p>(unless you add q1 for the ground link)</p>
-<p><span class="math notranslate nohighlight">\(\mathbf{B_i}=[-\mathbf{C_{q_d}^{-1}C_{q_i}},~\bar{I}]^T\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Bi_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;B.T*M*B-B.T*Qe = 0 &#39;&#39;&#39;</span>
-    <span class="n">Cq</span> <span class="o">=</span> <span class="n">Cq_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">Cqd</span><span class="o">=</span><span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">Cqi</span><span class="o">=</span><span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1">#print(-np.linalg.inv(Cqd)@Cqi)</span>
-    <span class="n">Bi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Cqd</span><span class="p">)</span><span class="nd">@Cqi</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
-    <span class="k">return</span> <span class="n">Bi</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Bi_link</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-5.000000e-01],
-       [ 3.061617e-17],
-       [ 1.000000e+00]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The equation of motion for the general embedding method is as such</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{B^TMB +B^TM\gamma-B^TQ_e = 0}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\gamma = \left[\begin{array}
-\mathbf{-C_{qd}^{-1}[(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}] \\
-\mathbf{0}\end{array}\right] = \left[\begin{array}
-\mathbf{C_{qd}^{-1}[Q_d]} \\
-\mathbf{0}\end{array}\right]\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{B}=\mathbf{B(q)}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{\gamma = \gamma}(\mathbf{q,~\dot{q},}~t)\)</span>. This presents a system of <strong>differential algebraic equations</strong>. You need to solve for <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(\dot{\mathbf{q}}\)</span> at each step. The one-bar and two-bar linkage contraints do not time-dependent terms so  <span class="math notranslate nohighlight">\(\mathbf{\gamma}=\mathbf{0}\)</span>.</p>
-<p>Solution process:</p>
-<ol class="simple">
-<li><p>define a <code class="docutils literal notranslate"><span class="pre">global</span></code> variable <code class="docutils literal notranslate"><span class="pre">q0</span></code> that updates the initial guess for <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)=\mathbf{0}\)</span></p></li>
-<li><p>Use <em>state</em> <span class="math notranslate nohighlight">\(y=[\theta^1,~\dot{\theta}^1]\)</span> to add constraints to <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)\)</span></p></li>
-<li></li>
-</ol>
-<p>Define equation of motion to return <span class="math notranslate nohighlight">\(\dot{y}=[\dot{\theta}^1,~\ddot{\theta}^1]^T\)</span> and <span class="math notranslate nohighlight">\(\mathbf{q}= [R_x^1,~R_y^1,~\theta^1]^T\)</span>, where <span class="math notranslate nohighlight">\(y=[\theta^1,~\dot{\theta}^1]^T\)</span> and <span class="math notranslate nohighlight">\(\mathbf{q} \)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l1</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">q0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">eom_bar</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">l1</span><span class="p">,</span> <span class="n">mi</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;    </span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ti : current time</span>
-<span class="sd">    y : numpy array for independent generalized coordinates for body 1 in the rotating link</span>
-<span class="sd">        y = [theta, dtheta/dt]</span>
-<span class="sd">    </span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    dy : derivative for the independent generalized coordinate for body 1</span>
-<span class="sd">         dy = [dtheta/dt, ddtheta/ddt]</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">global</span> <span class="n">q0</span>
-    
-    <span class="n">q0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
-    <span class="n">q</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">C_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span><span class="n">q0</span><span class="p">,</span> \
-                  <span class="n">fprime</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Cq_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))))</span>
-    
-    <span class="n">Bi</span> <span class="o">=</span> <span class="n">Bi_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="n">mi</span><span class="p">,</span><span class="n">mi</span><span class="p">,</span><span class="n">mi</span><span class="o">*</span><span class="n">li</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span><span class="p">])</span>
-    <span class="n">Qe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">mi</span><span class="o">*</span><span class="n">g</span><span class="p">(),</span> <span class="mi">0</span><span class="p">])</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">dy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">dy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">Bi</span><span class="o">.</span><span class="n">T</span><span class="nd">@M@Bi</span><span class="p">,</span><span class="n">Bi</span><span class="o">.</span><span class="n">T</span><span class="nd">@Qe</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">dy</span><span class="p">,</span> <span class="n">q</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eom_bar</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">36760</span><span class="n">ea1785b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">eom_bar</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="nn">&lt;ipython-input-11-e62af155644b&gt;</span> in <span class="ni">eom_bar</span><span class="nt">(ti, y, li, mi)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">q0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> 
-<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">q</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">C_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span><span class="n">q0</span><span class="p">,</span> \
-<span class="g g-Whitespace">     </span><span class="mi">21</span>                   <span class="n">fprime</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Cq_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))))</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> 
-
-<span class="nn">~/.conda/envs/work/lib/python3.9/site-packages/scipy/optimize/minpack.py</span> in <span class="ni">fsolve</span><span class="nt">(func, x0, args, fprime, full_output, col_deriv, xtol, maxfev, band, epsfcn, factor, diag)</span>
-<span class="g g-Whitespace">    </span><span class="mi">158</span>                <span class="s1">&#39;diag&#39;</span><span class="p">:</span> <span class="n">diag</span><span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">159</span> 
-<span class="ne">--&gt; </span><span class="mi">160</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">_root_hybr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">jac</span><span class="o">=</span><span class="n">fprime</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span>     <span class="k">if</span> <span class="n">full_output</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">162</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
-
-<span class="nn">~/.conda/envs/work/lib/python3.9/site-packages/scipy/optimize/minpack.py</span> in <span class="ni">_root_hybr</span><span class="nt">(func, x0, args, jac, col_deriv, xtol, maxfev, band, eps, factor, diag, **unknown_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span>         <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">args</span><span class="p">,)</span>
-<span class="ne">--&gt; </span><span class="mi">226</span>     <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">_check_func</span><span class="p">(</span><span class="s1">&#39;fsolve&#39;</span><span class="p">,</span> <span class="s1">&#39;func&#39;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,))</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>     <span class="k">if</span> <span class="n">epsfcn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>         <span class="n">epsfcn</span> <span class="o">=</span> <span class="n">finfo</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
-
-<span class="nn">~/.conda/envs/work/lib/python3.9/site-packages/scipy/optimize/minpack.py</span> in <span class="ni">_check_func</span><span class="nt">(checker, argname, thefunc, x0, args, numinputs, output_shape)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="k">def</span> <span class="nf">_check_func</span><span class="p">(</span><span class="n">checker</span><span class="p">,</span> <span class="n">argname</span><span class="p">,</span> <span class="n">thefunc</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">numinputs</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>                 <span class="n">output_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">24</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">thefunc</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">x0</span><span class="p">[:</span><span class="n">numinputs</span><span class="p">],)</span> <span class="o">+</span> <span class="n">args</span><span class="p">)))</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="k">if</span> <span class="p">(</span><span class="n">output_shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">output_shape</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="k">if</span> <span class="p">(</span><span class="n">output_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">):</span>
-
-<span class="nn">&lt;ipython-input-11-e62af155644b&gt;</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(q)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">q0</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> 
-<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">q</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">C_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span><span class="n">q0</span><span class="p">,</span> \
-<span class="g g-Whitespace">     </span><span class="mi">21</span>                   <span class="n">fprime</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Cq_link</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))))</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> 
-
-<span class="ne">NameError</span>: name &#39;t&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.030612244897959183
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> only solves odes of the form <code class="docutils literal notranslate"><span class="pre">dy=f(t,y)</span></code> so we create an ode function that fits this form.</p>
-<p>Then, we can integrate and post-process.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">mi</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
-<span class="n">sol</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">eom_bar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_span</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;angle (deg)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;independent general coord theta&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;independent general coord theta&#39;)
-</pre></div>
-</div>
-<img alt="../_images/HW_08_24_1.png" src="../_images/HW_08_24_1.png" />
-</div>
-</div>
-<p>We can plug in our solution <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> for <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> as a function of time to get the other generalized coordinates.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="n">dy</span><span class="p">,</span> <span class="n">qi</span> <span class="o">=</span> <span class="n">eom_bar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">qi</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-position (m)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y-position (m)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;path of link COM&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;path of link COM&#39;)
-</pre></div>
-</div>
-<img alt="../_images/HW_08_27_1.png" src="../_images/HW_08_27_1.png" />
-</div>
-</div>
-<p>and even animate our results</p>
-</div>
-<div class="section" id="animate-the-motion">
-<h2>Animate the motion<a class="headerlink" href="#animate-the-motion" title="Permalink to this headline">¶</a></h2>
-<p>Next, you animate the motion of the system. Below, you create</p>
-<ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">plot_shape</span></code> to create lines and markers to represent links and the sliding base</p></li>
-<li><p>a figure that shows the path of the two link centers of mass
-3.<code class="docutils literal notranslate"><span class="pre">init</span></code> to initialize the animation</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">animate</span></code> to update the two links and sliding base</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code> to display the motion of the slidercrank system</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    function to plot a shape based upon the shape dimensions and coordinates</span>
-<span class="sd">    arguments:</span>
-<span class="sd">    ----------</span>
-<span class="sd">    shape: either &#39;link&#39; or &#39;base&#39;,</span>
-<span class="sd">            - the link returns two points to plot as a line</span>
-<span class="sd">            - the base returns one point to plot as a marker</span>
-<span class="sd">            - if neither &#39;link&#39; or &#39;base&#39; are chosen, then 0 is returned and warning printed </span>
-<span class="sd">            `choose a \&#39;link\&#39; or \&#39;base\&#39; please`</span>
-<span class="sd">    dims: the dimensions of the shape</span>
-<span class="sd">            - the link uses the first value as the length</span>
-<span class="sd">            - the base ignores the `dims`</span>
-<span class="sd">    q: generalized coordinates in the form [Rx, Ry, theta]</span>
-<span class="sd">            - the link returns the center of the link at (Rx, Ry) and oriented at theta</span>
-<span class="sd">            - the base returns the center at (Rx, Ry) and ignores theta</span>
-<span class="sd">    returns:</span>
-<span class="sd">    --------</span>
-<span class="sd">    datax: coordinates to plot the x-positions</span>
-<span class="sd">    datay: coordinates to plot the y-positions</span>
-<span class="sd">            - the link returns array of length 2</span>
-<span class="sd">            - the base returns array of length 1</span>
-<span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="k">if</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;link&#39;</span><span class="p">:</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="n">rotA</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="n">rotA</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-        <span class="n">Px</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-        <span class="n">Py</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">right</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-        <span class="n">datax</span> <span class="o">=</span> <span class="n">Px</span>
-        <span class="n">datay</span> <span class="o">=</span> <span class="n">Py</span>
-        <span class="c1">#l,= plt.plot(Px,Py,&#39;o-&#39;)</span>
-        <span class="k">return</span> <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span>
-    <span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;base&#39;</span><span class="p">:</span>
-        <span class="n">Px</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">Py</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">]</span>
-        <span class="c1">#l,=plt.plot(Px,Py,&#39;s&#39;,markersize=20)</span>
-        <span class="k">return</span> <span class="n">data</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;choose a </span><span class="se">\&#39;</span><span class="s1">link</span><span class="se">\&#39;</span><span class="s1"> or </span><span class="se">\&#39;</span><span class="s1">base</span><span class="se">\&#39;</span><span class="s1"> please&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="initialize-the-lines-and-coordinate-system">
-<h3>2. initialize the lines and coordinate system<a class="headerlink" href="#initialize-the-lines-and-coordinate-system" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">link1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">body3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">path1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">q1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis (m)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis (m)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;link motion and paths&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;link motion and paths&#39;)
-</pre></div>
-</div>
-<img alt="../_images/HW_08_32_1.png" src="../_images/HW_08_32_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot">
-<h3>3. and 4. create your <code class="docutils literal notranslate"><span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">animation</span></code> functions to update the lines on the plot<a class="headerlink" href="#and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot" title="Permalink to this headline">¶</a></h3>
-<p>Create an initializing (<code class="docutils literal notranslate"><span class="pre">init</span></code>) function that clears the previous lines and markers</p>
-<p>Create an animating (<code class="docutils literal notranslate"><span class="pre">animate</span></code>) function that updates the link, base, and path</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
-    <span class="n">link1</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">link1</span><span class="p">,</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;function that updates the line and marker data</span>
-<span class="sd">    arguments:</span>
-<span class="sd">    ----------</span>
-<span class="sd">    i: index of timestep</span>
-<span class="sd">    outputs:</span>
-<span class="sd">    --------</span>
-<span class="sd">    link1: the line object plotted in the above ax.plot(...)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-
-    <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">plot_shape</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="p">]),</span> <span class="n">q1</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
-    <span class="n">link1</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="p">(</span><span class="n">link1</span><span class="p">,</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="display-the-result-in-an-html-video">
-<h4>4. display the result in an HTML video<a class="headerlink" href="#display-the-result-in-an-html-video" title="Permalink to this headline">¶</a></h4>
-<p>Import the <code class="docutils literal notranslate"><span class="pre">animation</span></code> and <code class="docutils literal notranslate"><span class="pre">HTML</span></code> functions. Then, create an animation (<code class="docutils literal notranslate"><span class="pre">anim</span></code>) variable using the <code class="docutils literal notranslate"><span class="pre">animation.FuncAnimation</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
-                               <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
-                               <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><video width="432" height="288" controls autoplay loop>
-  <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAiPltZGF0AAACrgYF//+q
-3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MSByMzAzOSA1NDRjNjFmIC0gSC4yNjQvTVBF
-Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMSAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
-b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFs
-eXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVk
-X3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBk
-ZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTkg
-bG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRl
-cmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJf
-cHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9
-MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTIwIHNjZW5lY3V0PTQwIGludHJhX3Jl
-ZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAu
-NjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAX
-H2WIhAA3//728P4FNffA0JcRzeidMx/Jt8JNXpUBkmm8orhUXzhKyO8yCLTLhLjiwa8dhxML5jij
-AwI9Qb5Yz11EDekgsycXms8Lq8+TemKAtkspoA3AXU0D8sy+AFeajS9zA2+zIUPSIkh+aiw5FqDL
-HWslgdt1Rc8ybQVtXbqSu44SIzEExHsFd4J/sKNT8b4BKVUlEQPAFYr930bM4qJtikmeU9AjNTHp
-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
-">
-  Your browser does not support the video tag.
-</video></div></div>
-</div>
-</div>
-</div>
-</div>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/P605.png" /></p>
+</div>
+</div>
+<div class="section" id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
+<p>Create the system of equations using the <strong>augmented technique</strong>. Solve these equations numerically using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> and plot the position and orientation of the links for one revolution of the crankshaft. Assume that <span class="math notranslate nohighlight">\(M^2\)</span> = 10N-m, <span class="math notranslate nohighlight">\(F^4\)</span> = 15N, <span class="math notranslate nohighlight">\(\theta^2\)</span> = 45<span class="math notranslate nohighlight">\(^o\)</span>, and <span class="math notranslate nohighlight">\(\dot{\theta}^2\)</span>=150 rad/s.</p>
+<p>The <strong>augmented technique</strong> is a generalized method to solve for the dynamic response in a system of moving parts. The system of <em>differential algebraic equations</em> (DAE) are solve for all generalized coordinates and constraint forces in a system of equations,</p>
+</div>
+</div>
+<div class="section" id="left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+<h1>$\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]<a class="headerlink" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right" title="Permalink to this headline">¶</a></h1>
+<p>\left[\begin{array}
+~\mathbf{Q_e}  \
+\mathbf{Q_d}\end{array}\right]$</p>
+<ul class="simple">
+<li><p>Plot the angles of the two connecting links and the position of the sliding block at point B.</p></li>
+<li><p>Plot the reaction forces at O, A, and B.</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1656,7 +616,7 @@ dAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OC40NS4xMDA=
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="HW_07.html" title="previous page">Homework #7  Kinematics</a>
-    <a class='right-next' id="next-link" href="HW_09.html" title="next page">Homework #9 - <em>work in progress</em></a>
+    <a class='right-next' id="next-link" href="../quiz_work/quizzes.html" title="next page">Quiz Review Material</a>
 
         </div>
         
