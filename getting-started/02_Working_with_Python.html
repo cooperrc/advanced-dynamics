@@ -188,6 +188,59 @@
      Building Constraints in SymPy
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html">
+     Augmented solution for one-bar linkage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#id1">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
+     \left[\begin{matrix}
+\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
+\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
+\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
+\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
+\left[\begin{array}
+~\ddot{R}_x^1 \
+\ddot{R}_y^1 \
+\ddot{\theta} \
+\lambda_1\
+\lambda_2\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
+     \left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}
+     <em>
+      2^{2} \cos{\left(q
+     </em>
+     {2} \right)}}{2}- \frac{L_{1} \dot{q}
+     <em>
+      2^{2} \sin{\left(q
+     </em>
+     {2} \right)}}{2}\end{matrix}\right]
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -230,16 +283,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_08.html">
      Homework #8
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../homeworks/HW_08.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
     </a>
    </li>
   </ul>
@@ -1313,8 +1356,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[90, 57, 99, 96, 88, 36, 55, 7, 28, 61]
-[95, 91, 54, 46, 35, 18, 67, 11, 77, 26]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[66, 3, 38, 4, 22, 1, 70, 81, 21, 72]
+[58, 67, 99, 30, 71, 76, 3, 95, 28, 66]
 </pre></div>
 </div>
 </div>
@@ -1331,8 +1374,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 9 µs, sys: 9 µs, total: 18 µs
-Wall time: 20 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 7 µs, total: 15 µs
+Wall time: 17.2 µs
 </pre></div>
 </div>
 </div>
@@ -1344,7 +1387,7 @@ Wall time: 20 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[185, 148, 153, 142, 123, 54, 122, 18, 105, 87]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[124, 70, 137, 34, 93, 77, 73, 176, 49, 138]
 </pre></div>
 </div>
 </div>
@@ -1370,8 +1413,8 @@ Wall time: 20 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[56 60 93  3 45 56 27 88 89 36]
-[78 23 84 98 96 30 27 66 93 20]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[69 44 23 11 39 85 69  2 54 89]
+[80 91 26 35 63 29 80 74 44 27]
 </pre></div>
 </div>
 </div>
@@ -1385,8 +1428,8 @@ Wall time: 20 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5 µs, sys: 5 µs, total: 10 µs
-Wall time: 11.9 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10 µs, sys: 0 ns, total: 10 µs
+Wall time: 11.2 µs
 </pre></div>
 </div>
 </div>
@@ -1469,7 +1512,7 @@ Wall time: 11.9 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f72a41d0910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f5b328469d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_103_1.png" src="../_images/02_Working_with_Python_103_1.png" />
@@ -1586,8 +1629,8 @@ of the two indices from 0 to 9 e.g. A_99[3,2]=6 and A_99[4,4]=16.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14 µs, sys: 8 µs, total: 22 µs
-Wall time: 24.3 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16 µs, sys: 8 µs, total: 24 µs
+Wall time: 26 µs
 </pre></div>
 </div>
 </div>
@@ -1631,11 +1674,11 @@ stdev of A_99 20.054612935681405
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.3 ms, sys: 0 ns, total: 15.3 ms
-Wall time: 16.8 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.5 ms, sys: 888 µs, total: 16.4 ms
+Wall time: 14.5 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f725fffe730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f5b3267f730&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_118_2.png" src="../_images/02_Working_with_Python_118_2.png" />

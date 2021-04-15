@@ -188,6 +188,59 @@
      Building Constraints in SymPy
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html">
+     Augmented solution for one-bar linkage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#id1">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
+     \left[\begin{matrix}
+\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
+\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
+\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
+\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
+\left[\begin{array}
+~\ddot{R}_x^1 \
+\ddot{R}_y^1 \
+\ddot{\theta} \
+\lambda_1\
+\lambda_2\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
+     \left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}
+     <em>
+      2^{2} \cos{\left(q
+     </em>
+     {2} \right)}}{2}- \frac{L_{1} \dot{q}
+     <em>
+      2^{2} \sin{\left(q
+     </em>
+     {2} \right)}}{2}\end{matrix}\right]
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -230,16 +283,6 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Homework #8
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
     </a>
    </li>
   </ul>
@@ -400,45 +443,28 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Homework #8
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
+   Problem 1
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-1">
-     Problem 1
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-mathbf-a-and-mathbf-a-theta">
-       Define
-       <span class="math notranslate nohighlight">
-        \(\mathbf{A}\)
-       </span>
-       and
-       <span class="math notranslate nohighlight">
-        \(\mathbf{A}_\theta\)
-       </span>
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-2">
-     Problem 2
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-mathbf-a-and-mathbf-a-theta">
+     Define
+     <span class="math notranslate nohighlight">
+      \(\mathbf{A}\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(\mathbf{A}_\theta\)
+     </span>
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-   $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-2">
+   Problem 2
   </a>
  </li>
 </ul>
@@ -572,22 +598,20 @@
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
 <p>Create the system of equations using the <strong>augmented technique</strong>. Solve these equations numerically using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> and plot the position and orientation of the links for one revolution of the crankshaft. Assume that <span class="math notranslate nohighlight">\(M^2\)</span> = 10N-m, <span class="math notranslate nohighlight">\(F^4\)</span> = 15N, <span class="math notranslate nohighlight">\(\theta^2\)</span> = 45<span class="math notranslate nohighlight">\(^o\)</span>, and <span class="math notranslate nohighlight">\(\dot{\theta}^2\)</span>=150 rad/s.</p>
 <p>The <strong>augmented technique</strong> is a generalized method to solve for the dynamic response in a system of moving parts. The system of <em>differential algebraic equations</em> (DAE) are solve for all generalized coordinates and constraint forces in a system of equations,</p>
-</div>
-</div>
-<div class="section" id="left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-<h1>$\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \\
 \mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
 \left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]<a class="headerlink" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right" title="Permalink to this headline">¶</a></h1>
-<p>\left[\begin{array}
-~\mathbf{Q_e}  \
-\mathbf{Q_d}\end{array}\right]$</p>
+~\mathbf{\ddot{q}} \\
+\mathbf{\lambda}\end{array}\right] =
+\left[\begin{array}
+~\mathbf{Q_e}  \\
+\mathbf{Q_d}\end{array}\right]\)</span></p>
 <ul class="simple">
 <li><p>Plot the angles of the two connecting links and the position of the sliding block at point B.</p></li>
 <li><p>Plot the reaction forces at O, A, and B.</p></li>
 </ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

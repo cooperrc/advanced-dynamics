@@ -188,6 +188,59 @@
      Building Constraints in SymPy
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="augment-solution.html">
+     Augmented solution for one-bar linkage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="augment-solution.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="augment-solution.html#id1">
+     $\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \
+\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \
+\mathbf{\lambda}\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="augment-solution.html#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
+     \left[\begin{matrix}
+\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
+\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
+\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
+\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
+\left[\begin{array}
+~\ddot{R}_x^1 \
+\ddot{R}_y^1 \
+\ddot{\theta} \
+\lambda_1\
+\lambda_2\end{array}\right]
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="augment-solution.html#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
+     \left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}
+     <em>
+      2^{2} \cos{\left(q
+     </em>
+     {2} \right)}}{2}- \frac{L_{1} \dot{q}
+     <em>
+      2^{2} \sin{\left(q
+     </em>
+     {2} \right)}}{2}\end{matrix}\right]
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -230,16 +283,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_08.html">
      Homework #8
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../homeworks/HW_08.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
     </a>
    </li>
   </ul>
@@ -796,7 +839,7 @@ x\end{array}\right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f0a8dc57430&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f217a89a2e0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/spring-pendulum_22_1.png" src="../_images/spring-pendulum_22_1.png" />

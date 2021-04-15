@@ -56,6 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dynamics Homeworks" href="../assignments.html" />
+    <link rel="prev" title="Building Constraints in SymPy" href="symbolic_constraints.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -92,7 +94,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../syllabus.html">
    Syllabus: ME 5180 Spring 2021
@@ -151,11 +153,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="intro.html">
    Modeling results
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="rotating_pendulum.html">
      Rotating Pendulum solution - integrating equation of motion
@@ -184,6 +186,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="symbolic_constraints.html">
      Building Constraints in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Augmented solution for one-bar linkage
     </a>
    </li>
   </ul>
@@ -228,16 +235,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_08.html">
      Homework #8
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../homeworks/HW_08.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
     </a>
    </li>
   </ul>
@@ -398,182 +395,123 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Augmented solution for one-bar linkage
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview-embedding-technique">
+   Overview: embedding technique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#system-link-pinned-to-ground">
+   System: link pinned to ground
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overview-embedding-technique">
-     Overview: embedding technique
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-generalized-coordinates-mathbf-q-and-dot-mathbf-q">
+     1. Define generalized coordinates
+     <span class="math notranslate nohighlight">
+      \(\mathbf{q}\)
+     </span>
+     and
+     <span class="math notranslate nohighlight">
+      \(\dot{\mathbf{q}}\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathbf-c-mathbf-q-t-c-link-lambdify">
+     2.
+     <span class="math notranslate nohighlight">
+      \(\mathbf{C}(\mathbf{q},~t)\)
+     </span>
+     :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       C_link
+      </span>
+      <span class="pre">
+       =
+      </span>
+      <span class="pre">
+       lambdify
+      </span>
+      <span class="pre">
+       ...
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathbf-c-q-cq-link-lambdify">
+     3.
+     <span class="math notranslate nohighlight">
+      \(\mathbf{C_q}\)
+     </span>
+     :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Cq_link
+      </span>
+      <span class="pre">
+       =
+      </span>
+      <span class="pre">
+       lambdify
+      </span>
+      <span class="pre">
+       ...
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathbf-q-d-mathbf-c-q-dot-q-q-dot-q-2c-qt-dot-q-c-tt-qd-link-lambdify">
+     4.
+     <span class="math notranslate nohighlight">
+      \(\mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}]\)
+     </span>
+     :
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Qd_link
+      </span>
+      <span class="pre">
+       =
+      </span>
+      <span class="pre">
+       lambdify
+      </span>
+      <span class="pre">
+       ...
+      </span>
+     </code>
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-   $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#system-link-pinned-to-ground">
-     System: link pinned to ground
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-generalized-coordinates-mathbf-q-and-dot-mathbf-q">
-       1. Define generalized coordinates
-       <span class="math notranslate nohighlight">
-        \(\mathbf{q}\)
-       </span>
-       and
-       <span class="math notranslate nohighlight">
-        \(\dot{\mathbf{q}}\)
-       </span>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mathbf-c-mathbf-q-t-c-link-lambdify">
-       2.
-       <span class="math notranslate nohighlight">
-        \(\mathbf{C}(\mathbf{q},~t)\)
-       </span>
-       :
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         C_link
-        </span>
-        <span class="pre">
-         =
-        </span>
-        <span class="pre">
-         lambdify
-        </span>
-        <span class="pre">
-         ...
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mathbf-c-q-cq-link-lambdify">
-       3.
-       <span class="math notranslate nohighlight">
-        \(\mathbf{C_q}\)
-       </span>
-       :
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Cq_link
-        </span>
-        <span class="pre">
-         =
-        </span>
-        <span class="pre">
-         lambdify
-        </span>
-        <span class="pre">
-         ...
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#mathbf-q-d-mathbf-c-q-dot-q-q-dot-q-2c-qt-dot-q-c-tt-qd-link-lambdify">
-       4.
-       <span class="math notranslate nohighlight">
-        \(\mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}]\)
-       </span>
-       :
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Qd_link
-        </span>
-        <span class="pre">
-         =
-        </span>
-        <span class="pre">
-         lambdify
-        </span>
-        <span class="pre">
-         ...
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#baumgarte-stabilization">
+   Baumgarte stabilization
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
-   \left[\begin{matrix}
-\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
-\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
-\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
-\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
-\left[\begin{array}
-~\ddot{R}_x^1 \
-\ddot{R}_y^1 \
-\ddot{\theta} \
-\lambda_1\
-\lambda_2\end{array}\right]
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-dae-and-system-constants">
+   Define DAE and System constants
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
-   \left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}
-   <em>
-    2^{2} \cos{\left(q
-   </em>
-   {2} \right)}}{2}- \frac{L_{1} \dot{q}
-   <em>
-    2^{2} \sin{\left(q
-   </em>
-   {2} \right)}}{2}\end{matrix}\right]
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solve-and-plot-results">
+   Solve and plot results
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#baumgarte-stabilization">
-     Baumgarte stabilization
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-dae-and-system-constants">
-     Define DAE and System constants
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solve-and-plot-results">
-     Solve and plot results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#animate-the-reaction-forces">
-     Animate the reaction forces
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wrapping-up">
-     Wrapping up
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#animate-the-reaction-forces">
+   Animate the reaction forces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wrapping-up">
+   Wrapping up
+  </a>
  </li>
 </ul>
 
@@ -587,7 +525,7 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
@@ -604,18 +542,15 @@
 <div class="section" id="overview-embedding-technique">
 <h2>Overview: embedding technique<a class="headerlink" href="#overview-embedding-technique" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>augmented technique</strong> is a generalized method to solve for the dynamic response in a system of moving parts. The system of <em>differential algebraic equations</em> (DAE) are solve for all generalized coordinates and constraint forces in a system of equations,</p>
-</div>
-</div>
-<div class="section" id="left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-<h1>$\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \\
 \mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
 \left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]<a class="headerlink" href="#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right" title="Permalink to this headline">¶</a></h1>
-<p>\left[\begin{array}
-~\mathbf{Q_e}  \
-\mathbf{Q_d}\end{array}\right]$</p>
+~\mathbf{\ddot{q}} \\
+\mathbf{\lambda}\end{array}\right]=
+\left[\begin{array}
+~\mathbf{Q_e}  \\
+\mathbf{Q_d}\end{array}\right]\)</span></p>
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{M}\)</span> is a diagonal mass matrix for each body,</p></li>
@@ -626,6 +561,7 @@
 <li><p><span class="math notranslate nohighlight">\(\mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}]\)</span> are the constraints on acceleration.</p></li>
 </ul>
 <p>The resulting linear algebra equation creates <span class="math notranslate nohighlight">\(n+n_c\)</span> linearly independent equations. This is much larger than the <em>embedding technique</em> with <span class="math notranslate nohighlight">\(n-n_c\)</span> equations, but the left hand side matrix is very sparse. As an example, consider a link pinned to the ground</p>
+</div>
 <div class="section" id="system-link-pinned-to-ground">
 <h2>System: link pinned to ground<a class="headerlink" href="#system-link-pinned-to-ground" title="Permalink to this headline">¶</a></h2>
 <p><img alt="link pinned to ground" src="../_images/ground-pin.svg" /></p>
@@ -643,7 +579,7 @@
 <li><p><span class="math notranslate nohighlight">\(\mathbf{C_q}\)</span>:<code class="docutils literal notranslate"><span class="pre">Cq_link</span> <span class="pre">=</span> <span class="pre">lambdify</span> <span class="pre">...</span></code></p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}]\)</span>: <code class="docutils literal notranslate"><span class="pre">Qd_link</span> <span class="pre">=</span> <span class="pre">lambdify</span> <span class="pre">...</span></code></p></li>
 </ol>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
 </pre></div>
@@ -653,7 +589,7 @@
 <div class="section" id="define-generalized-coordinates-mathbf-q-and-dot-mathbf-q">
 <h3>1. Define generalized coordinates <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(\dot{\mathbf{q}}\)</span><a class="headerlink" href="#define-generalized-coordinates-mathbf-q-and-dot-mathbf-q" title="Permalink to this headline">¶</a></h3>
 <p>The generalized coordinates <span class="math notranslate nohighlight">\(\mathbf{q} = [R_x^1,~R_y^1,~\theta^1]\)</span>, are defined as follows,</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="s1">&#39;q_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
@@ -672,7 +608,7 @@
 <div class="section" id="mathbf-c-mathbf-q-t-c-link-lambdify">
 <h3>2. <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)\)</span>: <code class="docutils literal notranslate"><span class="pre">C_link</span> <span class="pre">=</span> <span class="pre">lambdify</span> <span class="pre">...</span></code><a class="headerlink" href="#mathbf-c-mathbf-q-t-c-link-lambdify" title="Permalink to this headline">¶</a></h3>
 <p>The constraints are defined as  <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)=\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;L1 ,x, t&#39;</span><span class="p">)</span>
 
@@ -692,7 +628,7 @@
 </div>
 </div>
 <p>and <span class="math notranslate nohighlight">\(\frac{\partial C}{\partial t} = C_t = \)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ct</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 
@@ -711,7 +647,7 @@
 <div class="section" id="mathbf-c-q-cq-link-lambdify">
 <h3>3. <span class="math notranslate nohighlight">\(\mathbf{C_q}\)</span>:<code class="docutils literal notranslate"><span class="pre">Cq_link</span> <span class="pre">=</span> <span class="pre">lambdify</span> <span class="pre">...</span></code><a class="headerlink" href="#mathbf-c-q-cq-link-lambdify" title="Permalink to this headline">¶</a></h3>
 <p>Then, the Jacobian of constraints, <span class="math notranslate nohighlight">\(\mathbf{C_q}=\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cq</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 
@@ -730,7 +666,7 @@
 <div class="section" id="mathbf-q-d-mathbf-c-q-dot-q-q-dot-q-2c-qt-dot-q-c-tt-qd-link-lambdify">
 <h3>4. <span class="math notranslate nohighlight">\(\mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}]\)</span>: <code class="docutils literal notranslate"><span class="pre">Qd_link</span> <span class="pre">=</span> <span class="pre">lambdify</span> <span class="pre">...</span></code><a class="headerlink" href="#mathbf-q-d-mathbf-c-q-dot-q-q-dot-q-2c-qt-dot-q-c-tt-qd-link-lambdify" title="Permalink to this headline">¶</a></h3>
 <p>The constraints on acceleration, <span class="math notranslate nohighlight">\(\mathbf{C_q \ddot{q}} = \mathbf{Q_d} = -[\mathbf{(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}] = \)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qd</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">Cq</span><span class="o">*</span><span class="n">dq</span><span class="p">)</span><span class="o">.</span><span class="n">jacobian</span><span class="p">(</span><span class="n">q</span><span class="p">)</span><span class="o">*</span><span class="n">dq</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Cq</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">dq</span> <span class="o">-</span> <span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -746,38 +682,30 @@
 </div>
 </div>
 <p>The final set of equations for the <strong>augmented method</strong> combines the differential and algebraic equations to the final form as such</p>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h1>$\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
+<p><span class="math notranslate nohighlight">\(\left[\begin{array}
+~\mathbf{M} &amp; \mathbf{C_q}^T \\
 \mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
 \left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
-<h1>\left[\begin{matrix}
-\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
-\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
-\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
-\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
+~\mathbf{\ddot{q}} \\
+\mathbf{\lambda}\end{array}\right]=
+\left[\begin{matrix}
+\left[\begin{matrix}m &amp; 0 &amp; 0\\0 &amp; m &amp; 0\\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp; 
+\left[\begin{matrix}1 &amp; 0\\0 &amp; 1\\\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\\
+\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp; 
+\left[\begin{matrix}0 &amp; 0\\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
 \left[\begin{array}
-~\ddot{R}_x^1 \
-\ddot{R}_y^1 \
-\ddot{\theta} \
-\lambda_1\
-\lambda_2\end{array}\right]<a class="headerlink" href="#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
-<h1>\left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}<em>2^{2} \cos{\left(q</em>{2} \right)}}{2}- \frac{L_{1} \dot{q}<em>2^{2} \sin{\left(q</em>{2} \right)}}{2}\end{matrix}\right]<a class="headerlink" href="#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right" title="Permalink to this headline">¶</a></h1>
-<p>\left[\begin{array}
-~\mathbf{Q_e}  \
+~\ddot{R}_x^1 \\
+\ddot{R}_y^1 \\
+\ddot{\theta} \\
+\lambda_1\\
+\lambda_2\end{array}\right]=
+\left[\begin{matrix}~0\\-mg\\0\\ -\frac{L_{1} \dot{q}_2^{2} \cos{\left(q_{2} \right)}}{2}\\- \frac{L_{1} \dot{q}_2^{2} \sin{\left(q_{2} \right)}}{2}\end{matrix}\right]=
+\left[\begin{array}
+~\mathbf{Q_e}  \\
 \mathbf{Q_d}\end{array}\right]
-$</p>
+\)</span></p>
 <p>Here, you see that the left hand side matrix is <span class="math notranslate nohighlight">\(n+n_c\times n+n_c\)</span>, but it is very sparse i.e. lots of zeros. Below, the matrix is evaluated with arbitrary inputs and each element is colored black for nonzero and white for zero.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
 <span class="n">LHS</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">BlockMatrix</span><span class="p">([[</span><span class="n">sympy</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="o">*</span><span class="n">L1</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span><span class="p">]]),</span> 
@@ -791,6 +719,8 @@ $</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/augment-solution_16_0.png" src="../_images/augment-solution_16_0.png" />
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="baumgarte-stabilization">
@@ -2631,6 +2561,8 @@ YXZmNTguNDUuMTAw
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="symbolic_constraints.html" title="previous page">Building Constraints in SymPy</a>
+    <a class='right-next' id="next-link" href="../assignments.html" title="next page">Dynamics Homeworks</a>
 
         </div>
         
