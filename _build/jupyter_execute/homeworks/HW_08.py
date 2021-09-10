@@ -1,202 +1,125 @@
-import numpy as np
-from numpy import sin,cos,pi
-from scipy.linalg import *
-from scipy.optimize import fsolve,root
-from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt
+# Homework #8
 
-def setdefaults():
-  plt.rcParams.update({'font.size': 22})
-  plt.rcParams['lines.linewidth'] = 3
+## Problem 1
 
-setdefaults()
+![two bodies: sliding block and compound pendulum](../images/spring_compound-2_bodies.svg)
+
+For the system shown above, block one slides along the x-axis and is attached via a pin to a link, body 2. The system has the following characteristics, 
+
+- $m^1 = 0.1~kg$
+- $k = 40~N/m$
+- $F_{spring} = -k(R_x^1-0.2)$
+- $l^2 = 1~m$
+- $m^2 = 1~kg$
 
 
 
-# Homework #8 - _work in progress_
+Use the __embedding technique__ to solve for the dynamic response for the system. Separate the generalized coordinates are separated into _dependent_ and _independent_ coordinates as such 
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0323.png)
+$\mathbf{q} = [\mathbf{q}_d,~\mathbf{q}_i]$.
 
-Create the equations of motion and solve the differential algebraic equations (DAE) for a two-bar system under the force of gravity. The system consists of two bars, $l^2=l^3$=1 m each $m^1=m^2$=1 kg. You can modify the solution for the one-bar system given in **A**.
+- $\mathbf{q}_d = [R_y^1,~\theta^1,~R_x^2,~R_y^2]$
+- $\mathbf{q}_i = [R_x^1,~\theta^2]$
 
-a. Use $\theta^2$ and $\theta^3$ as your independent coordinates
+This distinction creates two second order differential equations, where $n=3\times(\#~bodies)$ and $n_c=number~of~constraints$. The equations of motion are as such
 
-b. Plot $\theta^2$-vs-t and $\theta^3$-vs-t if the system is released from rest at $\theta^2=\theta^3=0$
+$\mathbf{B^TMB +B^TM\gamma-B^TQ_e = 0}$
 
-c. Plot $\theta^2$-vs-t and $\theta^3$-vs-t if the system is released from rest at $\theta^2=0$ and $\theta^3=\pi/2$
+where, 
+- $\mathbf{B}=\left[\begin{array}{c}-\mathbf{C_{q_d}^{-1}C_{q_i}} \\\bar{I}\end{array}\right]$
+- $\gamma = \left[\begin{array}{c}
+~\mathbf{-C_{q_d}^{-1}[(C_q\dot{q})_q\dot{q}+2C_{qt}\dot{q}+C_{tt}}] \\
+\mathbf{0}\end{array}\right] = \left[\begin{array}{c}
+~\mathbf{C_{q_d}^{-1}[Q_d]} \\
+\mathbf{0}\end{array}\right]$
+- $\mathbf{C_{q_d}}~and~\mathbf{C_{q_i}}$ are the Jacobian of constraints for _dependent_ and _independent_ coordinates, respectively
 
-d. Create an animation of (c)
+You will define the following functions:
+- `C_sys` the 4 constraint equations for the system
+- `Cq_sys` the Jacobian of the system `d C_sys/dq`
+- `Bi_link` the array $\mathbf{B}$ that transforms $\delta \mathbf{q_i}$ to $\delta \mathbf{q}$
+- `eom_sys` the final equation of motion using the embedding technique
 
-## A. Solution of link pinned to ground at origin
+### Define $\mathbf{A}$ and $\mathbf{A}_\theta$
 
-Define some definitions for $A$, $A_\theta$ and g
+Here, you create two functions to rotate from the body coordinate system at angle $\theta$ to the global coordinate system. The derivate, $\mathbf{A}_\theta$ will be used in the Jacobian and equations of motion. 
 
 def rotA(theta):
     '''This function returns a 2x2 rotation matrix to convert the 
     rotated coordinate to the global coordinate system
-    input is angle in radians'''
+    input is angle in radians
+        
+    Parameters
+    ----------
+    theta : angle in radians
+    
+    Returns
+    -------
+    A : 2x2 array to rotate a coordinate system at angle theta to global x-y
+    '''
     A=np.zeros((2,2))
-    A=np.array([[np.cos(theta), -np.sin(theta)],\
-                [np.sin(theta),np.cos(theta)]])
+    A=np.array([[np.cos(theta), -np.sin(theta)],
+               [np.sin(theta), np.cos(theta)]])
     
     return A
 
 def A_theta(theta):
-    dAda=np.array([[-np.sin(theta), -np.cos(theta)],[np.cos(theta),-np.sin(theta)]])
+    '''This function returns a 2x2 rotation matrix derivative 
+    input is angle in radians
+        
+    Parameters
+    ----------
+    theta : angle in radians
+    
+    Returns
+    -------
+    dAda : 2x2 array derivative of `rotA`
+    '''
+    dAda=np.array([[-np.sin(theta), -np.cos(theta)],
+                   [np.cos(theta), -np.sin(theta)]])
     return dAda
 
-def g(system='ms'):
-    '''define gravity for m-s, ft-s,mm-s'''
-    if system=='ms':
-        return 9.81
-    elif system=='fts':
-        return 32.2
-    elif system=='mms':
-        return 9.81e3
-    else:
-        print('warning: system not defined yet, giving you 9.81 m/s/s')
-        return 9.81
-  
+Define Jacobian of pin constraint as `Cq_pin`.
 
-Define constraint formed by a pin constraint
+def Cq_pin(qi, qj, ui, uj):
+    '''Jacobian of a pinned constraint for planar motion
 
-def C_pin(q1,u1,q2,u2):
-    '''q1 is generalized coordinate of body 1 [R1x,R1y,theta1]
-       q2 is generalized coordinate of body 2 [R2x,R2y,theta2]'''
-    q1=q1.reshape(3,1)
-    q2=q2.reshape(3,1)
-    #print(rotA(q1[2,0])@u1)
-    #print(q1[0:2])
-    #print(q1[0:2]+rotA(q1[2,0])@u1)
-    Cpin=q1[0:2]+rotA(q1[2,0])@u1-q2[0:2]-rotA(q2[2,0])@u2
-    return Cpin
-
-q0=np.array([0,1,np.pi/2])
-C_pin(q0[0:3],np.array([[-0.5],[0]]),np.array([[0],[0],[0]]),np.array([[0],[0]]))
-
-Define Jacobian of pin constraint
-
-def Cq_pin(u1,a1,u2,a2):
-    '''dR/dR = identity
-       dA/dtheta = Atheta'''
-    u1=np.reshape(u1,(2,-1))
-    u2=np.reshape(u2,(2,-1))
-    Cq_1=np.append(np.identity(2),A_theta(a1)@u1[0:2],axis=1)
-    Cq_2=np.append(-np.identity(2),-A_theta(a2)@u2[0:2],axis=1)
-    Cq_pin=np.append(Cq_1,Cq_2,axis=1)
+    Parameters
+    ----------
+    qi : generalized coordinates of the first body, i [Rxi, Ryi, thetai]
+    qj : generalized coordinates of the 2nd body, i [Rxj, Ryj, thetaj]
+    ui : position of the pin the body-i coordinate system
+    uj : position of the pin the body-j coordinate system
+        
+    Returns
+    -------
+    Cq_pin : 2 rows x 6 columns Jacobian of pin constraint Cpin
+    '''
+    
+    Cq_1=np.block([np.eye(2), A_theta(qi[2])@ui[:,np.newaxis] ])
+    Cq_2=np.block([-np.eye(2), -A_theta(qj[2])@uj[:,np.newaxis] ])
+    Cq_pin=np.block([Cq_1, Cq_2])
     return Cq_pin
 
-def C_bar(q,t,li):
-    C=np.zeros((2,1))
-    #print(C)
-    C=C_pin(q[0:3],np.array([[-li/2],[0]]),np.array([[0],[0],[0]]),np.array([[0],[0]]))
-    return C
+![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/P605.png)
 
-The bar uses the first three columns of the pin-constraint Jacobian 
+## Problem 2
 
-(unless you add q1 for the ground link)
+Create the system of equations using the __augmented technique__. Solve these equations numerically using `solve_ivp` and plot the position and orientation of the links for one revolution of the crankshaft. Assume that $M^2$ = 10N-m, $F^4$ = 15N, $\theta^2$ = 45$^o$, and $\dot{\theta}^2$=150 rad/s.
 
-def Cq_bar(q,t,li):
-    q=q.reshape(3,1)
-    Cq=Cq_pin(np.array([[-li/2],[0]]),q[2][0],np.array([[0],[0]]),0)
-    return Cq[0:2,0:3]
+The __augmented technique__ is a generalized method to solve for the dynamic response in a system of moving parts. The system of _differential algebraic equations_ (DAE) are solve for all generalized coordinates and constraint forces in a system of equations, 
 
-$\mathbf{B_i}=[-\mathbf{C_{q_d}^{-1}C_{q_i}},~\bar{I}]^T$
-
-def Bi_bar(q,t,li):
-    '''B.T*M*B-B.T*Qe = 0 '''
-    Cq = Cq_bar(q,t,li)
-    Cqd=Cq[0:2,0:2]
-    Cqi=Cq[0:2,2].reshape(2,1)
-    #print(-np.linalg.inv(Cqd)@Cqi)
-    Bi=np.vstack((-np.linalg.inv(Cqd)@Cqi,np.eye(1)))
-    return Bi
-
-Define equation of motion to return $\dot{y}=[\dot{\theta}^2,~\ddot{\theta}^2]^T$ and $\mathbf{q}$
-
-li=1
-q0=np.array([[li/2],[0],[0]])
-def eom_bar(t,y,li,mi):
-    global q0
-    q0[2]=y[0]
-    q=fsolve(lambda q: np.append(C_bar(q,t,li),q0[2]-y[0]).reshape(3,),q0, \
-                  fprime= lambda q: np.vstack((Cq_bar(q,t,li),np.array([0,0,1]))))
-    q0=q
-    Bi=Bi_bar(q,t,li)
-    M=np.diag([mi,mi,mi*li**2/12])
-    Qe=np.array([[0],[-mi*g()],[0]])
-    dy=np.zeros(y.shape)
-    dy[0]=y[1]
-    dy[1]=solve(Bi.T@M@Bi,Bi.T@Qe)
-    return dy,q
-
-The `solve_ivp` only solves odes of the form `dy=f(t,y)` so we create an ode function that fits this form.
-
-Then, we can integrate and post-process.
-
-li=1
-mi=1
-t=np.linspace(0,3)
-def ode_bar(t,y):
-    global li,mi
-    dy,q=eom_bar(t,y,li,mi)
-    return dy
-sol=solve_ivp(lambda t,y:ode_bar(t,y),t_span=[0,3],y0=[0,0],t_eval=t)
-
-plt.plot(sol.t,sol.y[0]*180/np.pi)
-plt.xlabel('time (s)')
-plt.ylabel('angle (deg)')
-plt.title('independent general coord theta')
-
-We can plug in our solution `sol.y` for $\mathbf{q}$ as a function of time to get the other generalized coordinates.
+$\left[\begin{array}
+~\mathbf{M} & \mathbf{C_q}^T \\
+\mathbf{C_q} & \mathbf{0} \end{array}\right]
+\left[\begin{array}
+~\mathbf{\ddot{q}} \\
+\mathbf{\lambda}\end{array}\right] =
+\left[\begin{array}
+~\mathbf{Q_e}  \\
+\mathbf{Q_d}\end{array}\right]$
 
 
-
-q=np.zeros((3,len(t)))
-for i,tt in enumerate(t):
-    dy,qi=eom_bar(t,sol.y[:,i],li,mi)
-    q[:,i]=qi
-
-plt.plot(q[0,:],q[1,:])
-plt.xlabel('x-position (m)')
-plt.ylabel('y-position (m)')
-plt.title('path of link COM')
-
-and even animate our results 
-
-from __future__ import print_function
-from ipywidgets import interact, interactive, fixed, interact_manual
-import ipywidgets as widgets
-
-def plot_shape(shape,dims,q):
-    if shape=='link':
-        Px=q[0]+np.array([dims[0]/2*np.cos(q[-1]),-dims[0]/2*np.cos(q[-1])])
-        Py=q[1]+np.array([dims[0]/2*np.sin(q[-1]),-dims[0]/2*np.sin(q[-1])])
-        l,= plt.plot(Px,Py,'o-')
-        return l
-    elif shape=='base':
-        Px=q[0]
-        Py=q[1]
-        l,=plt.plot(Px,Py,'s',markersize=20)
-        return l
-    else:
-        print('choose a \'link\' or \'base\' please')
-        return 0
-
-def plot_qs(q,shapes,dims,i):
-    qi=q[:,i]
-    f=plt.figure()
-    if len(qi)/3 !=len(shapes):
-        print('len(q) is %i. It needs %i more shapes '%(len(qi),len(qi)/3-len(shapes)))
-    elif len(qi)/3==len(shapes):
-        for i,s in enumerate(shapes):
-            plot_shape(s,dims[i],qi[3*i:3*i+3])
-            plt.plot(q[3*i,:],q[3*i+1,:])
-        a=f.gca()
-        plt.title('Angle 2 = %1.1f deg'%(qi[2]*180/pi))
-        plt.xlabel('X (m)')
-        plt.ylabel('Y (m)')
-        a.axis([-1,1,-1,1])
-
-interact(lambda i: plot_qs(q,['link'],[[li]],i), i=(0,len(t)-1))
+- Plot the angles of the two connecting links and the position of the sliding block at point B. 
+- Plot the reaction forces at O, A, and B. 
 

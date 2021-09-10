@@ -1,19 +1,14 @@
 import numpy as np
 from numpy import sin,cos,pi
 import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
 
-def setdefaults():
-  plt.rcParams.update({'font.size': 22})
-  plt.rcParams['lines.linewidth'] = 3
-
-setdefaults()
-
-# Homework #3 _work in progress_
+# Homework #4
 ## Problem 1
 
-![Pendulum bob attached to springs](https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no)
+![Pendulum bob attached to springs](../images/spring_pendulum.svg)
 
-The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
+The pendulum bob of mass m, shown in the figure above, is suspended by an inextensible
 string from the point p. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
 only slightly from the equilibrium position and released. Neglecting the mass of the
@@ -21,7 +16,7 @@ springs, show that the pendulum oscillates with a period of
 
 $P=2\pi\sqrt{\frac{mg+2kr}{2kg}}$
 
-if you use a first-order Taylor series approximation for $\sin\theta\approx\theta$ and $\cos\theta\approx 1$
+use a first-order Taylor series approximation for $\sin\theta\approx\theta$ and $\cos\theta\approx 1$
 
 Solve for $\theta(t)$ if m=0.1 kg, r=1 m, $\theta(0)$=pi/6 rad, and $\dot{\theta}(0)$=0 rad/s for
 2 cases:
@@ -41,8 +36,8 @@ P=2*pi/np.sqrt(2*k*g/(2*k*l+m*g))
 t=np.linspace(0,2*P);
 # your work
 # your new solutions, convert rad to deg with 180/pi
-# a_inf = 
-# a_20 = 
+a_inf = t # create solution for k=infty
+a_20 = t # create solution for k=20 N/m
 
 plt.plot(t,a_inf)
 plt.plot(t,a_20)
@@ -53,7 +48,6 @@ from scipy.linalg import *
 from scipy.optimize import fsolve,root
 
 ## Intro to function definitions
-
 
 ## Building our own functions.
 
@@ -103,6 +97,7 @@ The simplest integration routine is the Euler approximation. A first-order Taylo
 $r_{i+1}=r_{i}+\frac{dr_{i}}{dt}\Delta t$
 
 We can integrate the equation as such
+<!-- #endregion -->
 
 dt=0.01
 t=np.arange(0,6*pi/2,dt) # (start, stop, by some incr)
@@ -120,7 +115,6 @@ plt.xlabel('time (s)')
 plt.ylabel('position (m)')
 
 ## Runge-Kutta
-
 
 Using `solve_ivp` in Python you can use more advanced integration routines, such as [Runge-Kutta 5(4)](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-1), [Runge-Kutta 3(2)](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-3), [Adams/BDF method](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#r179348322575-7), etc. 
 
@@ -142,26 +136,26 @@ plt.ylabel('position (m)')
 
 ## Problem 2
 
-![Pendulum bob attached to springs](https://lh3.googleusercontent.com/5AK02jy9wnB40EV0Uya_H66cf_EHGNT6ScHf2zWBYcKe_Jc_Y_GA4PIa8WCovvNKsfLa2oqGuuRkJ5S2uOulcgAmcfpJkUtxSa8a9Och8aQL7KJKNBr2EuLvTyMU9Lxb-VmiwTSfuf2qBZj1Q14ezH5l_NujSj2HuERr_lPPy3olSjRraASVfUUifugYQJidyhqxDw7eAgR_mGySxxzGYY1MQ6JhGLJY-6kVpaeXWhbs4GFKJploT_llQL1yppEw03vo-XebLwFOHRLn3djty-TttF-d2TVLvquoMZ5k9mj2aYKvrsizeS8qszY9w-yX_V9LMbJPjK1NiEI9knOLcHD18aJI-SDRsfPn7soCQ6hBU_Xn4mtsNM2Ytx6WacyEdmXkOWwmfyhmyLYNfidKlmGlE2yd8NyiMoeQwiZXOKY_p2O3AzRuJtcm80fiTdzTFn0DJUJkOOmK0Fx-sJCaK-JZ7zFWwJYmv4phZ1GmA-G83-7GZ3q1N2qZt90ofrR1nIJhfY0d2z2AbFN9yt9WJ9sqNReRvxv2T5c7Rx1jhLfHjJ0WhH4o61GSnKjq8w28IJFZ_vVqA34svV_qT0fVw1YqhwAShtfs4OSIgH5bUXbsG_2HVNqFP0Jywjo-rlmFA7tDmkCyuAr4QVWzDfmcroJ6uPY3G1eHaUX2zrGu2YDV_3zvwsUsDw=w489-h401-no)
 
-The pendulum bob of mass m , shown in the figure above, is suspended by an inextensible
-string from the point p. This point is free to move along a straight horizontal line under
+from IPython.display import YouTubeVideo
+YouTubeVideo('eOvwiYRroso')
+
+![Compound pendulum bob attached to
+springs](../images/spring_compound.svg)
+
+The pendulum arm of mass m, shown in the figure above, is held in place by two springs. This point is free to move along a straight horizontal line under
 the action of the springs, each having a constant k. Assume that the mass is displaced
 only slightly from the equilibrium position and released. Neglecting the mass of the
-springs, show that the pendulum oscillates with a period of
+springs, solve for the nonlinear equations of motion and use the `solve_ivp` to determine $\theta(t)$
 
-$P=2\pi\sqrt{\frac{mg+2kr}{2kg}}$
-
-solve for the nonlinear equations of motion and use the `solve_ivp` to determine $\theta(t)$
-
-Solve for $\theta(t)$ if m=0.1 kg, r=1 m, $\theta(0)$=pi/6 rad, and $\dot{\theta}(0)$=0 rad/s for
+Solve for $\theta(t)$ if m=1 kg, L=1 m, $\theta(0)$=pi/6 rad, and $\dot{\theta}(0)$=0 rad/s for
   
 k=20 N/m
 
-Plot the linear and nonlinear solutions of $\theta(t)$ for 2 periods on one figure
+Plot the nonlinear solutions of $\theta(t)$ for 2 periods on one figure
 
-def bob_ode(t,r,):
-    """ Help documentation for "bob_ode"
+def my_ode(t,r,):
+    """ Help documentation for "my_ode"
      input is time, t (s) and r=[position p (m), angle (rad), velocity p (m/s), angle velocity (rad/s)] and time
      output is dr=[velocity p (m/s), angle velocity (rad/s), accel p (m/s/s), angle accel (rad/s/s)] at time, t
      the ODE is defined by:
@@ -180,9 +174,8 @@ def bob_ode(t,r,):
     return dr
 
 P=2*pi/np.sqrt(2*k*g/(2*k*l+m*g))
-r=solve_ivp(bob_ode,[0,2*P],[0, pi/6,0,0]); # default = 'RK45'
+r=solve_ivp(my_ode,[0,2*P],[0, pi/6,0,0]); # default = 'RK45'
 plt.plot(r.t,r.y[1]*180/pi,'o',label='nonlinear') # <-------------- your new plot, convert rad to deg with 180/pi
-plt.plot(t,a_20,'o',label='linear') # from problem 1
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.xlabel('time (s)')
 plt.ylabel('angle (deg)')

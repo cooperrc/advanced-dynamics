@@ -1,12 +1,22 @@
 import numpy as np
 from scipy.linalg import *
 
-# Homework #6 - _work in progress_
+# Homework #6
 ## Linear Algebra for Dynamics
 
-Equations of motion in Newtonian ($F=ma$) or Lagrangian ($\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{x}_{i}}\right)-\frac{\partial L}{\partial x_i} = F_i$) are solved with Linear Algebra equations
+Equations of motion in Newtonian ($F=ma$) or Lagrangian
+($\frac{d}{dt}\left(\frac{\partial L}{\partial
+\dot{x}_{i}}\right)-\frac{\partial L}{\partial x_i} = F_i$) are solved
+with Linear Algebra equations. Specifically, the equations are a
+combination of differential and algebraic equations. Integrating the
+differential equations numerically is done with discrete steps, which creates
+another linear algebra problem. 
 
-$\mathbf{Ax}=\mathbf{b}$ or $\mathbf{Ax}=\lambda \mathbf{x}$
+There are two main linear algebra problems that we are concerned with
+here
+
+1. $\mathbf{Ax}=\mathbf{b}$ 
+2. $\mathbf{Ax}=\lambda \mathbf{Bx}$
 
 Take the following matrix, saved as array `A`:
 

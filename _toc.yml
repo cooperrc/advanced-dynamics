@@ -14,22 +14,37 @@
   - file: getting-started/01_interactions
   - file: getting-started/02_Working_with_Python
   - file: getting-started/03_Numerical_error
+- file: module_01/README
+  sections:
+  - file: module_01/01_vectors
+  - file: module_01/02_calculus
+  - file: module_01/03_ref-frames
+  - file: module_01/04_dofs
+  - file: homeworks/HW_02
 - file: model_results/intro
   sections:
   - file: model_results/rotating_pendulum
+  - file: model_results/spring-pendulum
+  - file: model_results/spinning_top-nonlinear
+  - file: model_results/pin-constraint
+  - file: model_results/embed-solution
+  - file: model_results/symbolic_constraints
+  - file: model_results/augment-solution
 - file: assignments
   sections:
-  - file: homeworks/HW_02
   - file: homeworks/HW_03
   - file: homeworks/HW_04
   - file: homeworks/HW_05
   - file: homeworks/HW_06
   - file: homeworks/HW_07
   - file: homeworks/HW_08
-  - file: homeworks/HW_09
 - file: quiz_work/quizzes
   sections:
   - file: quiz_work/making-quiz_01
   - file: quiz_work/making-quiz_02
   - file: quiz_work/making-quiz_03
+  - file: quiz_work/making-quiz_04
+  - file: quiz_work/making-quiz_05
+  - file: quiz_work/making-quiz_06
+  - file: quiz_work/making-quiz_07
 
