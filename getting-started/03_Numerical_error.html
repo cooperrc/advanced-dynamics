@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modeling results" href="../model_results/intro.html" />
+    <link rel="next" title="Module_01 - Definitions of motion" href="../module_01/README.html" />
     <link rel="prev" title="Working with Python" href="02_Working_with_Python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -154,6 +154,40 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../module_01/README.html">
+   Module_01 - Definitions of motion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/01_vectors.html">
+     Dynamic Measurements - vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/02_calculus.html">
+     Lecture-03 calculus with vector
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/03_ref-frames.html">
+     Lecture-04 Reference frames and Newton’s second law
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/04_dofs.html">
+     Lecture-05_degrees-of-freedom
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../model_results/intro.html">
    Modeling results
   </a>
@@ -193,54 +227,6 @@
      Augmented solution for one-bar linkage
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-array-mathbf-m-mathbf-c-q-t-mathbf-c-q-mathbf-0-end-array-right-left-begin-array-mathbf-ddot-q-mathbf-lambda-end-array-right">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../model_results/augment-solution.html#id1">
-     $\left[\begin{array}
-~\mathbf{M} &amp; \mathbf{C_q}^T \
-\mathbf{C_q} &amp; \mathbf{0} \end{array}\right]
-\left[\begin{array}
-~\mathbf{\ddot{q}} \
-\mathbf{\lambda}\end{array}\right]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-left-begin-matrix-m-0-0-0-m-0-0-0-frac-l-1-2-m-12-end-matrix-right-left-begin-matrix-1-0-0-1-frac-l-1-sin-left-q-2-right-2-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-1-0-frac-l-1-sin-left-q-2-right-2-0-1-frac-l-1-cos-left-q-2-right-2-end-matrix-right-left-begin-matrix-0-0-0-0-end-matrix-right-end-matrix-right-left-begin-array-ddot-r-x-1-ddot-r-y-1-ddot-theta-lambda-1-lambda-2-end-array-right">
-     \left[\begin{matrix}
-\left[\begin{matrix}m &amp; 0 &amp; 0\0 &amp; m &amp; 0\0 &amp; 0 &amp; \frac{L_{1}^{2} m}{12}\end{matrix}\right] &amp;
-\left[\begin{matrix}1 &amp; 0\0 &amp; 1\frac{L_{1} \sin{\left(q_{2} \right)}}{2} &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right]\
-\left[\begin{matrix}1 &amp; 0 &amp; \frac{L_{1} \sin{\left(q_{2} \right)}}{2}\0 &amp; 1 &amp; - \frac{L_{1} \cos{\left(q_{2} \right)}}{2}\end{matrix}\right] &amp;
-\left[\begin{matrix}0 &amp; 0\0 &amp; 0\end{matrix}\right]\end{matrix}\right]
-\left[\begin{array}
-~\ddot{R}_x^1 \
-\ddot{R}_y^1 \
-\ddot{\theta} \
-\lambda_1\
-\lambda_2\end{array}\right]
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../model_results/augment-solution.html#left-begin-matrix-0-mg-0-frac-l-1-dot-q-2-2-cos-left-q-2-right-2-frac-l-1-dot-q-2-2-sin-left-q-2-right-2-end-matrix-right">
-     \left[\begin{matrix}~0-mg\0\ -\frac{L_{1} \dot{q}
-     <em>
-      2^{2} \cos{\left(q
-     </em>
-     {2} \right)}}{2}- \frac{L_{1} \dot{q}
-     <em>
-      2^{2} \sin{\left(q
-     </em>
-     {2} \right)}}{2}\end{matrix}\right]
-    </a>
-   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -250,11 +236,6 @@
    Dynamics Homeworks
   </a>
   <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../homeworks/HW_02.html">
-     Homework #2
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_03.html">
      HW_03 - Nonlinear solutions
@@ -414,14 +395,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/getting-started/03_Numerical_error.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/main?urlpath=tree/getting-started/03_Numerical_error.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/getting-started/03_Numerical_error.ipynb&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/getting-started/03_Numerical_error.ipynb&branch=main"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -804,7 +785,7 @@ at time 12.00 s, speed is 47.77 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;velocity (m/s)&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0,0.5,&#39;velocity (m/s)&#39;)
 </pre></div>
 </div>
 <img alt="../_images/03_Numerical_error_18_1.png" src="../_images/03_Numerical_error_18_1.png" />
@@ -995,15 +976,8 @@ maximum relative error = 2.22044604925031308085e-16
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">f3bca8cd75a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">s2</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mi">500</span><span class="o">*</span><span class="n">eps</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;summation 1+eps/2 over &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s1">&#39; minus 1 =&#39;</span><span class="p">,(</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;*eps=&#39;</span><span class="p">,(</span><span class="n">s2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;s&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>summation 1+eps/2 over  1000  minus 1 = 0.0
+500.0 *eps= 1.11022302463e-13
 </pre></div>
 </div>
 </div>
@@ -1400,7 +1374,7 @@ population = [1.578000e+09 2.526000e+09 6.127000e+09 7.795482e+09]
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="02_Working_with_Python.html" title="previous page">Working with Python</a>
-    <a class='right-next' id="next-link" href="../model_results/intro.html" title="next page">Modeling results</a>
+    <a class='right-next' id="next-link" href="../module_01/README.html" title="next page">Module_01 - Definitions of motion</a>
 
         </div>
         
