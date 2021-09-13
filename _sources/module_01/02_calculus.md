@@ -1,4 +1,4 @@
-# [Lecture-03 calculus with vector](https://youtu.be/n4VOrMe-8DQ)
+# [Lecture-02 calculus with vector](https://youtu.be/n4VOrMe-8DQ)
 
 ![03_calculus with vectors](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/f144ff1b-8be4-436a-8fec-3d9e4bc46d83/03_calculus.png)
 
