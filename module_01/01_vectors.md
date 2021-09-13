@@ -1,4 +1,4 @@
-## [Dynamic Measurements - vectors](https://youtu.be/UhXIGnef_ug)
+## [Lecture_01 - Dynamic Measurements - vectors](https://youtu.be/UhXIGnef_ug)
 ![vectors.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/e0d34c93-f7f5-495c-8208-04b6658849e9/vectors.png)
 
 Why do we use vectors to describe forces, distances, and velocities?
