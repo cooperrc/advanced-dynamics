@@ -8,7 +8,7 @@
 - file: module_00/overview
   sections:
   - file: module_00/participation
-  - file: homeworks/HW_01
+  - file: homeworks/HW_00
 - file: getting-started/README
   sections:
   - file: getting-started/01_interactions
@@ -20,6 +20,7 @@
   - file: module_01/02_calculus
   - file: module_01/03_ref-frames
   - file: module_01/04_dofs
+  - file: homeworks/HW_01
   - file: homeworks/HW_02
 - file: model_results/intro
   sections:
