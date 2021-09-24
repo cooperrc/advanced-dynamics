@@ -22,6 +22,26 @@
   - file: module_01/04_dofs
   - file: homeworks/HW_01
   - file: homeworks/HW_02
+- file: module_02/README
+  sections:
+  - file: module_02/01_variational
+  - file: module_02/02_virtual-work
+  - file: module_02/03_catenary
+- file: module_03/README
+  sections:
+  - file: module_03/01_rotate-pendulum
+  - file: module_03/02_conservative
+  - file: module_03/03_nonconservative
+  - file: module_03/04_lagrangian
+  - file: module_03/05_top
+- file: module_04/README
+  sections:
+  - file: module_04/01_pin
+  - file: module_04/02_slider-crank
+  - file: module_04/03_embedding
+  - file: module_04/04_symbolic
+  - file: module_04/05_lagrange
+  - file: module_04/06_augment
 - file: model_results/intro
   sections:
   - file: model_results/rotating_pendulum
