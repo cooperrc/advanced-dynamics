@@ -1,4 +1,4 @@
-## [Lecture 27 - Lagrange Multipliers](https://youtu.be/gFOrY8Mlu6c)
+## [Lecture 05 - Lagrange Multipliers](https://youtu.be/gFOrY8Mlu6c)
 
 ![27 Lagrange multipliers](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/7afc7adb-d96f-4ae8-b054-e59f42c747a0/27_lagrange.png)
 

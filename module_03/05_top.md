@@ -1,4 +1,4 @@
-## [Lecture_17 - spinning top equation of motion](https://youtu.be/PyExwBFaC3A)
+## [Lecture_05 - spinning top equation of motion](https://youtu.be/PyExwBFaC3A)
 
 ![spinning top notes](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/aab8101e-7229-4349-8c55-aac20e101e42/17_top.png)
 

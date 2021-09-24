@@ -1,4 +1,4 @@
-## [Lecture_20 - Computational Pin Constraint](https://youtu.be/8ZiNCbyiSdM)
+## [Lecture_01 - Computational Pin Constraint](https://youtu.be/8ZiNCbyiSdM)
 
 ![Computational Pin constraint](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/a944601f-96aa-4c6a-859e-f59d67230d73/18_comp-dyn-pin.mp4.png)
 

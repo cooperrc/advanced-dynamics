@@ -1,4 +1,4 @@
-## [Lecture_10 - pendulum in a rotating frame](https://youtu.be/GnxKLPP6n2c)
+## [Lecture_01 - pendulum in a rotating frame](https://youtu.be/GnxKLPP6n2c)
 ![pendulum in a rotating frame notes](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/0aee7c4b-4201-46f3-bda1-de2672ecaca6/09_rotation.png)
 
 In this lecture, you look at the virtual displacements and virtual work in a rotating reference frame. 

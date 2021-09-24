@@ -1,4 +1,4 @@
-## [Lecture_23 - Kinematic analysis of slider crank](https://youtu.be/-A1w46iqUlE)
+## [Lecture_02 - Kinematic analysis of slider crank](https://youtu.be/-A1w46iqUlE)
 ![19_slider-crank.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/cd202973-ea69-40e4-9449-4714398a19e5/19_slider-crank.png)
 
 In this lecture, you write out the kinematic constraints for 3 bodies moving in a planar system. You will explore the hands-on application in HW_07 _work-in-progress_. 
