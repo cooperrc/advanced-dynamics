@@ -20,6 +20,7 @@
   - file: module_01/02_calculus
   - file: module_01/03_ref-frames
   - file: module_01/04_dofs
+  - file: module_01/example_01
   - file: homeworks/HW_01
   - file: homeworks/HW_02
 - file: module_02/README
@@ -27,6 +28,8 @@
   - file: module_02/01_variational
   - file: module_02/02_virtual-work
   - file: module_02/03_catenary
+  - file: module_02/example_01
+  - file: module_02/example_02
   - file: homeworks/HW_03
   - file: homeworks/HW_04
 - file: module_03/README
@@ -57,7 +60,6 @@
   - file: homeworks/HW_08
 - file: quiz_work/quizzes
   sections:
-  - file: quiz_work/making-quiz_01
   - file: quiz_work/making-quiz_02
   - file: quiz_work/making-quiz_03
   - file: quiz_work/making-quiz_04
