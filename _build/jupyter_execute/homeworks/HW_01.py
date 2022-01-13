@@ -1,11 +1,10 @@
 import numpy as np
 from numpy import sin,cos,pi
 import matplotlib.pyplot as plt
-
 plt.style.use('fivethirtyeight')
 
 # Homework #1
-## Example from class on plotting kinematic solutions
+## Example: plotting kinematic solutions
 
 ![double pendulum](../images/p1-10_double_pendulum.png)
 
