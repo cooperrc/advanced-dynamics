@@ -221,27 +221,6 @@ best way to prepare for quizzes.
   Conduct](http://www.community.uconn.edu/student_code.html "The Student Code for Academic
   Integrity"). Students will follow all University regulations concerning the final exam.
 
-## Course Schedule (which is subject to change based upon feedback and pace of course)
-
-| Week | Section | Topic |
-|---|---|---|
-|1 | Ginsberg Ch 1| Introduction/Background | 
-|2 | Shabana Ch 1, Wells Ch 1 | Setting up and solving equations |
-|3 | Wells Ch 2 | Generalized coordinates and degrees of freedom |
-|4 | Weinstock Ch 3 | Variational Calculus |
-|5 | Wells Ch 3 | Lagrange equations for single particle |
-|6 | Wells Ch 3 | Applications in Single body Dynamics |
-|7 | Shabana Ch 2  | Linear Algebra |
-|8 | Wells Ch 8 | Lagrangian Rigid Body Dynamics| 
-|9 | Shabana Ch 3.1-6 | Multibody Kinematics |
-|10 | Shabana Ch 3.7-14| Computational Kinematics  |
-|11 | Shabana Ch. 4.1-3 | D'Alembert's Principle |
-|12 | Shabana Ch. 5,  Wells Ch 3.1-6 | Lagrange equations |
-|13 |Wells and Shabana | Applications in Dynamics |
-|14 | N/A | Thanksgiving break! |
-|15 |Wells and Shabana| Applications in Dynamics |
-|16 | N/A | Finals, Best of Luck! |
-
 ## Students with Disabilities
 
 The University of Connecticut is committed to protecting the rights of
