@@ -1,4 +1,4 @@
-# Syllabus: ME 5180 Spring 2021
+# Syllabus: ME 5180 Spring 2022
 ## Course and Instructor Information
 
 **Course Title:** ME5180 - Dynamics
@@ -25,7 +25,7 @@ Campuswire:
 Use code: **6205**
 
 > Personal questions should be communicated privately via Campuswire DM
-or email
+> or email
 
 ## Course Description
 This is the study of moving objects and how they interact. We will explore
