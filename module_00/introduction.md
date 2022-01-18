@@ -34,14 +34,11 @@ software, and materials
 
 3. Locate course areas and features, and recognize their general purposes
 
-3. Download and install Respondus Lockdown Browser with Monitor to ensure you
-can successfully take the graded quizzes.
-
-2. Scan and upload a hand-written assignment
-
 2. Open an Adams file and save a figure
 
-3. Submit a Google Document in HuskyCT 
+3. Submit a jupyter notebook on HuskyCT
+4. 
+5. Scan and upload a hand-written quiz
 
 # Activities
 
@@ -51,16 +48,6 @@ can successfully take the graded quizzes.
 * Read about the course's organization and tools.
 * Take a 5-minute practice quiz
 * Submit a practice quiz.
-* Download Respondus Lockdown Browser on the computer you plan to use in this
-course.
 * Review the University of Connecticut's academic policies.
 * Watch the Introduction videos and answer the questions
 * Finish a tutorial on Adams and complete the Google form
-* Turn in a 1-page report that has a figure from the Adams tutorial
-
-<p><strong>Note:</strong> See the course schedule for specific due dates</p> 
-<iframe
-width="600" height="400" style="border-width: 0;"
-src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=dWNvbm4uZWR1X3ZlaHJhNTdiZW5yNmhydTdoczc5OTdxcDUwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23616161&amp;showTitle=1&amp;mode=AGENDA&amp;showTabs=1&amp;showCalendars=0"
-frameborder="0" scrolling="no"></iframe>
-

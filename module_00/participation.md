@@ -21,7 +21,7 @@ and read the selected readings.
   
  ## Videos 
   
- [Welcome to Advanced Dynamics](https://youtube.com)
+ [Welcome to Advanced Dynamics](https://youtu.be/rti82OqF5is)
   
  ## Readings - week 1 
   
