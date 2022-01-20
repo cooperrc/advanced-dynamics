@@ -124,16 +124,18 @@ problems or feedback for the developers, email
 ## Schedule
 
 The course schedule is on the [*ME5180 - Spring Google
-Calendar*](https://calendar.google.com/calendar/u/0?cid=Y19sbDc3NWhvaGY0cGk2azRlcXR2bGNwbTcxa0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29://calendar.google.com/calendar/u/0?cid=Y19icmg3YWIyanU4b2t0aGg0bnQ3bTZvcTVxZ0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
+Calendar*](https://calendar.google.com/calendar/embed?src=c_classrooma7eda75a%40group.calendar.google.com&ctz=America%2FNew_York)
+
+<iframe
+src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb21hN2VkYTc1YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%230047a8"
+style="border:solid 1px #777" width="500" height="400" frameborder="0"
+scrolling="no"></iframe>
 
 Assignments are due by 11:59pm on the specified due dates. You can add
 the Google Calendar to your student or personal Google account for
 updates.
 
-<iframe
-src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19pY2NxMHMwdHQ3aTVjNmYxZWIwb3JvbzBra0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F4511E"
-style="border:solid 1px #777" width="600" height="400" frameborder="0"
-scrolling="no"></iframe>
+
 
 ## Grading
 
