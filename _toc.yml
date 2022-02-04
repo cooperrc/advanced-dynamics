@@ -8,6 +8,7 @@
 - file: module_00/overview
   sections:
   - file: module_00/participation
+  - file: module_00/ode_review
   - file: homeworks/HW_00
 - file: getting-started/README
   sections:
