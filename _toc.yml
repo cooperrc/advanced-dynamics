@@ -28,6 +28,7 @@
   sections:
   - file: module_02/01_variational
   - file: module_02/02_virtual-work
+  - file: module_02/02b_virtual-work
   - file: module_02/03_catenary
   - file: module_02/example_01
   - file: module_02/example_02
