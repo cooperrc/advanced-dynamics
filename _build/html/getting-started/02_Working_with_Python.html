@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/spiderman-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Numerical Error" href="03_Numerical_error.html" />
@@ -97,7 +98,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../syllabus.html">
-   Syllabus: ME 5180 Spring 2021
+   Syllabus: ME 5180 Spring 2022
   </a>
  </li>
  <li class="toctree-l1">
@@ -118,6 +119,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../module_00/participation.html">
      Participation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/ode_review.html">
+     Review: solving linear second order differential equations
     </a>
    </li>
    <li class="toctree-l2">
@@ -209,6 +215,11 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../module_02/02_virtual-work.html">
+     Lecture_02 - virtual work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/02b_virtual-work.html">
      Lecture_02 - virtual work
     </a>
    </li>
@@ -479,14 +490,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/main?urlpath=tree/getting-started/02_Working_with_Python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/getting-started/02_Working_with_Python.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/getting-started/02_Working_with_Python.ipynb&branch=main"><button type="button"
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/getting-started/02_Working_with_Python.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -1421,8 +1432,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[32, 55, 99, 50, 84, 97, 96, 52, 27, 34]
-[76, 12, 34, 74, 5, 41, 11, 10, 35, 91]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 58, 60, 76, 87, 82, 64, 23, 1, 62]
+[38, 78, 51, 32, 34, 10, 99, 59, 79, 25]
 </pre></div>
 </div>
 </div>
@@ -1440,7 +1451,7 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14 µs, sys: 2 µs, total: 16 µs
-Wall time: 17.4 µs
+Wall time: 17.6 µs
 </pre></div>
 </div>
 </div>
@@ -1452,7 +1463,7 @@ Wall time: 17.4 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[108, 67, 133, 124, 89, 138, 107, 62, 62, 125]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[118, 136, 111, 108, 121, 92, 163, 82, 80, 87]
 </pre></div>
 </div>
 </div>
@@ -1478,8 +1489,8 @@ Wall time: 17.4 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[31 88 57 32 82 57 16 10 64 83]
-[ 9 40 99 91 91 29 59 52 59 29]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[98 65 62 75 86 18  0 84 41 95]
+[ 3 12  3 32 97 38 47  1 38 36]
 </pre></div>
 </div>
 </div>
@@ -1493,8 +1504,8 @@ Wall time: 17.4 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11 µs, sys: 1 µs, total: 12 µs
-Wall time: 13.8 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 0 ns, total: 7 µs
+Wall time: 8.11 µs
 </pre></div>
 </div>
 </div>
@@ -1577,7 +1588,7 @@ Wall time: 13.8 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f82401baaf0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcbe3007ac0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_103_1.png" src="../_images/02_Working_with_Python_103_1.png" />
@@ -1694,8 +1705,8 @@ of the two indices from 0 to 9 e.g. A_99[3,2]=6 and A_99[4,4]=16.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 26 µs, sys: 2 µs, total: 28 µs
-Wall time: 30 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21 µs, sys: 1 µs, total: 22 µs
+Wall time: 24.1 µs
 </pre></div>
 </div>
 </div>
@@ -1739,11 +1750,11 @@ stdev of A_99 20.054612935681405
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.6 ms, sys: 0 ns, total: 15.6 ms
-Wall time: 16.6 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.6 ms, sys: 3.17 ms, total: 15.7 ms
+Wall time: 14.4 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f823f816ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fcbe2dc2880&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_118_2.png" src="../_images/02_Working_with_Python_118_2.png" />

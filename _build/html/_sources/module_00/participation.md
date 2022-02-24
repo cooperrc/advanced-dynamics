@@ -12,7 +12,7 @@ and read the selected readings.
  (Gewin _Nature_ 2018).  
   
  [Introduce yourself and discuss the course 
- here](https://campuswire.com/c/G2F97ACA3/feed/1) 
+ here](https://campuswire.com/c/G34E5F12D/feed/1) 
   
  Continue posting questions and try to answer each other's questions. The 
  best way to learn is to communicate your interpretation and get 
@@ -21,9 +21,9 @@ and read the selected readings.
   
  ## Videos 
   
- __Coming soon!__ 
+ [Welcome to Advanced Dynamics](https://youtu.be/rti82OqF5is)
   
  ## Readings - week 1 
   
  1. [Syllabus](https://cooperrc.github.io/advanced-dynamics/syllabus.html) 
- 2. Ginsberg ch. 1 (on HuskyCT) 
+ 2. Ginsberg ch. 1 (on HuskyCT orientation) 

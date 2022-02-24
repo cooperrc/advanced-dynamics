@@ -36,10 +36,6 @@ equations__](https://en.wikipedia.org/wiki/Lagrangian_mechanics). We
 will build the foundation for more advanced rigid body dynamic software
 in Python. 
 
-<p><strong>Note:</strong> See the course schedule for specific due dates</p> 
-<iframe
-src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=Y19sbDc3NWhvaGY0cGk2azRlcXR2bGNwbTcxa0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23A79B8E&amp;mode=AGENDA&amp;showCalendars=0&amp;showPrint=1"
-style="border:solid 1px #777" width="600" height="400" frameborder="0"
-scrolling="no"></iframe>
-
+Course Calendar is in the [syllabus
+schedule](https://cooperrc.github.io/advanced-dynamics/syllabus.html#schedule)
 
