@@ -25,7 +25,7 @@ jobs:
     # Install dependencies
     - name: System dependencies
       run: |
-        apt-get update && apt-get install -y --no-install-recommends \
+        sudo apt-get update && apt-get install -y --no-install-recommends \
         texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra \
         ffmpeg
         pip install ghp-import
