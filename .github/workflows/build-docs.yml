@@ -22,14 +22,15 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    # Install dependencies
-    - name: System dependencies
+    - name: Install LaTeX dependencies
       run: |
-        sudo apt-get update && apt-get install -y --no-install-recommends \
-        texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra \
-        ffmpeg
-        pip install ghp-import
-
+        sudo apt-get -qq update
+        sudo apt-get install -y \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            dvipng cm-super ffmpeg
 
     # Build the book
     - name: Build the book
