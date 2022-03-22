@@ -42,6 +42,7 @@
   - file: module_03/03_nonconservative
   - file: module_03/04_lagrangian
   - file: module_03/05_top
+  - file: module_03/05_spring-pendulum
   - file: model_results/spring-pendulum
   - file: model_results/spinning_top-nonlinear
   - file: homeworks/HW_05

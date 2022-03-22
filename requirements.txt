@@ -1,5 +1,6 @@
 jupyter-book==0.10.1
 numpy
+sympy
 matplotlib
 scipy
 pandas
