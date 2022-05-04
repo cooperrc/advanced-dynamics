@@ -101,34 +101,29 @@
    Syllabus: ME 5180 Spring 2022
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../module_00/meet_cooper.html">
-   About the Instructor
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content.html">
-   Module Content
-  </a>
- </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../module_00/overview.html">
    Orientation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/meet_cooper.html">
+     About the Instructor
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../module_00/participation.html">
      Participation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../module_00/ode_review.html">
-     Review: solving linear second order differential equations
+    <a class="reference internal" href="../module_00/submit.html">
+     Submitting and tracking your assignments
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_00.html">
-     Homework 1 - Jupyter and Python
+     Homework_00 - Jupyter and Python
     </a>
    </li>
   </ul>
@@ -137,9 +132,14 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="README.html">
-   Getting started with Python and Scientific Computing
+   Review materials for Physics and Python
   </a>
   <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/ode_review.html">
+     Review: solving linear second order differential equations
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01_interactions.html">
      Interacting with Python
@@ -285,6 +285,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../module_03/05_top.html">
      Lecture_05 - spinning top equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/05_spring-pendulum.html">
+     Lecture_05 - Spring pendulum equations
     </a>
    </li>
    <li class="toctree-l2">
@@ -1073,8 +1078,8 @@ maximum relative error = 2.22044604925031308085e-16
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">f3bca8cd75a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="nn">Input In [12],</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">s1</span><span class="o">+=</span><span class="n">eps</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">s2</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mi">500</span><span class="o">*</span><span class="n">eps</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;summation 1+eps/2 over &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s1">&#39; minus 1 =&#39;</span><span class="p">,(</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;*eps=&#39;</span><span class="p">,(</span><span class="n">s2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>

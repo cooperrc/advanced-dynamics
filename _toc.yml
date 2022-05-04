@@ -3,15 +3,15 @@
 #
 - file: intro
 - file: syllabus
-- file: module_00/meet_cooper
-- file: content
 - file: module_00/overview
   sections:
+  - file: module_00/meet_cooper
   - file: module_00/participation
-  - file: module_00/ode_review
+  - file: module_00/submit
   - file: homeworks/HW_00
 - file: getting-started/README
   sections:
+  - file: module_00/ode_review
   - file: getting-started/01_interactions
   - file: getting-started/02_Working_with_Python
   - file: getting-started/03_Numerical_error

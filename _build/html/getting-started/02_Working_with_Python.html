@@ -101,34 +101,29 @@
    Syllabus: ME 5180 Spring 2022
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../module_00/meet_cooper.html">
-   About the Instructor
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../content.html">
-   Module Content
-  </a>
- </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../module_00/overview.html">
    Orientation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/meet_cooper.html">
+     About the Instructor
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../module_00/participation.html">
      Participation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../module_00/ode_review.html">
-     Review: solving linear second order differential equations
+    <a class="reference internal" href="../module_00/submit.html">
+     Submitting and tracking your assignments
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../homeworks/HW_00.html">
-     Homework 1 - Jupyter and Python
+     Homework_00 - Jupyter and Python
     </a>
    </li>
   </ul>
@@ -137,9 +132,14 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="README.html">
-   Getting started with Python and Scientific Computing
+   Review materials for Physics and Python
   </a>
   <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/ode_review.html">
+     Review: solving linear second order differential equations
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="01_interactions.html">
      Interacting with Python
@@ -285,6 +285,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../module_03/05_top.html">
      Lecture_05 - spinning top equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/05_spring-pendulum.html">
+     Lecture_05 - Spring pendulum equations
     </a>
    </li>
    <li class="toctree-l2">
@@ -1094,7 +1099,7 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-23-390fe18392c0&gt;:1: RuntimeWarning: invalid value encountered in true_divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_224395/2664324349.py:1: RuntimeWarning: invalid value encountered in true_divide
   x_array / y_array
 </pre></div>
 </div>
@@ -1432,8 +1437,8 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 58, 60, 76, 87, 82, 64, 23, 1, 62]
-[38, 78, 51, 32, 34, 10, 99, 59, 79, 25]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[42, 54, 3, 94, 14, 33, 0, 15, 59, 57]
+[10, 17, 48, 29, 58, 67, 33, 30, 86, 19]
 </pre></div>
 </div>
 </div>
@@ -1451,7 +1456,7 @@ for <code class="docutils literal notranslate"><span class="pre">step</span></co
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14 µs, sys: 2 µs, total: 16 µs
-Wall time: 17.6 µs
+Wall time: 16.9 µs
 </pre></div>
 </div>
 </div>
@@ -1463,7 +1468,7 @@ Wall time: 17.6 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[118, 136, 111, 108, 121, 92, 163, 82, 80, 87]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[52, 71, 51, 123, 72, 100, 33, 45, 145, 76]
 </pre></div>
 </div>
 </div>
@@ -1489,8 +1494,8 @@ Wall time: 17.6 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[98 65 62 75 86 18  0 84 41 95]
-[ 3 12  3 32 97 38 47  1 38 36]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[56 18 60 18  0 68 38 18 74 64]
+[ 0 40 50  2 25  2 52 65 56 43]
 </pre></div>
 </div>
 </div>
@@ -1504,8 +1509,8 @@ Wall time: 17.6 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 7 µs, sys: 0 ns, total: 7 µs
-Wall time: 8.11 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8 µs, sys: 1 µs, total: 9 µs
+Wall time: 11 µs
 </pre></div>
 </div>
 </div>
@@ -1588,7 +1593,7 @@ Wall time: 8.11 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcbe3007ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff740942580&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_103_1.png" src="../_images/02_Working_with_Python_103_1.png" />
@@ -1705,8 +1710,8 @@ of the two indices from 0 to 9 e.g. A_99[3,2]=6 and A_99[4,4]=16.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21 µs, sys: 1 µs, total: 22 µs
-Wall time: 24.1 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21 µs, sys: 2 µs, total: 23 µs
+Wall time: 24.3 µs
 </pre></div>
 </div>
 </div>
@@ -1750,11 +1755,11 @@ stdev of A_99 20.054612935681405
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.6 ms, sys: 3.17 ms, total: 15.7 ms
-Wall time: 14.4 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 28.7 ms, sys: 97 µs, total: 28.8 ms
+Wall time: 41.9 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7fcbe2dc2880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7ff7406caa30&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Working_with_Python_118_2.png" src="../_images/02_Working_with_Python_118_2.png" />

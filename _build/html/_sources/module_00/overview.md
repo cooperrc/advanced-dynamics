@@ -1,11 +1,21 @@
 # Orientation
 
-This introduction will get you up to speed on the tools we are using to
-explore dynamics: HuskyCT, Jupyter and Python, and Campuswire discussion
-board.
+Welcome to Advanced Dynamics!
 
-Week 1 goals:
-1. introduce ourselves
-2. meet Professor Cooper
-3. identify the need for Dynamics
-4. get Jupyter and Python running
+We are building a learning community around multibody dynamic systems.
+We'll start off with one- and two-component systems working towards
+computational tools to describe three- or more moving parts in dynamic
+systems. 
+
+This orientation has three goals:
+1. Meet Prof. Cooper and review the course introduction
+2. Introduce yourself on the discussion forum
+3. Submit your first two assignments (HW_00 and Quiz_00)
+
+## Course tour
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/rti82OqF5is" title="YouTube video
+player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>"
