@@ -50,8 +50,12 @@ visualize solutions to dynamics problems.
 
 ## Course Outcomes
 
-Students will gain experience in creating and troubleshooting single and
-multibody dynamic equation solvers. 
+Students will 
+1. Build engineering models of motion
+2. Explain motion using vectors and calculus
+3. Formulate equations of motion using variational calculus
+4. Model motion of multibody engineering systems
+5. Compare and contrast engineering models of motion
 
 ### Applications
 
