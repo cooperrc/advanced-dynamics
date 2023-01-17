@@ -15,7 +15,7 @@ This orientation has three goals:
 ## Course tour
 
 <iframe width="560" height="315"
-src="https://www.youtube.com/embed/rti82OqF5is" title="YouTube video
+src="https://www.youtube.com/embed/i3QsgzDo45k" title="YouTube video
 player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-encrypted-media; gyroscope; picture-in-picture"
+encrypted-media; gyroscope; picture-in-picture; web-share"
 allowfullscreen></iframe>"

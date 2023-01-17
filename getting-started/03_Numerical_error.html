@@ -98,7 +98,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../syllabus.html">
-   Syllabus: ME 5180 Spring 2022
+   Syllabus: ME 5180 Spring 2023
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
@@ -682,7 +682,7 @@
 code under BSD 3-Clause License © 2020 R.C. Cooper</strong></p>
 <div class="section" id="freefall-model-computational-solution">
 <h2>Freefall Model Computational solution<a class="headerlink" href="#freefall-model-computational-solution" title="Permalink to this headline">¶</a></h2>
-<img src="./images/freefall.png" style="width: 200px;"/> 
+<p><img alt="Diagram of freefalling object with free body diagram and kineticdiagram" src="../_images/freefall.png" /></p>
 <p>Here is our first computational mechanics model.</p>
 <p>An object falling is subject to the force of</p>
 <ul class="simple">
@@ -744,7 +744,7 @@ code under BSD 3-Clause License © 2020 R.C. Cooper</strong></p>
 </div>
 </div>
 </div>
-<p>Inside the curly brackets—the placeholders for the values we want to print—the <code class="docutils literal notranslate"><span class="pre">f</span></code> is for <code class="docutils literal notranslate"><span class="pre">float</span></code> and the <code class="docutils literal notranslate"><span class="pre">.4</span></code> is for four digits after the decimal dot. The colon here marks the beginning of the format specification (as there are options that can be passed before). There are so many tricks to Python’s string formatter that you’ll usually look up just what you need.
+<p>Inside the curly brackets¿the placeholders for the values we want to print¿the <code class="docutils literal notranslate"><span class="pre">f</span></code> is for <code class="docutils literal notranslate"><span class="pre">float</span></code> and the <code class="docutils literal notranslate"><span class="pre">.4</span></code> is for four digits after the decimal dot. The colon here marks the beginning of the format specification (as there are options that can be passed before). There are so many tricks to Python’s string formatter that you’ll usually look up just what you need.
 Another useful resource for string formatting is the <a class="reference external" href="https://mkaz.blog/code/python-string-format-cookbook/">Python String Format Cookbook</a>. Check it out!</p>
 <p>If we print these values using the string formatter,  with a total length of <code class="docutils literal notranslate"><span class="pre">5</span></code> and only printing 2 decimal digits, we can display our solution in a human-readable way.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{:</span><span class="mf">5.2</span><span class="n">f</span><span class="p">}</span>
@@ -888,7 +888,7 @@ at time 12.00 s, speed is 47.77 m/s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;velocity (m/s)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_18_1.png" src="../_images/03_Numerical_error_18_1.png" />
+<img alt="../_images/03_Numerical_error_18_11.png" src="../_images/03_Numerical_error_18_11.png" />
 </div>
 </div>
 <p><strong>Note:</strong> In the above plot, the numerical solution is given at discrete points connected by lines, while the analytical solution is drawn as a line. This is a helpful convention. We plot discrete data such as numerical solutions or measured data as points and lines while analytical solutions are drawn as lines.</p>
@@ -1231,7 +1231,7 @@ Wall time: 303 µs
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f131d486c90&gt;
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_43_1.png" src="../_images/03_Numerical_error_43_1.png" />
+<img alt="../_images/03_Numerical_error_43_11.png" src="../_images/03_Numerical_error_43_11.png" />
 </div>
 </div>
 </div>
@@ -1271,7 +1271,7 @@ Wall time: 303 µs
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Truncation and roundoff error \naccumulation in log-log plot&#39;)
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_47_1.png" src="../_images/03_Numerical_error_47_1.png" />
+<img alt="../_images/03_Numerical_error_47_11.png" src="../_images/03_Numerical_error_47_11.png" />
 </div>
 </div>
 <p>In the above plot “Truncation and roundoff error accumulation in log-log plot”, we see that around N=20,000 steps we stop decreasing the error with more steps. This is because we are approaching the limit of how precise we can store a number using a 32-bit floating point number.</p>
@@ -1399,7 +1399,7 @@ population = [1.578000e+09 2.526000e+09 6.127000e+09 7.795482e+09]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03_Numerical_error_54_0.png" src="../_images/03_Numerical_error_54_0.png" />
+<img alt="../_images/03_Numerical_error_54_01.png" src="../_images/03_Numerical_error_54_01.png" />
 </div>
 </div>
 <p><strong>d.</strong> As the number of time steps increases, the Euler approximation approaches the analytical solution, not the measured data. The best-case scenario is that the Euler solution is the same as the analytical solution.</p>
@@ -1449,7 +1449,7 @@ population = [1.578000e+09 2.526000e+09 6.127000e+09 7.795482e+09]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lowest order expansion is 0 where e^x = 1
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_58_1.png" src="../_images/03_Numerical_error_58_1.png" />
+<img alt="../_images/03_Numerical_error_58_11.png" src="../_images/03_Numerical_error_58_11.png" />
 </div>
 </div>
 </div>
