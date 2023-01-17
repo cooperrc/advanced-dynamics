@@ -16,17 +16,8 @@ maintain the [creative commons
 license](http://creativecommons.org/licenses/by/4.0/) and add your own
 intellectual ideas to the work. 
 
-Learning management systems (LMS) are great for ranking and
-critiquing your work, but the main feedback you receive is a list of
-grades. In this course, you will maintain a Google Drive folder that
-contains your projects, homeworks, and module learning objectives
-
-## Creating your Advanced Dynamics portfolio
-Go to this Drive link: [ME5180-_name_](https://drive.google.com/drive/folders/12NHCoeulToMyvpT5cqhOXAMHf4BNaByD?usp=sharing)
-Follow the instructions in [Welcome to
-ME5180](https://drive.google.com/file/d/1lGb4M8sY2ukasardLZUM-qhe-VPkOERx/view?usp=sharing)
-to make your own "ME5180-name" folder and share it with myself and the
-TA. 
+I encourage you to continue to work on and improve all the work you put
+into this course. 
 
 ## Note on Python + Jupyter assignments
 

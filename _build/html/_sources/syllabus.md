@@ -1,4 +1,4 @@
-# Syllabus: ME 5180 Spring 2022
+# Syllabus: ME 5180 Spring 2023
 ## Course and Instructor Information
 
 **Course Title:** ME5180 - Dynamics
@@ -17,15 +17,25 @@
 Campuswire (the preferred contact)* I will respond to questions within
 one business day (Mon-Fri 9am-5pm)
 
-**Preferred Contact:** Post course-related questions and comments to
-Campuswire:
-
-[*https://campuswire.com/p/G34E5F12D*](https://campuswire.com/p/G34E5F12D)
-
-Use code: **6205**
-
+**Preferred Contact:** Post course-related questions and comments
+Campuswire
 > Personal questions should be communicated privately via Campuswire DM
 > or email
+
+## Course Assignments and Discussions
+
+### Submit assignments
+
+[**Google
+Classroom**](https://classroom.google.com/c/NTQxNDU1MDk5MzM5?cjc=nklhwi4)
+
+Use code: nklhwi4
+
+### Discuss course assignments/materials
+**Campuswire**:[*https://campuswire.com/p/G71EBB365*](https://campuswire.com/p/G71EBB365)
+
+Use code: **9993**
+
 
 ## Course Description
 This is the study of moving objects and how they interact. We will explore
@@ -45,13 +55,17 @@ Numerical methods will introduce linear algebra and numerical integration.
 This course will introduce analytical and numerical solutions to multibody dynamic
 systems. We will use Newton's laws of motion and Lagrange's laws
 of motion, calculus, and linear algebra to derive differential equations of motion. We
-will use [Python 3.7](https://www.anaconda.com/distribution/) to analyze and
+will use [Python 3.8+](https://www.anaconda.com/distribution/) to analyze and
 visualize solutions to dynamics problems. 
 
 ## Course Outcomes
 
-Students will gain experience in creating and troubleshooting single and
-multibody dynamic equation solvers. 
+Students will 
+1. Build engineering models of motion
+2. Explain motion using vectors and calculus
+3. Formulate equations of motion using variational calculus
+4. Model motion of multibody engineering systems
+5. Compare and contrast engineering models of motion
 
 ### Applications
 
@@ -63,7 +77,7 @@ multibody dynamic equation solvers.
 - Biomechanics design: artificial knees/hips/..., sports physics, health/fitness
   tracking, etc. 
 
-- Sports: ball-tracking, speedometers, helmet design, equipment
+- Sports: ball-tracking, speedometers, helmet design, equipment
   design (baseball bat, lacrosse stick,...),   etc. 
 
 - ...
@@ -83,11 +97,7 @@ Campuswire
 [Computational Dynamics, 3rd edition by Ahmad Shabana](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/):
 __available through UConn Library O'Reilly subscription__
 
-[Lagrangian Dynamics, D. A. Wells, McGraw-Hill.](https://www.amazon.com/Schaums-Outline-Lagrangian-Dynamics-1967-06-01/dp/B017MYQFP0):
-Required textbooks are available for purchase through the [UConn Bookstore](http://uconn.bncollege.com/webapp/wcs/stores/servlet/TBWizardView?catalogId=10001&langId=-1&storeId=88191) (or use the Purchase Textbooks tool in HuskyCT). Textbooks can
-be shipped ([fees
-apply](http://uconn.bncollege.com/webapp/wcs/stores/servlet/BNCBShippingDeliveryView?langId=-1&storeId=88191&catalogId=10001)).
-
+[Lagrangian Dynamics, D. A. Wells, McGraw-Hill.](https://www.amazon.com/Schaums-Outline-Lagrangian-Dynamics-1967-06-01/dp/B017MYQFP0)
 
 [_Advanced Dynamics_ by Ryan C. Cooper](https://cooperrc.github.io/advanced-dynamics/intro.html) this is
 our course website+materials. It will host our syllabus, readings,
@@ -107,14 +117,18 @@ Engineering Dynamics, Jeremy Kasdin and Derek Paley, Princeton University Press.
 
 ### Required Software
 
-
-
-
+- Modern web browser (Chrome/Firefox/Safari/Edge)
+- PDF viewer
+- Mobile scanning software e.g [Google
+  Drive](https://support.google.com/drive/answer/3145835?co=GENIE.Platform%3DAndroid&hl=en&oco=0)
+  or
+  [Scannable](https://itunes.apple.com/us/app/evernote-scannable/id883338188?mt=8)
 
 ### Course Discussion
 
 **Campuswire:** This session we will be using 
-[ME5180 - Campuswire](https://campuswire.com/p/G34E5F12D) code: 6205 for class
+[ME5180 -
+Campuswire](https://cooperrc.github.io/advanced-dynamics/syllabus.html#course-and-instructor-information).
 discussion. The system is catered to getting you help fast and
 efficiently from classmates and myself. Rather than emailing questions,
 I prefer you to post your questions on Campuswire. If you have any
@@ -123,12 +137,10 @@ problems or feedback for the developers, email
 
 ## Schedule
 
-The course schedule is on the [*ME5180 - Spring Google
-Calendar*](https://calendar.google.com/calendar/embed?src=c_classrooma7eda75a%40group.calendar.google.com&ctz=America%2FNew_York)
+The course schedule is maintained on the Classroom calendar
 
-<iframe
-src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb21hN2VkYTc1YUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%230047a8"
-style="border:solid 1px #777" width="500" height="400" frameborder="0"
+rc="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb204NmE1OGIxMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
+style="border:solid 1px #777" width="600" height="400" frameborder="0"
 scrolling="no"></iframe>
 
 Assignments are due by 11:59pm on the specified due dates. You can add
@@ -146,8 +158,9 @@ updates.
 | Participation\*\* | 20 %    | Self assessment               |
 
 \* Note on Quizzes: Quizzes are based upon previous week's material.
-They are open-resource and timed. You will submit a scan of your work
-and a short (10-30 seconds) video to HuskyCT. 
+They are open-resource. You should plan to spend 20-30 minutes
+completing the quiz. You will submit a scan of your work
+and a short (10-30 seconds) video to Classroom. 
 
 \*\* Note on Participation: 
 You can participate in a variety of ways e.g. 
@@ -196,8 +209,9 @@ and resources.*
 ### Feedback and Grades
 
 I will make every effort to provide feedback and grades within 7 days.
-To keep track of your performance in the course, refer to My Grades in
-HuskyCT.
+To keep track of your performance in the course, refer to grades in
+Google Classroom.
+
 
 **Weekly Time Commitment**
 
@@ -251,10 +265,6 @@ The software/technical requirements for this course include:
     [*Firefox*](https://www.mozilla.org/en-US/), [*Safari (Mac
     OS)*](https://www.apple.com/safari/), or [*Microsoft
     Edge*](https://www.microsoft.com/en-us/edge)
--   HuskyCT/Blackboard ([*HuskyCT/ Blackboard Accessibility
-    Statement*](http://www.blackboard.com/Platforms/Learn/Resources/Accessibility.aspx),
-    [*HuskyCT/ Blackboard Privacy
-    Policy*](http://www.blackboard.com/footer/privacy-policy.aspx))
 -   [*Adobe Acrobat
     Reader*](http://www.adobe.com/products/acrobat/readstep2.html)
     ([*Adobe Reader Accessibility
@@ -263,20 +273,6 @@ The software/technical requirements for this course include:
 -   Google Apps ([*Google Apps
     Accessibility*](https://www.google.com/accessibility/), [*Google for
     Education Privacy Policy*](https://www.google.com/edu/trust/)
--   Plotting software e.g. Matlab (free on the Engineering Virtual PC
-    [*Matlab accessibility
-    statement*](https://www.mathworks.com/support/accessibility.html)),
-    [*Octave*](https://www.gnu.org/software/octave/) (free open-source
-    matlab-compatible), Python's [*Matplotlib*](https://matplotlib.org/)
-    (free open-source Python plotting library), Excel (free on the the
-    Engineering Virtual PC) [*Excel Accessibility
-    Statement*](https://www.microsoft.com/en-us/accessibility)/[*Excel
-    Privacy
-    Policy*](https://privacy.microsoft.com/en-us/privacystatement), or
-    [*Google Sheets*](https://docs.google.com/spreadsheets) (part of the
-    Google Apps) [*Google Accessibility
-    Statement*](https://www.google.com/accessibility/)/[*Google Privacy
-    Policy*](https://edu.google.com/why-google/privacy-security/?modal_active=none)
 -   Dedicated access to high-speed internet with a minimum speed of 1.5
     Mbps (4 Mbps or higher is recommended).
 -   Webcam (Note: Most laptops come with a webcam. If you need to
@@ -292,14 +288,6 @@ page*](https://privacy.uconn.edu/).
 
 [*Technical and Academic Help*](http://ecampus.uconn.edu/help.html)
 provides a guide to technical and academic assistance.
-
-This course is completely facilitated online using the learning
-management platform, [*HuskyCT*](https://lms.uconn.edu). If you have
-difficulty accessing HuskyCT, you have access to the in person/live
-person support options available during regular business hours through
-the [*Help Center*](http://helpcenter.uconn.edu/). You also have [*24x7
-Course Support*](http://www.ecampus24x7.uconn.edu/) including access to
-live chat, phone, and support documents.
 
 ## Minimum Technical Skills
 
@@ -338,8 +326,7 @@ participate in and complete the course activities and assessments and
 receive academic credit. Verification and authentication of student
 identity in this course will include:
 
-1.  Secure access to the learning management system using your unique
-    UConn NetID and password.
+1.  Secure access to the JupyterHub system
 2.  Students will submit videos to describe solutions to the 8 module
     quizzes.
 

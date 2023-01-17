@@ -5,7 +5,8 @@ code under BSD 3-Clause License © 2020 R.C. Cooper__
 
 ## Freefall Model Computational solution
 
-<img src="./images/freefall.png" style="width: 200px;"/> 
+![Diagram of freefalling object with free body diagram and kinetic
+diagram](./images/freefall.png)
 
 Here is our first computational mechanics model. 
 
@@ -73,7 +74,7 @@ def v_analytical(t,m,g,c):
     v= v_terminal*np.tanh(g*t/v_terminal)
     return v
 
-Inside the curly brackets—the placeholders for the values we want to print—the `f` is for `float` and the `.4` is for four digits after the decimal dot. The colon here marks the beginning of the format specification (as there are options that can be passed before). There are so many tricks to Python's string formatter that you'll usually look up just what you need.
+Inside the curly brackets¿the placeholders for the values we want to print¿the `f` is for `float` and the `.4` is for four digits after the decimal dot. The colon here marks the beginning of the format specification (as there are options that can be passed before). There are so many tricks to Python's string formatter that you'll usually look up just what you need.
 Another useful resource for string formatting is the [Python String Format Cookbook](https://mkaz.blog/code/python-string-format-cookbook/). Check it out!
 
 If we print these values using the string formatter,  with a total length of `5` and only printing 2 decimal digits, we can display our solution in a human-readable way.

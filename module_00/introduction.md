@@ -18,6 +18,7 @@ kinematics. Newton defined three kinetic laws that helped describe how force,
 impact, and energy relate to changes in motion. 
 
 This introduction will get you up to speed on the tools we are using to explore
+
 dynamics: HuskyCT, Google Documents, and the Campuswire discussion board. 
 
 # Objectives
@@ -37,8 +38,7 @@ software, and materials
 * Read the syllabus and post a discussion response 
 * Read about the course's organization and tools.
 * Take a 5-minute practice quiz
-* Submit a practice quiz to your Google Drive portfolio
+* Submit a practice quiz to Google Classroom
 * Review the University of Connecticut's academic policies
-* Watch the Introduction videos and answer the questions
-* Complete an Introduction to Python and submit your work in your Google
-  Drive portfolio
+* Complete an Introduction to Python Homework and submit your work in your Google
+  classroom
