@@ -139,7 +139,8 @@ problems or feedback for the developers, email
 
 The course schedule is maintained on the Classroom calendar
 
-rc="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb204NmE1OGIxMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
+<iframe
+src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb204NmE1OGIxMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
 style="border:solid 1px #777" width="600" height="400" frameborder="0"
 scrolling="no"></iframe>
 
