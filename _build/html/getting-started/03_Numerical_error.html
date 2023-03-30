@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -888,7 +888,7 @@ at time 12.00 s, speed is 47.77 m/s
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;velocity (m/s)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_18_11.png" src="../_images/03_Numerical_error_18_11.png" />
+<img alt="../_images/03_Numerical_error_18_1.png" src="../_images/03_Numerical_error_18_1.png" />
 </div>
 </div>
 <p><strong>Note:</strong> In the above plot, the numerical solution is given at discrete points connected by lines, while the analytical solution is drawn as a line. This is a helpful convention. We plot discrete data such as numerical solutions or measured data as points and lines while analytical solutions are drawn as lines.</p>
@@ -1078,8 +1078,8 @@ maximum relative error = 2.22044604925031308085e-16
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [12],</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">s1</span><span class="o">+=</span><span class="n">eps</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">f3bca8cd75a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">s2</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mi">500</span><span class="o">*</span><span class="n">eps</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;summation 1+eps/2 over &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s1">&#39; minus 1 =&#39;</span><span class="p">,(</span><span class="n">s</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;*eps=&#39;</span><span class="p">,(</span><span class="n">s2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
@@ -1231,7 +1231,7 @@ Wall time: 303 µs
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f131d486c90&gt;
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_43_11.png" src="../_images/03_Numerical_error_43_11.png" />
+<img alt="../_images/03_Numerical_error_43_1.png" src="../_images/03_Numerical_error_43_1.png" />
 </div>
 </div>
 </div>
@@ -1271,7 +1271,7 @@ Wall time: 303 µs
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Truncation and roundoff error \naccumulation in log-log plot&#39;)
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_47_11.png" src="../_images/03_Numerical_error_47_11.png" />
+<img alt="../_images/03_Numerical_error_47_1.png" src="../_images/03_Numerical_error_47_1.png" />
 </div>
 </div>
 <p>In the above plot “Truncation and roundoff error accumulation in log-log plot”, we see that around N=20,000 steps we stop decreasing the error with more steps. This is because we are approaching the limit of how precise we can store a number using a 32-bit floating point number.</p>
@@ -1399,7 +1399,7 @@ population = [1.578000e+09 2.526000e+09 6.127000e+09 7.795482e+09]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03_Numerical_error_54_01.png" src="../_images/03_Numerical_error_54_01.png" />
+<img alt="../_images/03_Numerical_error_54_0.png" src="../_images/03_Numerical_error_54_0.png" />
 </div>
 </div>
 <p><strong>d.</strong> As the number of time steps increases, the Euler approximation approaches the analytical solution, not the measured data. The best-case scenario is that the Euler solution is the same as the analytical solution.</p>
@@ -1449,7 +1449,7 @@ population = [1.578000e+09 2.526000e+09 6.127000e+09 7.795482e+09]
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lowest order expansion is 0 where e^x = 1
 </pre></div>
 </div>
-<img alt="../_images/03_Numerical_error_58_11.png" src="../_images/03_Numerical_error_58_11.png" />
+<img alt="../_images/03_Numerical_error_58_1.png" src="../_images/03_Numerical_error_58_1.png" />
 </div>
 </div>
 </div>
