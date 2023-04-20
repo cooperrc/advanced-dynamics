@@ -14,7 +14,8 @@ YouTubeVideo('-A1w46iqUlE')
 
 In this notebook we will explore kinematically-driven systems where the system degrees of freedom, $n_{d}=0 = 3\times n_b -n_c$, for planar problems. $n_b$ bodies moving in a plane have $3\times n_b$ degrees of freedom and the number of constraints is $n_c$.
 
-![Coordinate system of rigid body](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0303.png)
+![Coordinate system of rigid body, https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0303.png](https://i.imgur.com/KXR6Cjp.png)
+https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9780470686157/files/figs/0303.png
 
 In the figure above, there are three position vectors, $\mathbf{r}^{i}$, $\mathbf{R}^{i}$, and $\mathbf{u}^{i}$ and two coordinate systems, $X$-$Y$ and $X^{i}$-$Y^{i}$.
 
@@ -227,11 +228,11 @@ for i,tt in enumerate(t):
 
 Now, you can create the same figures as Shabana ch 3
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337a.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337a.png](https://i.imgur.com/YyrcJF0.png)
 
 Fig. 3.37. Orientation of the connecting rod
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337b.png](https://i.imgur.com/BpCgybm.png)
 
 Fig. 3.37. Displacement of the slider block
 
@@ -467,13 +468,13 @@ for i, ti in enumerate(t):
     q0=q[:, i]
     
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338a.png)
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338a.png](https://i.imgur.com/OAYSFvP.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338b.png](https://i.imgur.com/bntk5qH.png)
 
 Fig. 3.38 velocity components 
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339a.png)
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339a.png](https://i.imgur.com/rwaWUTT.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339b.png](https://i.imgur.com/RKHgBSF.png)
 
 Fig. 3.39 acceleration components 
 
@@ -482,8 +483,6 @@ Fig. 3.39 acceleration components
 Here, you can plot the terms $\dot{\mathbf{q}}$ and $\ddot{\mathbf{q}}$ to compare to the Shabana solutions shown above in Figs 3.38-39. __Try plotting $\dot{\theta}^2,~\ddot{\theta}^2,~\dot{R}^3_x,~and~\ddot{R}^3_x$__
 
 
-plt.plot(q[2],ddq[6,:])
-plt.xlabel('crank angle (rad)')
 
 ## Problem 3
 
@@ -497,12 +496,12 @@ $f(t)=0.35-0.8l^2\sin150t$
 
 Recreate Figs. 3.43-3.48 for the slidercrank.
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340a.png)
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340a.png](https://i.imgur.com/qMLFflG.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340b.png](https://i.imgur.com/TrcECmw.png)
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341a.png)
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341a.png](https://i.imgur.com/FDmueEx.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341b.png](https://i.imgur.com/Bl2Gciy.png)
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342a.png)
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342b.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342a.png](https://i.imgur.com/udqlLdg.png)
+![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342b.png](https://i.imgur.com/rx6paso.png)
 
