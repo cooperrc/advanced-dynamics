@@ -154,7 +154,16 @@ B=np.array([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
 C=A@B # multiply AB
 C
 
-B@A
+```python 
+>>> B@A
+
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-8-2b961c7386ac> in <module>
+----> 1 B@A
+
+ValueError: shapes (3,4) and (2,3) not aligned: 4 (dim 1) != 2 (dim 0)
+```
 
 ## Problem 2
 
@@ -186,17 +195,20 @@ D2=B # replace with your algebra
 
 In many applications in mechanics, scalar and vector functions that depend on one or more variables are encountered. An example of a scalar function that depends on the system velocities and possibly on the system coordinates is the kinetic energy. Examples of vector functions are the coordinates, velocities, and accelerations that depend on time. Let us first consider a scalar function f that depends on several variables q1, q2, ... , and qn and the parameter t, such that
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ260.png)
+
+$f = f(q_1,~q_2,~...,q_n,~t)$
 
 The total derivative $df/dt$ becomes
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ261.png)
+$\frac{df}{dt} = \frac{\partial f}{\partial q_1}\dot{q}_1 + \frac{\partial f}{\partial q_2}\dot{q}_2 + ... +\frac{\partial f}{\partial q_n}\dot{q}_n + \frac{\partial f}{\partial t}$
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ263.png)
+$\frac{d f}{d t} = \frac{\partial f}{\partial \mathbf{q}}\dot{\mathbf{q}} + \frac{\partial f}{\partial t}$
 
 Where $\frac{\partial f}{\partial \mathbf{q}}$ can be rewritten as
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ264.png)
+$\mathbf{q} = [q_1,~q_2,~...~q_n]^T$
+
+$\frac{\partial f}{\partial \mathbf{q}} = f_{\mathbf{q}} = [\frac{\partial f}{\partial q_1},~\frac{\partial f}{\partial q_2},~...,~\frac{\partial f}{\partial q_n}]$
 
 U=np.array([[1,2,3],[0,4,5],[0,0,6]])
 L=np.array([[1,0,0],[2,3,0],[4,5,6]])
@@ -213,7 +225,7 @@ Make a function that returns the partial derivative of $f(q_1,q_2,q_3,t)$ with r
 
 $\frac{\partial f}{\partial \mathbf{q}}$
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02180.png)
+$f(q_1,~q_2,~q_3,~t) = q_1q_3 - 3q_2^2 + 5t^2$
 
 def dfdq(q1,q2,q3,t):
     # your work
@@ -229,24 +241,55 @@ def dfdt(q1,q2,q3,t):
 
 For a number of functions, $f_1$...$f_n$
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ265.png)
+- $f_1 = f_1(q_1,~q_2,~...,~q_n,~t)$
+- $f_2 = f_2(q_1,~q_2,~...,~q_n,~t)$
+- $...$
+- $f_m = f_m(q_1,~q_2,~...,~q_n,~t)$
 
 The total derivative is a similar form
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ268.png)
+$\frac{df}{dt} = \left[\begin{array}{c}
+~\frac{df_1}{dt}\\
+\frac{df_2}{dt}\\
+\vdots \\
+\frac{df_m}{dt}\end{array}\right] = 
+\left[\begin{array}{cccc}
+~\frac{\partial f_1}{\partial q_1} & \frac{\partial f_1}{\partial q_2} & ... & \frac{\partial f_1}{\partial q_n}\\
+\frac{\partial f_2}{\partial q_1} & \frac{\partial f_2}{\partial q_2} & ... & \frac{\partial f_2}{\partial q_n}\\
+\\
+\vdots & \vdots & \ddots &\vdots\\
+\frac{\partial f_m}{\partial q_1} & \frac{\partial f_m}{\partial q_2} & ... & \frac{\partial f_m}{\partial q_n}\end{array}\right] 
+\left[\begin{array}{c}
+~\frac{d q_1}{dt}\\
+\frac{d q_2}{dt}\\
+\vdots \\
+\frac{d q_n}{dt}\end{array}\right]+
+\left[\begin{array}{c}
+~\frac{\partial f_1}{\partial t}\\
+\frac{\partial f_2}{\partial t}\\
+\vdots \\
+\frac{\partial f_m}{\partial t}\end{array}\right]$
 
-or
+_or_
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ270.png)
+$\frac{d \mathbf{f}}{dt} = \frac{\partial \mathbf{f}}{\partial \mathbf{q}}\frac{d \mathbf{q}}{dt} + \frac{\partial \mathbf{f}}{\partial t}$
 
 ## Problem 4
 
 Create a function that returns $\frac{\partial \mathbf{f}}{\partial\mathbf{q}}$ where $\mathbf{f}$ is defined as
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02182.png)
+$f = \left[\begin{array}{c}
+~f_1\\
+f_2\\
+f_3\end{array}\right] = 
+\left[\begin{array}{c}
+~q_1^2 + 3q_2^2 - 5q_4^3 + t^3\\
+q_2^2 - q_3^2\\
+q_1q_4 + q_2q_3 + t\end{array}\right]$
+
 
 def dfdq2(q,t):
-    '''Here q=[q1,q2,q3] and t = time'''
+    '''Here q=[q1,q2,q3,q4] and t = time'''
     # your work here
     return df
 
@@ -254,7 +297,7 @@ Use your `dfdq2` to calculate $\frac{\partial \mathbf{f}}{\partial\mathbf{q}}$ w
 
 q=[1,3,5], and t=3
 
-q=np.array([1,3,5])
+q=np.array([1,3,5,1])
 t=3
 dfdq2(q,t)
 
@@ -362,12 +405,19 @@ A_{11} & A_{12} &...& A_{1N} \\
 0 & 0 &\ddots & \vdots \\
 0 & 0 &...& A_{NN}\end{array} \right]\right|=A_{11}A_{22}A_{33}...A_{NN}$
 
-![eqn](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/UEQ212.png)
-
 ## Problem 5
 
 Find the sum $A+B$, the determinants, $|A|$ and $|B|$,  trace\($A$\), and trace\($B$\)
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/U02173.png)
+$A=\left[ \begin{array}{ccc}
+~-3 & 8 & -20.5 \\
+5 & 11 & 13 \\
+7 & 20 & 0\end{array} \right]$
+
+$B=\left[ \begin{array}{ccc}
+~0 & 3.2 & 0 \\
+-17.5 & 5.7 & 0 \\
+12 & 6.8 & -10\end{array} \right]$
+
 
 # your work here

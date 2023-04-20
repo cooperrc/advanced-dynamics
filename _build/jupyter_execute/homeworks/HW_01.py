@@ -127,23 +127,34 @@ $a_x = 0$ m/s$^2$
 
 **(a)** Plot the angle of the pendulum for one full period of oscillation given $\theta(0)=\pi/12$ and $\dot{\theta}(0)=0$
 
- # insert code here
+w = np.sqrt(9.81/0.5)
+T = 2*np.pi/w
+T
+
+t = np.linspace(0, T, 50)
+s1 = 4*t
+L1 = 1.2
+s2 = 0
+L2 = 1
+theta = np.pi/12*np.cos(w*t)
+
+xm = 0.5*np.sin(theta)
+ym = 0.5*np.cos(theta)
+
+X1 = s1+L1+xm
+X2 = s2+L2-ym
 
 **(b)** make an animation of the position of the mass, $m$, in terms of $X_1$ and $X_2$ for $t=0-0.5$s
 
-# convert theta -> X1 ad X2 positions
-X1 = np.array([])
-X2 = np.array([])
-
 fig2, ax2 = plt.subplots()
 
-ax2.set_xlim((0, 1))
+ax2.set_xlim((0, 8))
 ax2.set_ylim((0, 1.2))
 ax2.set_xlabel('x-position (m)')
 ax2.set_ylabel('y-position (m)')
 
 line, = ax2.plot([], [],'o-') # add marker at end points
-marker, = ax2.plot([], [], 'o', markersize=10)
+# marker, = ax2.plot([], [], 'o', markersize=10)
 ax2.plot(X1,X2,'--', label = 'path')
 
 def animate2(i):
@@ -155,9 +166,15 @@ def animate2(i):
     --------
     line: the line object plotted in the above ax.plot(...)
     '''
-    line.set_data([0,X1[i]],[0,X2[i]])
+    line.set_data([s1[i]+L1, X1[i]],
+                  [s2+L2, X2[i]])
+    return (line,)
 
-anim2 = animation.FuncAnimation(fig, animate2, init_func=init,
+def init():
+    line.set_data([], [])
+    return line,
+
+anim2 = animation.FuncAnimation(fig2, animate2, init_func=init,
                                frames=range(0,len(X1)), interval=100, 
                                blit=True)
 
@@ -168,5 +185,3 @@ HTML(anim2.to_html5_video())
 1. $a_x=$ 0 m/s$^2$
 
 2. $a_x=$ 4 m/s$^2$
-
- #your work here
