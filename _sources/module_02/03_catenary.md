@@ -1,6 +1,6 @@
 ## [Lecture_03-hanging chain](https://youtu.be/o-wqhInsGf8)
 
-![hanging chain variational solution](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/aec6660b-716d-4530-ac9a-ee080b56d7c3/08_hanging.png)
+![hanging chain variational solution](https://i.imgur.com/pfEabcx.jpg)
 
 In this video, you see how to derive the equilibrium position of a complex system of parts. 
 

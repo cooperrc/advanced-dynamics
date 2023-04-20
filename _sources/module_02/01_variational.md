@@ -1,6 +1,6 @@
 # [Lecture_01 variational calculus](https://youtu.be/B3Q6930JYfk)
 
-![06_var-calc.png](https://campuspro-uploads.s3.us-west-2.amazonaws.com/2f97aca3-fc59-4d60-903d-2957cdab1812/23e66667-e7f4-4ada-9848-0b799e8f01e1/06_var-calc.png)
+![06_var-calc.png](https://i.imgur.com/oeNt7IY.jpg)
 
 Variational calculus is similar to calculus. In calculus, you can find
 the minimum and maximum of a function, $f(x)$ by setting
