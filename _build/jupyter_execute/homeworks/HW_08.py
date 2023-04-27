@@ -101,7 +101,7 @@ def Cq_pin(qi, qj, ui, uj):
     Cq_pin=np.block([Cq_1, Cq_2])
     return Cq_pin
 
-![](https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/P605.png)
+![Problem 6.05 slider crank](https://i.imgur.com/glFZ8lP.png)
 
 ## Problem 2
 
