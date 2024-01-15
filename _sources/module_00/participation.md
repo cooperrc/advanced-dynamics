@@ -15,11 +15,6 @@ We should agree on _how_ we interact and assess your learning in this
 first week. Use the course discussion forum to discuss changes to the
 syllabus. 
 
-[Introduce yourself and suggest syllabus
-changes](https://campuswire.com/c/G71EBB365/feed/1) 
-
-[Course Discussion resource in syllabus](https://cooperrc.github.io/advanced-dynamics/syllabus.html#course-discussion)
-
 
 Continue posting questions and try to answer each other's questions. The 
 best way to learn is to communicate your interpretation and get 
@@ -34,4 +29,4 @@ engineering dynamics
 ## Readings - week 1 
 
 1. [Syllabus](https://cooperrc.github.io/advanced-dynamics/syllabus.html) 
-2. Ginsberg ch. 1 (on Classroom) 
+2. Ginsberg ch. 1 (on HuskyCT) 

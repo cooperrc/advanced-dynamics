@@ -15,7 +15,8 @@ Storrs, CT 06269
 
 __email:__ <ryan.c.cooper@uconn.edu>
 
-__Office hours:__ by [appointment](https://cooperrc.github.io) or on Campuswire
+__Office hours:__ by [appointment](https://cooperrc.github.io) or on
+GitHub Discussions
 
-__Preferred contact:__ post discussion questions on Campuswire, for personal
+__Preferred contact:__ post discussion questions on GitHub Discussions, for personal
 questions reach out via email. 
