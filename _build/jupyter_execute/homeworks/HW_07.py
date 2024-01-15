@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import numpy as np
 from numpy import sin,cos,pi
 from scipy.linalg import *
@@ -5,33 +11,41 @@ from scipy.optimize import fsolve,root
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
+
+# In[2]:
+
+
 from IPython.display import YouTubeVideo
 YouTubeVideo('-A1w46iqUlE')
 
-# Homework #7  Kinematics
 
-**Kinematics** is the study of the geometry of motion e.g. definitions of position, velocity, and acceleration
+# # Homework #7  Kinematics
+# 
+# **Kinematics** is the study of the geometry of motion e.g. definitions of position, velocity, and acceleration
+# 
+# In this notebook we will explore kinematically-driven systems where the system degrees of freedom, $n_{d}=0 = 3\times n_b -n_c$, for planar problems. $n_b$ bodies moving in a plane have $3\times n_b$ degrees of freedom and the number of constraints is $n_c$.
+# 
+# ![Coordinate system of rigid body, https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0303.png](https://i.imgur.com/KXR6Cjp.png)
+# https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9780470686157/files/figs/0303.png
+# 
+# In the figure above, there are three position vectors, $\mathbf{r}^{i}$, $\mathbf{R}^{i}$, and $\mathbf{u}^{i}$ and two coordinate systems, $X$-$Y$ and $X^{i}$-$Y^{i}$.
+# 
+# The $X^{i}$-$Y^{i}$ coordinate system moves with the rigid body and the point P is always in a fixed position $\mathbf{\bar{u}}^{i}_{P}=\bar{x}^{i}_{P}\hat{i}^{i}+\bar{y}^{i}_{P}\hat{j}^{i}$ in this coordinate system. 
+# 
+# $\mathbf{u}^{i}_{P} = \left[ \begin{array}{cc}
+# \cos \theta^i & -\sin \theta^i \\
+# \sin \theta^i & \cos \theta^i \\
+# \end{array} \right]
+# \left[\begin{array}{c} 
+# \bar{x}^{i}_{P} \\ 
+# \bar{y}^{i}_{P}\end{array}\right]$
+# 
+# or
+# 
+# $\mathbf{u}_{P}^{i}=\mathbf{A}^{i}\mathbf{\bar{u}}^{i}_{P}$
 
-In this notebook we will explore kinematically-driven systems where the system degrees of freedom, $n_{d}=0 = 3\times n_b -n_c$, for planar problems. $n_b$ bodies moving in a plane have $3\times n_b$ degrees of freedom and the number of constraints is $n_c$.
+# In[3]:
 
-![Coordinate system of rigid body, https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0303.png](https://i.imgur.com/KXR6Cjp.png)
-https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9780470686157/files/figs/0303.png
-
-In the figure above, there are three position vectors, $\mathbf{r}^{i}$, $\mathbf{R}^{i}$, and $\mathbf{u}^{i}$ and two coordinate systems, $X$-$Y$ and $X^{i}$-$Y^{i}$.
-
-The $X^{i}$-$Y^{i}$ coordinate system moves with the rigid body and the point P is always in a fixed position $\mathbf{\bar{u}}^{i}_{P}=\bar{x}^{i}_{P}\hat{i}^{i}+\bar{y}^{i}_{P}\hat{j}^{i}$ in this coordinate system. 
-
-$\mathbf{u}^{i}_{P} = \left[ \begin{array}{cc}
-\cos \theta^i & -\sin \theta^i \\
-\sin \theta^i & \cos \theta^i \\
-\end{array} \right]
-\left[\begin{array}{c} 
-\bar{x}^{i}_{P} \\ 
-\bar{y}^{i}_{P}\end{array}\right]$
-
-or
-
-$\mathbf{u}_{P}^{i}=\mathbf{A}^{i}\mathbf{\bar{u}}^{i}_{P}$
 
 def rotA(theta):
     '''This function returns a 2x2 rotation matrix to convert the 
@@ -52,25 +66,32 @@ def rotA(theta):
     
     return A
 
+
+# In[4]:
+
+
 rotA(np.pi/3)
 
 
-![Slider crank 3-body mechanism](../images/slider-crank.svg)
+# ![Slider crank 3-body mechanism](../images/slider-crank.svg)
+# 
+# Figs. Slider crank mechanism and body coordinate systems.
 
-Figs. Slider crank mechanism and body coordinate systems.
+# ## Computational Kinematics of Slider crank
+# 
+# Here you will create the computational kinematics of the slider crank in Fig. 3.35-3.36 above.
+# 
+# The first kinematic problem will drive the slider crank with a constraint 
+# $$\theta^{1} = \omega t +\theta_0$$ 
+# 
+# where $\omega = 150~rad/s$ and $\theta_0=\pi/6~rad$. 
+# 
+# Below you set up the function to return the constraint equations, 
+# 
+# $\mathbf{C}(\mathbf{q},t)$ = `C_slidercrank(q,t)`
 
-## Computational Kinematics of Slider crank
+# In[5]:
 
-Here you will create the computational kinematics of the slider crank in Fig. 3.35-3.36 above.
-
-The first kinematic problem will drive the slider crank with a constraint 
-$$\theta^{1} = \omega t +\theta_0$$ 
-
-where $\omega = 150~rad/s$ and $\theta_0=\pi/6~rad$. 
-
-Below you set up the function to return the constraint equations, 
-
-$\mathbf{C}(\mathbf{q},t)$ = `C_slidercrank(q,t)`
 
 def links(l1 = 0.075*2, l2 = 0.175*2):
     '''function to define lengths of links for bodies 2 and 3 
@@ -86,6 +107,10 @@ def links(l1 = 0.075*2, l2 = 0.175*2):
     '''
     
     return l1,l2
+
+
+# In[6]:
+
 
 def C_slidercrank(q,t):
     '''9 constraint equations for 9 generalized coords
@@ -122,25 +147,33 @@ def C_slidercrank(q,t):
     C[8] = q1[2] - pi/6 - 150*t
     return C
 
-## Problem 1
 
-Solve for $\mathbf{q}(t=0) = [R_x^1,~R_y^1, \theta^1,~R_x^2,~R_y^2, \theta^2,~R_x^3,~R_y^3, \theta^3]$ using the given system definitions:
+# ## Problem 1
+# 
+# Solve for $\mathbf{q}(t=0) = [R_x^1,~R_y^1, \theta^1,~R_x^2,~R_y^2, \theta^2,~R_x^3,~R_y^3, \theta^3]$ using the given system definitions:
+# 
+# - $l_1 = 0.15~m$
+# - $l_2 = 0.25~m$
+# - $\theta^1(t) = 150t+\frac{\pi}{6}$
+# 
+# Show that `C_slidercrank(q0, 0)` $=\mathbf{0}$. 
+# 
 
-- $l_1 = 0.15~m$
-- $l_2 = 0.25~m$
-- $\theta^1(t) = 150t+\frac{\pi}{6}$
-
-Show that `C_slidercrank(q0, 0)` $=\mathbf{0}$. 
+# In[7]:
 
 
 ## your work here
 
-### Set up solution for $\mathbf{C}(\mathbf{q},~t)$
-Next, set up the $9\times 9$ Jacobian of 
 
-1. Set up the $\mathbf{A}_\theta$ function as `A_theta`
-1. each pin $\mathbf{C_{q,~pin}}=\frac{\partial\mathbf{C_{pin}}}{\partial\mathbf{q}}$=`Cq_pin`
-2. the total system: $\mathbf{C_{q}}=\frac{\partial\mathbf{C}}{\partial\mathbf{q}}$=`Cq_slidercrank`
+# ### Set up solution for $\mathbf{C}(\mathbf{q},~t)$
+# Next, set up the $9\times 9$ Jacobian of 
+# 
+# 1. Set up the $\mathbf{A}_\theta$ function as `A_theta`
+# 1. each pin $\mathbf{C_{q,~pin}}=\frac{\partial\mathbf{C_{pin}}}{\partial\mathbf{q}}$=`Cq_pin`
+# 2. the total system: $\mathbf{C_{q}}=\frac{\partial\mathbf{C}}{\partial\mathbf{q}}$=`Cq_slidercrank`
+
+# In[8]:
+
 
 def A_theta(theta):
     '''This function returns a 2x2 rotation matrix derivative 
@@ -157,6 +190,10 @@ def A_theta(theta):
     dAda=np.array([[-np.sin(theta), -np.cos(theta)],
                    [np.cos(theta), -np.sin(theta)]])
     return dAda
+
+
+# In[9]:
+
 
 def Cq_pin(qi, qj, ui, uj):
     '''Jacobian of a pinned constraint for planar motion
@@ -177,6 +214,10 @@ def Cq_pin(qi, qj, ui, uj):
     Cq_2=np.block([-np.eye(2), -A_theta(qj[2])@uj[:,np.newaxis] ])
     Cq_pin=np.block([Cq_1, Cq_2])
     return Cq_pin
+
+
+# In[10]:
+
 
 def Cq_slidercrank(q,t):
     '''return Jacobian of C_slidercrank(q,t) = dC/dq_i
@@ -208,52 +249,66 @@ def Cq_slidercrank(q,t):
     Cq[8, 2]=1
     return Cq
 
-### Solve for $\mathbf{q(t)}$
 
-Now, you solve for 1 full rotation of the driven crank. 
+# ### Solve for $\mathbf{q(t)}$
+# 
+# Now, you solve for 1 full rotation of the driven crank. 
+# 
+# t= 0-360$^o$ = 0-2$\pi$/150
+# 
+# The solution requires an initial guess for the generalized coordinates, $\mathbf{q}$, set as `q0`. It is updated at each timestep to find the next solution. Here, you use the Jacobian of $\mathbf{C}$, $\mathbf{C_q}$, by specifying the `fprime = lambda q: Cq_slidercrank`.  
 
-t= 0-360$^o$ = 0-2$\pi$/150
+# In[11]:
 
-The solution requires an initial guess for the generalized coordinates, $\mathbf{q}$, set as `q0`. It is updated at each timestep to find the next solution. Here, you use the Jacobian of $\mathbf{C}$, $\mathbf{C_q}$, by specifying the `fprime = lambda q: Cq_slidercrank`.  
 
 t = np.linspace(0, 2*pi/150)
 q0 = np.array([0, 0.5, pi/6, 0, 0.5, pi/3, 0.5, 0, 0])
 q = np.zeros((len(q0), len(t)))
 q[:, 0] = q0
 for i,tt in enumerate(t):
-    q[:,i]=fsolve(lambda q: C_slidercrank(q,tt),q0,\
-                    fprime= lambda q: Cq_slidercrank(q,tt)) # <-- use the Jacobian to speed up solution
+    q[:,i]=fsolve(lambda q: C_slidercrank(q,tt),q0,                    fprime= lambda q: Cq_slidercrank(q,tt)) # <-- use the Jacobian to speed up solution
     q0=q[:,i]
 
 
-Now, you can create the same figures as Shabana ch 3
+# Now, you can create the same figures as Shabana ch 3
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337a.png](https://i.imgur.com/YyrcJF0.png)
+# 
+# Fig. 3.37. Orientation of the connecting rod
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337b.png](https://i.imgur.com/BpCgybm.png)
+# 
+# Fig. 3.37. Displacement of the slider block
 
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337a.png](https://i.imgur.com/YyrcJF0.png)
+# In[12]:
 
-Fig. 3.37. Orientation of the connecting rod
-
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337b.png](https://i.imgur.com/BpCgybm.png)
-
-Fig. 3.37. Displacement of the slider block
 
 plt.plot(q[2,:],q[6,:])
 #plt.plot(t,q[5,:]/pi*180)
 
-## Problem 2
 
-Recreate the displacement of the slider block graph in Fig. 3.38 from your solution.
+# ## Problem 2
+# 
+# Recreate the displacement of the slider block graph in Fig. 3.38 from your solution.
+
+# In[13]:
+
 
 ## your work here
 
-## Animate the motion for constant $\dot{\theta}^1$
 
-Next, you animate the motion of the system. Below, you create 
+# ## Animate the motion for constant $\dot{\theta}^1$
+# 
+# Next, you animate the motion of the system. Below, you create 
+# 
+# 1. `plot_shape` to create lines and markers to represent links and the sliding base
+# 2. a figure that shows the path of the two link centers of mass
+# 3.`init` to initialize the animation
+# 4. `animate` to update the two links and sliding base
+# 5. `FuncAnimation` to display the motion of the slidercrank system
 
-1. `plot_shape` to create lines and markers to represent links and the sliding base
-2. a figure that shows the path of the two link centers of mass
-3.`init` to initialize the animation
-4. `animate` to update the two links and sliding base
-5. `FuncAnimation` to display the motion of the slidercrank system
+# In[14]:
+
 
 def plot_shape(shape,dims,q):
     '''
@@ -300,7 +355,10 @@ def plot_shape(shape,dims,q):
         return 0
 
 
-### 2. initialize the lines and coordinate system
+# ### 2. initialize the lines and coordinate system
+
+# In[15]:
+
 
 q1 = q[0:3, :]
 q2 = q[3:6, :]
@@ -319,16 +377,24 @@ ax.set_xlabel('X-axis (m)')
 ax.set_ylabel('Y-axis (m)')
 ax.set_title('Slider crank motion and paths')
 
-### 3. and 4. create your `init` and `animation` functions to update the lines on the plot
-Create an initializing (`init`) function that clears the previous lines and markers
 
-Create an animating (`animate`) function that updates the link, base, and path
+# ### 3. and 4. create your `init` and `animation` functions to update the lines on the plot
+# Create an initializing (`init`) function that clears the previous lines and markers
+# 
+# Create an animating (`animate`) function that updates the link, base, and path
+
+# In[16]:
+
 
 def init():
     link1.set_data([], [])
     link2.set_data([], [])
     body3.set_data([], [])
     return (link1, link2, body3)
+
+
+# In[17]:
+
 
 def animate(i):
     '''function that updates the line and marker data
@@ -350,63 +416,79 @@ def animate(i):
     body3.set_data(pinx, piny)
     return (link1, link2, body3, )
 
-#### 4. display the result in an HTML video
 
-Import the `animation` and `HTML` functions. Then, create an animation (`anim`) variable using the `animation.FuncAnimation`
+# #### 4. display the result in an HTML video
+# 
+# Import the `animation` and `HTML` functions. Then, create an animation (`anim`) variable using the `animation.FuncAnimation`
+
+# In[18]:
+
 
 from matplotlib import animation
 from IPython.display import HTML
+
+
+# In[19]:
+
 
 anim = animation.FuncAnimation(fig, animate, init_func=init,
                                frames=range(0,len(t)), interval=50, 
                                blit=True)
 
+
+# In[20]:
+
+
 HTML(anim.to_html5_video())
 
-## Velocity and Acceleration
 
-Differentiating the constraint equations, $\mathbf{Cq}=\mathbf{0}$, 
+# ## Velocity and Acceleration
+# 
+# Differentiating the constraint equations, $\mathbf{Cq}=\mathbf{0}$, 
+# 
+# $\mathbf{C_q \dot{q}}+\mathbf{C}_t=\mathbf{0}$ (3.119)
+# 
+# where 
+# 
+# $\mathbf{C}_t = \left[\frac{\partial C_1}{\partial t} \frac{\partial C_2}{\partial t}
+# ... \frac{\partial C_n}{\partial t}\right]^T$ (3.120)
+# 
+# Solve for velocity $\mathbf{\dot{q}_i}$  as such
+# 
+# $\mathbf{C_q \dot{q}}=-\mathbf{C}_t$ (3.121)
 
-$\mathbf{C_q \dot{q}}+\mathbf{C}_t=\mathbf{0}$ (3.119)
+# Differentiating $\mathbf{Cq}=\mathbf{0}$ twice leads to the acceleration equation
+# 
+# $\mathbf{C_q \ddot{q}}+
+# \left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}+
+# 2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}+
+# \mathbf{C}_{tt}=\mathbf{0}$ (3.123)
+# 
+# Solve for acceleration $\mathbf{\ddot{q}}$ as such
+# 
+# $\mathbf{C_q \ddot{q}}=\mathbf{Q}_d$
+# 
+# where 
+# 
+# $\mathbf{Q}_d=-\left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}-
+# 2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}-
+# \mathbf{C}_{tt}$
+# 
+# For the current slider crank system, 
+# 
+# $\mathbf{Q}_d=
+# \left[\begin{array}
+# ~(\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{A}\\
+# (\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{B}-(\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{2}_{B}\\
+# (\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{i}_{C}\\
+# 0\\
+# 0\\
+# 0\end{array}\right]$
 
-where 
+# Here, you set up `vel_acc(q,t)` to return velocity and acceleration of $\mathbf{q_{i}}$ components as $\frac{d\mathbf{q}}{dt}$ and $\frac{d^2\mathbf{q}}{dt^2}$ (`dq` and `ddq`, respectively)
 
-$\mathbf{C}_t = \left[\frac{\partial C_1}{\partial t} \frac{\partial C_2}{\partial t}
-... \frac{\partial C_n}{\partial t}\right]^T$ (3.120)
+# In[21]:
 
-Solve for velocity $\mathbf{\dot{q}_i}$  as such
-
-$\mathbf{C_q \dot{q}}=-\mathbf{C}_t$ (3.121)
-
-Differentiating $\mathbf{Cq}=\mathbf{0}$ twice leads to the acceleration equation
-
-$\mathbf{C_q \ddot{q}}+
-\left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}+
-2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}+
-\mathbf{C}_{tt}=\mathbf{0}$ (3.123)
-
-Solve for acceleration $\mathbf{\ddot{q}}$ as such
-
-$\mathbf{C_q \ddot{q}}=\mathbf{Q}_d$
-
-where 
-
-$\mathbf{Q}_d=-\left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}-
-2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}-
-\mathbf{C}_{tt}$
-
-For the current slider crank system, 
-
-$\mathbf{Q}_d=
-\left[\begin{array}
-~(\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{A}\\
-(\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{B}-(\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{2}_{B}\\
-(\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{i}_{C}\\
-0\\
-0\\
-0\end{array}\right]$
-
-Here, you set up `vel_acc(q,t)` to return velocity and acceleration of $\mathbf{q_{i}}$ components as $\frac{d\mathbf{q}}{dt}$ and $\frac{d^2\mathbf{q}}{dt^2}$ (`dq` and `ddq`, respectively)
 
 def Qd_slidercrank(q, dq, t):
     '''return slidercrank Qd = Cq@ddq
@@ -430,8 +512,7 @@ def Qd_slidercrank(q, dq, t):
     
     Qd=np.zeros(9)
     Qd[0:2] = dq1[2]**2*rotA(q1[2])@np.array([-l1/2, 0])
-    Qd[2:4] = dq1[2]**2*rotA(q1[2])@np.array([l1/2, 0]) -\
-              dq2[2]**2*rotA(q2[2])@np.array([-l2/2, 0])
+    Qd[2:4] = dq1[2]**2*rotA(q1[2])@np.array([l1/2, 0]) -              dq2[2]**2*rotA(q2[2])@np.array([-l2/2, 0])
     Qd[4:6] = dq2[2]**2*rotA(q2[2])@np.array([l2/2, 0])
     Qd[6:9] = 0
     return Qd 
@@ -453,6 +534,10 @@ def Ct_slidercrank(q, t):
     return Ct
 
 
+# In[22]:
+
+
+
 t = np.linspace(0, 2*pi/150)
 q0 = np.array([0, 0.5, pi/6, 0, 0.5, pi/3, 0.5, 0, 0])
 q = np.zeros((len(q0), len(t)))
@@ -460,48 +545,57 @@ dq = np.zeros(q.shape)
 ddq = np.zeros(q.shape)
 q[:, 0] = q0
 for i, ti in enumerate(t):
-    q[:, i] = fsolve(lambda q: C_slidercrank(q, ti),q0,\
-                    fprime= lambda q: Cq_slidercrank(q, ti)) # <-- use the Jacobian to speed up solution
+    q[:, i] = fsolve(lambda q: C_slidercrank(q, ti),q0,                    fprime= lambda q: Cq_slidercrank(q, ti)) # <-- use the Jacobian to speed up solution
     dq[:, i] = np.linalg.solve(Cq_slidercrank(q[:,i], ti), -Ct_slidercrank(q[:, i], ti))
     Qd = Qd_slidercrank(q[:, i], dq[:, i], ti)
     ddq[:, i] = np.linalg.solve(Cq_slidercrank(q[:,i], ti), Qd)
     q0=q[:, i]
     
 
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338a.png](https://i.imgur.com/OAYSFvP.png)
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338b.png](https://i.imgur.com/bntk5qH.png)
 
-Fig. 3.38 velocity components 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338a.png](https://i.imgur.com/OAYSFvP.png)
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338b.png](https://i.imgur.com/bntk5qH.png)
+# 
+# Fig. 3.38 velocity components 
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339a.png](https://i.imgur.com/rwaWUTT.png)
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339b.png](https://i.imgur.com/RKHgBSF.png)
+# 
+# Fig. 3.39 acceleration components 
+# 
+# ### Recreate the plots with your solution
+# 
+# Here, you can plot the terms $\dot{\mathbf{q}}$ and $\ddot{\mathbf{q}}$ to compare to the Shabana solutions shown above in Figs 3.38-39. __Try plotting $\dot{\theta}^2,~\ddot{\theta}^2,~\dot{R}^3_x,~and~\ddot{R}^3_x$__
 
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339a.png](https://i.imgur.com/rwaWUTT.png)
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339b.png](https://i.imgur.com/RKHgBSF.png)
-
-Fig. 3.39 acceleration components 
-
-### Recreate the plots with your solution
-
-Here, you can plot the terms $\dot{\mathbf{q}}$ and $\ddot{\mathbf{q}}$ to compare to the Shabana solutions shown above in Figs 3.38-39. __Try plotting $\dot{\theta}^2,~\ddot{\theta}^2,~\dot{R}^3_x,~and~\ddot{R}^3_x$__
+# In[ ]:
 
 
 
-## Problem 3
 
-Change the constraints for the slidercrank such that 
 
-$R^4_x-f(t)=0$
+# ## Problem 3
+# 
+# Change the constraints for the slidercrank such that 
+# 
+# $R^4_x-f(t)=0$
+# 
+# where
+# 
+# $f(t)=0.35-0.8l^2\sin150t$
+# 
+# Recreate Figs. 3.43-3.48 for the slidercrank.
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340a.png](https://i.imgur.com/qMLFflG.png)
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340b.png](https://i.imgur.com/TrcECmw.png)
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341a.png](https://i.imgur.com/FDmueEx.png)
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341b.png](https://i.imgur.com/Bl2Gciy.png)
+# 
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342a.png](https://i.imgur.com/udqlLdg.png)
+# ![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342b.png](https://i.imgur.com/rx6paso.png)
 
-where
+# In[ ]:
 
-$f(t)=0.35-0.8l^2\sin150t$
 
-Recreate Figs. 3.43-3.48 for the slidercrank.
 
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340a.png](https://i.imgur.com/qMLFflG.png)
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340b.png](https://i.imgur.com/TrcECmw.png)
-
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341a.png](https://i.imgur.com/FDmueEx.png)
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341b.png](https://i.imgur.com/Bl2Gciy.png)
-
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342a.png](https://i.imgur.com/udqlLdg.png)
-![https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342b.png](https://i.imgur.com/rx6paso.png)
 

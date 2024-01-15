@@ -1,16 +1,26 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import numpy as np
 from numpy import sin,cos,pi
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
-# Homework #1
-## Example: plotting kinematic solutions
 
-![double pendulum](../images/p1-10_double_pendulum.png)
+# # Homework #1
+# ## Example: plotting kinematic solutions
+# 
+# ![double pendulum](../images/p1-10_double_pendulum.png)
 
-### define kinematic known values
+# ### define kinematic known values
+# 
+# First, we can define the independent variable, `t`, to complete one full cycle. Then, we can use the inputs for $x,~\theta_1,~and~\theta_2$. 
 
-First, we can define the independent variable, `t`, to complete one full cycle. Then, we can use the inputs for $x,~\theta_1,~and~\theta_2$. 
+# In[2]:
+
 
 t=np.linspace(0,2*pi/50,100); # create time varying from 0-0.126 s (or one period)
 x=20*sin(50*t);     # define x in terms of time 
@@ -22,9 +32,13 @@ dt2=10*pi*sin(50*t-pi/3); # define dtheta2/dt (dt2);
 L1=1;L2=1.5; # set lengths for L1 and L2 (none were given in problem so 1 and 1.5 mm were
              # chosen arbitrarily
 
-### define the other dependent kinematic values
 
-In the lecture, you derived the positions of the link connections using the given values. Here, we apply those definitions to get the global positions of each link endpoint. 
+# ### define the other dependent kinematic values
+# 
+# In the lecture, you derived the positions of the link connections using the given values. Here, we apply those definitions to get the global positions of each link endpoint. 
+
+# In[3]:
+
 
 rcc=np.array([x+L1*sin(t1),-L1*cos(t1)]) # position of connection between links
 rco=np.array([x+L1*sin(t1)+L2*sin(t2),-(L1*cos(t1)+L2*cos(t2))])    # create a row vectors of
@@ -38,9 +52,13 @@ vco=np.array([dx+L1*cos(t1)*dt1+L2*cos(t2)*dt2,
                                        # velocity of
                                        # point C
 
-### Plot results
 
-Here, you plot the velocity components of the end of the lower link.
+# ### Plot results
+# 
+# Here, you plot the velocity components of the end of the lower link.
+
+# In[4]:
+
 
 plt.plot(t,vco[0,:],label=r'$v_x$')
 plt.plot(t,vco[1,:],label=r'$v_y$')
@@ -49,18 +67,26 @@ plt.ylabel('v (mm/s)')
 plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 plt.title('End velocity')
 
-### Animate the motion
 
-Here, you create an HTML animation for the 2-bar linkage
+# ### Animate the motion
+# 
+# Here, you create an HTML animation for the 2-bar linkage
+# 
+# 1. Create function that plots the links at timesteps
+# 
+# 2. [matplotlib's animation in HTML5](http://louistiao.me/posts/notebooks/embedding-matplotlib-animations-in-jupyter-as-interactive-javascript-widgets/)
 
-1. Create function that plots the links at timesteps
+# In[5]:
 
-2. [matplotlib's animation in HTML5](http://louistiao.me/posts/notebooks/embedding-matplotlib-animations-in-jupyter-as-interactive-javascript-widgets/)
 
 from matplotlib import animation
 from IPython.display import HTML
 
-1. Create a figure to display the animation and add fixed background _the dashed line is added to show the path the end point takes_
+
+# 1. Create a figure to display the animation and add fixed background _the dashed line is added to show the path the end point takes_
+
+# In[6]:
+
 
 fig, ax = plt.subplots()
 
@@ -73,14 +99,22 @@ line, = ax.plot([], [])
 marker, = ax.plot([], [], 'o', markersize=10)
 ax.plot(rco[0,:],rco[1,:],'--')
 
-2. Create an initializing (`init`) function that clears the previous line and marker
+
+# 2. Create an initializing (`init`) function that clears the previous line and marker
+
+# In[7]:
+
 
 def init():
     line.set_data([], [])
     marker.set_data([], [])
     return (line,marker,)
 
-3. Create an animating (`animate`) function that updates the line
+
+# 3. Create an animating (`animate`) function that updates the line
+
+# In[8]:
+
 
 def animate(i):
     '''function that updates the line and marker data
@@ -95,37 +129,49 @@ def animate(i):
     marker.set_data([rco[0, i], rco[1,i]])
     return (line, marker, )
 
-4. Create an animation (`anim`) variable using the `animation.FuncAnimation`
+
+# 4. Create an animation (`anim`) variable using the `animation.FuncAnimation`
+
+# In[9]:
+
 
 anim = animation.FuncAnimation(fig, animate, init_func=init,
                                frames=range(0,len(t)), interval=100, 
                                blit=True)
 
+
+# In[10]:
+
+
 HTML(anim.to_html5_video())
 
-## Problem 1
 
-![Pendulum on train](../images/Wells-Fig_1-5.png)
+# ## Problem 1
+# 
+# ![Pendulum on train](../images/Wells-Fig_1-5.png)
+# 
+# The axis shown in Fig 1-5 has the following constants
+# 
+# $v_x=1$ m/s. 
+# 
+# $m= 1$ kg
+# 
+# $r= 500$ mm
+# 
+# $l_2 = 1000$ mm
+# 
+# $l_1 = 1200$ mm
+# 
+# $s_2 = 10$ mm
+# 
+# $v_y = 0$ m/s
+# 
+# $a_x = 0$ m/s$^2$
+# 
+# **(a)** Plot the angle of the pendulum for one full period of oscillation given $\theta(0)=\pi/12$ and $\dot{\theta}(0)=0$
 
-The axis shown in Fig 1-5 has the following constants
+# In[11]:
 
-$v_x=1$ m/s. 
-
-$m= 1$ kg
-
-$r= 500$ mm
-
-$l_2 = 1000$ mm
-
-$l_1 = 1200$ mm
-
-$s_2 = 10$ mm
-
-$v_y = 0$ m/s
-
-$a_x = 0$ m/s$^2$
-
-**(a)** Plot the angle of the pendulum for one full period of oscillation given $\theta(0)=\pi/12$ and $\dot{\theta}(0)=0$
 
 w = np.sqrt(9.81/0.5)
 T = 2*np.pi/w
@@ -144,7 +190,11 @@ ym = 0.5*np.cos(theta)
 X1 = s1+L1+xm
 X2 = s2+L2-ym
 
-**(b)** make an animation of the position of the mass, $m$, in terms of $X_1$ and $X_2$ for $t=0-0.5$s
+
+# **(b)** make an animation of the position of the mass, $m$, in terms of $X_1$ and $X_2$ for $t=0-0.5$s
+
+# In[12]:
+
 
 fig2, ax2 = plt.subplots()
 
@@ -156,6 +206,10 @@ ax2.set_ylabel('y-position (m)')
 line, = ax2.plot([], [],'o-') # add marker at end points
 # marker, = ax2.plot([], [], 'o', markersize=10)
 ax2.plot(X1,X2,'--', label = 'path')
+
+
+# In[13]:
+
 
 def animate2(i):
     '''function that updates the line data for the pendulum
@@ -170,18 +224,31 @@ def animate2(i):
                   [s2+L2, X2[i]])
     return (line,)
 
+
+# In[14]:
+
+
 def init():
     line.set_data([], [])
     return line,
+
+
+# In[15]:
+
 
 anim2 = animation.FuncAnimation(fig2, animate2, init_func=init,
                                frames=range(0,len(X1)), interval=100, 
                                blit=True)
 
+
+# In[16]:
+
+
 HTML(anim2.to_html5_video())
 
-**(c)** Plot the angle $\theta$ for one period of oscillation for 2 conditions, label your two lines on one graph:
 
-1. $a_x=$ 0 m/s$^2$
-
-2. $a_x=$ 4 m/s$^2$
+# **(c)** Plot the angle $\theta$ for one period of oscillation for 2 conditions, label your two lines on one graph:
+# 
+# 1. $a_x=$ 0 m/s$^2$
+# 
+# 2. $a_x=$ 4 m/s$^2$

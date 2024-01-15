@@ -1,4 +1,4 @@
-# Syllabus: ME 5180 Spring 2023
+# Syllabus: ME 5180 Spring 2024
 ## Course and Instructor Information
 
 **Course Title:** ME5180 - Dynamics
@@ -26,15 +26,12 @@ Campuswire
 
 ### Submit assignments
 
-[**Google
-Classroom**](https://classroom.google.com/c/NTQxNDU1MDk5MzM5?cjc=nklhwi4)
-
-Use code: nklhwi4
+[**HuskyCT**](https://learn.uconn.edu/ultra)
 
 ### Discuss course assignments/materials
-**Campuswire**:[*https://campuswire.com/p/G71EBB365*](https://campuswire.com/p/G71EBB365)
+[**Github Discussions**](https://github.com/cooperrc/advanced-dynamics/discussions)
 
-Use code: **9993**
+_Note: make an account with github.com to post questions and answers._
 
 
 ## Course Description
@@ -87,8 +84,7 @@ and ask/answer questions in Campuswire
 
 **Instructor**: Prof. Ryan C. Cooper (ryan.c.cooper@uconn.edu)
 
-**Office hours**: by appointment reach out via email or through
-Campuswire
+**Office hours**: by appointment reach out via email or through GitHub
 
 ## Course Material
 
@@ -102,8 +98,7 @@ __available through UConn Library O'Reilly subscription__
 [_Advanced Dynamics_ by Ryan C. Cooper](https://cooperrc.github.io/advanced-dynamics/intro.html) this is
 our course website+materials. It will host our syllabus, readings,
 videos, and assignments. I encourage you to suggest edits and add issues
-using the [GitHub
-repository](https://github.com/cooperrc/advanced-dynamics).
+using the [GitHub repository](https://github.com/cooperrc/advanced-dynamics).
 
 ### Recommended textbooks
 
@@ -126,27 +121,22 @@ Engineering Dynamics, Jeremy Kasdin and Derek Paley, Princeton University Press.
 
 ### Course Discussion
 
-**Campuswire:** This session we will be using 
-[ME5180 -
-Campuswire](https://cooperrc.github.io/advanced-dynamics/syllabus.html#course-and-instructor-information).
-discussion. The system is catered to getting you help fast and
-efficiently from classmates and myself. Rather than emailing questions,
-I prefer you to post your questions on Campuswire. If you have any
-problems or feedback for the developers, email
-[*tade\@campuswire.com*](mailto:tade@campuswire.com).
+**Campuswire:** This session we will be using GitHub Discussions. The
+system is catered to getting you help fast and efficiently from
+classmates and myself. Rather than emailing questions, I prefer you to
+post your questions on GitHub. This way everyone benefits from
+clarifying course content, logistics, and our process.
 
 ## Schedule
 
-The course schedule is maintained on the Classroom calendar
+The course schedule is maintained on HuskyCT
 
 <iframe
-src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&src=Y19jbGFzc3Jvb204NmE1OGIxMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%233F51B5"
-style="border:solid 1px #777" width="600" height="400" frameborder="0"
+src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&title=ME5180%20%2F3295%20calendar&src=c2NrcGI2YnI0YnFrcTBwMTJqbzg1YmxramhwaG9uZTFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23C0CA33"
+style="border:solid 1px #777" width="500" height="400" frameborder="0"
 scrolling="no"></iframe>
 
-Assignments are due by 11:59pm on the specified due dates. You can add
-the Google Calendar to your student or personal Google account for
-updates.
+Assignments are due by 11:59pm on the specified due dates. 
 
 
 
@@ -211,7 +201,7 @@ and resources.*
 
 I will make every effort to provide feedback and grades within 7 days.
 To keep track of your performance in the course, refer to grades in
-Google Classroom.
+HuskyCT.
 
 
 **Weekly Time Commitment**
