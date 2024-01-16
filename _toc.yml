@@ -10,8 +10,6 @@ parts:
   - file: module_00/overview
   - file: module_00/meet_cooper
   - file: module_00/participation
-- caption: Getting started
-  chapters:
   - file: getting-started/README
     sections:
     - file: module_00/submit
@@ -20,8 +18,6 @@ parts:
     - file: getting-started/01_interactions
     - file: getting-started/02_Working_with_Python
     - file: getting-started/03_Numerical_error
-- caption: Module_01
-  chapters:
   - file: module_01/README
     sections:
     - file: module_01/01_vectors
@@ -31,48 +27,48 @@ parts:
     - file: module_01/example_01
     - file: homeworks/HW_01
     - file: homeworks/HW_02
-#- file: module_02/README
-#  sections:
-#  - file: module_02/01_variational
-#  - file: module_02/02_virtual-work
-#  - file: module_02/02b_virtual-work
-#  - file: module_02/03_catenary
-#  - file: module_02/example_01
-#  - file: module_02/example_02
-#  - file: homeworks/HW_03
-#  - file: homeworks/HW_04
-#- file: module_03/README
-#  sections:
-#  - file: module_03/01_rotate-pendulum
-#  - file: model_results/rotating_pendulum
-#  - file: module_03/02_conservative
-#  - file: module_03/03_nonconservative
-#  - file: module_03/04_lagrangian
-#  - file: module_03/05_top
-#  - file: module_03/05_spring-pendulum
-#  - file: model_results/spring-pendulum
-#  - file: model_results/spinning_top-nonlinear
-#  - file: homeworks/HW_05
-#  - file: homeworks/HW_06
-#- file: module_04/README
-#  sections:
-#  - file: module_04/01_pin
-#  - file: module_04/02_slider-crank
-#  - file: module_04/03_embedding
-#  - file: module_04/04_symbolic
-#  - file: module_04/05_lagrange
-#  - file: module_04/06_augment
-#  - file: model_results/pin-constraint
-#  - file: model_results/embed-solution
-#  - file: model_results/symbolic_constraints
-#  - file: model_results/augment-solution
-#  - file: homeworks/HW_07
-#  - file: homeworks/HW_08
-#- file: quiz_work/quizzes
-#  sections:
-#  - file: quiz_work/making-quiz_02
-#  - file: quiz_work/making-quiz_03
-#  - file: quiz_work/making-quiz_04
-#  - file: quiz_work/making-quiz_05
-#  - file: quiz_work/making-quiz_06
-#  - file: quiz_work/making-quiz_07
+  - file: module_02/README
+    sections:
+    - file: module_02/01_variational
+    - file: module_02/02_virtual-work
+    - file: module_02/02b_virtual-work
+    - file: module_02/03_catenary
+    - file: module_02/example_01
+    - file: module_02/example_02
+    - file: homeworks/HW_03
+    - file: homeworks/HW_04
+  - file: module_03/README
+    sections:
+    - file: module_03/01_rotate-pendulum
+    - file: model_results/rotating_pendulum
+    - file: module_03/02_conservative
+    - file: module_03/03_nonconservative
+    - file: module_03/04_lagrangian
+    - file: module_03/05_top
+    - file: module_03/05_spring-pendulum
+    - file: model_results/spring-pendulum
+    - file: model_results/spinning_top-nonlinear
+    - file: homeworks/HW_05
+    - file: homeworks/HW_06
+  - file: module_04/README
+    sections:
+    - file: module_04/01_pin
+    - file: module_04/02_slider-crank
+    - file: module_04/03_embedding
+    - file: module_04/04_symbolic
+    - file: module_04/05_lagrange
+    - file: module_04/06_augment
+    - file: model_results/pin-constraint
+    - file: model_results/embed-solution
+    - file: model_results/symbolic_constraints
+    - file: model_results/augment-solution
+    - file: homeworks/HW_07
+    - file: homeworks/HW_08
+  - file: quiz_work/quizzes
+    sections:
+    - file: quiz_work/making-quiz_02
+    - file: quiz_work/making-quiz_03
+    - file: quiz_work/making-quiz_04
+    - file: quiz_work/making-quiz_05
+    - file: quiz_work/making-quiz_06
+    - file: quiz_work/making-quiz_07

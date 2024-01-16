@@ -19,7 +19,7 @@ impact, and energy relate to changes in motion.
 
 This introduction will get you up to speed on the tools we are using to explore
 
-dynamics: HuskyCT, Google Documents, and the Campuswire discussion board. 
+dynamics: HuskyCT, Google Documents, and the GitHub discussion board. 
 
 # Objectives
 
@@ -38,7 +38,6 @@ software, and materials
 * Read the syllabus and post a discussion response 
 * Read about the course's organization and tools.
 * Take a 5-minute practice quiz
-* Submit a practice quiz to Google Classroom
+* Submit a practice quiz
 * Review the University of Connecticut's academic policies
-* Complete an Introduction to Python Homework and submit your work in your Google
-  classroom
+* Complete an Introduction to Python Homework and submit your work
