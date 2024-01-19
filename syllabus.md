@@ -130,11 +130,6 @@ clarifying course content, logistics, and our process.
 
 The course schedule is maintained on HuskyCT
 
-<iframe
-src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&title=ME5180%20%2F3295%20calendar&src=c2NrcGI2YnI0YnFrcTBwMTJqbzg1YmxramhwaG9uZTFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23C0CA33"
-style="border:solid 1px #777" width="500" height="400" frameborder="0"
-scrolling="no"></iframe>
-
 Assignments are due by 11:59pm on the specified due dates. 
 
 
