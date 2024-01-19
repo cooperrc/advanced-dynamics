@@ -1,546 +1,637 @@
 
-
 <!DOCTYPE html>
 
-
-<html >
-
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Building Quiz_06 &#8212; Advanced Dynamics</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
-  
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'quiz_work/making-quiz_06';</script>
     <link rel="shortcut icon" href="../_static/spiderman-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Building Quiz 07" href="making-quiz_07.html" />
     <link rel="prev" title="Building Quiz_05" href="making-quiz_05.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="../search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-  
-
-<a class="navbar-brand logo" href="../intro.html">
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="../_static/dyn_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/dyn_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
-                    Welcome to ME 5180 - Dynamics
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+      
+      <img src="../_static/dyn_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../syllabus.html">Syllabus: ME 5180 Spring 2024</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_00/overview.html">Orientation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_00/meet_cooper.html">About the Instructor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_00/participation.html">Participation</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus: ME 5180 Spring 2024
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/overview.html">
+   Orientation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/meet_cooper.html">
+   About the Instructor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../module_00/participation.html">
+   Participation
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../getting-started/README.html">
+   Review materials for Physics and Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/submit.html">
+     Submitting and tracking your assignments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_00.html">
+     Homework_00 - Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_00/ode_review.html">
+     Review: solving linear second order differential equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/01_interactions.html">
+     Interacting with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/02_Working_with_Python.html">
+     Working with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../getting-started/03_Numerical_error.html">
+     Numerical Error
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/README.html">Review materials for Physics and Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_00/submit.html">Submitting and tracking your assignments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../homeworks/HW_00.html">Homework_00 - Jupyter and Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../module_00/ode_review.html">Review: solving linear second order differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/01_interactions.html">Interacting with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/02_Working_with_Python.html">Working with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/03_Numerical_error.html">Numerical Error</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module_01</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../module_01/README.html">Module_01 - Definitions of motion</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../module_01/01_vectors.html">Lecture_01 - Dynamic Measurements - vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_01/02_calculus.html">Lecture-02 calculus with vector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_01/03_ref-frames.html">Lecture-03 Reference frames and Newton’s second law</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_01/04_dofs.html">Lecture-04_degrees-of-freedom</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_01/example_01.html">Example: Describing 3D circular motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_01.html">Homework #1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_02.html">Homework #2</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module_02</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../module_02/README.html">Module_02 - Variational methods</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/01_variational.html">Lecture_01 variational calculus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/02_virtual-work.html">Lecture_02 - virtual work</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/02b_virtual-work.html">Lecture_02 - virtual work</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/03_catenary.html">Lecture_03-hanging chain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/example_01.html">Example: Sliding pendulum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_02/example_02.html">Example: Pendulum support by spring has two stable positions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_03.html">HW_03 - Nonlinear solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_04.html">Homework #4</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module_03</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../module_03/README.html">Module_03 - Equations of motion</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/01_rotate-pendulum.html">Lecture_01 - pendulum in a rotating frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/rotating_pendulum.html">Rotating Pendulum solution - integrating equation of motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/02_conservative.html">Lecture_02 - conservative systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/03_nonconservative.html">Lecture_03 - nonconservative systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/04_lagrangian.html">Lecture_04 - conservative Lagrangian system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/05_top.html">Lecture_05 - spinning top equation of motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_03/05_spring-pendulum.html">Lecture_05 - Spring pendulum equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/spring-pendulum.html">Compound pendulum with spring supports</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/spinning_top-nonlinear.html">Solving the equations of motion for a spinning top</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_05.html">Homework #5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_06.html">Homework #6</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Module_04</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../module_04/README.html">Module_04 - Computational Methods in Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/01_pin.html">Lecture_01 - Computational Pin Constraint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/02_slider-crank.html">Lecture_02 - Kinematic analysis of slider crank</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/03_embedding.html">Lecture 03 - Embedding technique for computational methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/04_symbolic.html">Building Constraints in SymPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/05_lagrange.html">Lecture 05 - Lagrange Multipliers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../module_04/06_augment.html">Lecture 06 - Augmented technique</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/pin-constraint.html">Creating a pin constraint</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/embed-solution.html">Embedding technique: solution of link pinned to ground at origin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/symbolic_constraints.html">Building Constraints in SymPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../model_results/augment-solution.html">Augmented solution for one-bar linkage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_07.html">Homework #7  Kinematics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homeworks/HW_08.html">Homework #8</a></li>
-</ul>
-</li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quizzes</span></p>
+<p class="caption">
+ <span class="caption-text">
+  Course Content
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="quizzes.html">Quiz Review Material</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="making-quiz_04.html">Building Quiz_04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="making-quiz_05.html">Building Quiz_05</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Building Quiz_06</a></li>
-<li class="toctree-l2"><a class="reference internal" href="making-quiz_07.html">Building Quiz 07</a></li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../module_01/README.html">
+   Module_01 - Definitions of motion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/01_vectors.html">
+     Lecture_01 - Dynamic Measurements - vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/02_calculus.html">
+     Lecture-02 calculus with vector
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/03_ref-frames.html">
+     Lecture-03 Reference frames and Newton’s second law
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/04_dofs.html">
+     Lecture-04_degrees-of-freedom
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_01/example_01.html">
+     Example: Describing 3D circular motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_01.html">
+     Homework #1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../module_02/README.html">
+   Module_02 - Variational methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/01_variational.html">
+     Lecture_01 variational calculus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/02_virtual-work.html">
+     Lecture_02 - virtual work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/02b_virtual-work.html">
+     Lecture_02 - virtual work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/03_catenary.html">
+     Lecture_03-hanging chain
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/example_01.html">
+     Example: Sliding pendulum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_02/example_02.html">
+     Example: Pendulum support by spring has two stable positions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_03.html">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_04.html">
+     Homework #4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../module_03/README.html">
+   Module_03 - Equations of motion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/01_rotate-pendulum.html">
+     Lecture_01 - pendulum in a rotating frame
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/rotating_pendulum.html">
+     Rotating Pendulum solution - integrating equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/02_conservative.html">
+     Lecture_02 - conservative systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/03_nonconservative.html">
+     Lecture_03 - nonconservative systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/04_lagrangian.html">
+     Lecture_04 - conservative Lagrangian system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/05_top.html">
+     Lecture_05 - spinning top equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_03/05_spring-pendulum.html">
+     Lecture_05 - Spring pendulum equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/spring-pendulum.html">
+     Compound pendulum with spring supports
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/spinning_top-nonlinear.html">
+     Solving the equations of motion for a spinning top
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_05.html">
+     Homework #5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_06.html">
+     Homework #6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../module_04/README.html">
+   Module_04 - Computational Methods in Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/01_pin.html">
+     Lecture_01 - Computational Pin Constraint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/02_slider-crank.html">
+     Lecture_02 - Kinematic analysis of slider crank
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/03_embedding.html">
+     Lecture 03 - Embedding technique for computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/04_symbolic.html">
+     Building Constraints in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/05_lagrange.html">
+     Lecture 05 - Lagrange Multipliers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../module_04/06_augment.html">
+     Lecture 06 - Augmented technique
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/pin-constraint.html">
+     Creating a pin constraint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/embed-solution.html">
+     Embedding technique: solution of link pinned to ground at origin
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/symbolic_constraints.html">
+     Building Constraints in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../model_results/augment-solution.html">
+     Augmented solution for one-bar linkage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_07.html">
+     Homework #7  Kinematics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../homeworks/HW_08.html">
+     Homework #8
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="quizzes.html">
+   Quiz Review Material
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_04.html">
+     Building Quiz_04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_05.html">
+     Building Quiz_05
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Building Quiz_06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="making-quiz_07.html">
+     Building Quiz 07
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
-</li>
-</ul>
 
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/quiz_work/making-quiz_06.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https%3A//github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/quiz_work/making-quiz_06.ipynb&branch=master" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../_static/images/logo_jupyterhub.svg">
-  </span>
-<span class="btn__text-container">JupyterHub</span>
-</a>
-</li>
-      
-  </ul>
 </div>
 
 
+          
 
 
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/cooperrc/advanced-dynamics" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fquiz_work/making-quiz_06.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../_sources/quiz_work/making-quiz_06.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Building Quiz_06</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div>
-                <h2> Contents </h2>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/quiz_work/making-quiz_06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2Fquiz_work/making-quiz_06.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/quiz_work/making-quiz_06.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/quiz_work/making-quiz_06.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-axis-theorem">Parallel axis theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic Energy</a></li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-axis-theorem">
+   Parallel axis theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kinetic-energy">
+   Kinetic Energy
+  </a>
+ </li>
 </ul>
+
             </nav>
         </div>
     </div>
 </div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Building Quiz_06</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-axis-theorem">
+   Parallel axis theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kinetic-energy">
+   Kinetic Energy
+  </a>
+ </li>
+</ul>
 
-              
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
   <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
-</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;FPg5EjHEo6c&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output text_html">
-        <iframe
-            width="400"
-            height="300"
-            src="https://www.youtube.com/embed/FPg5EjHEo6c"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/FPg5EjHEo6c"
+    frameborder="0"
+    allowfullscreen
+
+></iframe>
+</div></div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="building-quiz-06">
-<h1>Building Quiz_06<a class="headerlink" href="#building-quiz-06" title="Permalink to this headline">#</a></h1>
+<div class="section" id="building-quiz-06">
+<h1>Building Quiz_06<a class="headerlink" href="#building-quiz-06" title="Permalink to this headline">¶</a></h1>
 <p>A <span class="math notranslate nohighlight">\(2-m\times 2-m \times 2-m\)</span> cube is attached at a corner to a
 spherical joint. It can rotate along the x-, y-, and z-axes, but the
 attached corner cannot move. The moment of inertia about its center of
@@ -571,7 +662,7 @@ corner where the cube is fixed.</p>
 </div>
 </div>
 <div class="section" id="parallel-axis-theorem">
-<h2>Parallel axis theorem<a class="headerlink" href="#parallel-axis-theorem" title="Permalink to this headline">#</a></h2>
+<h2>Parallel axis theorem<a class="headerlink" href="#parallel-axis-theorem" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}I_O = m
 \left[\begin{array}
@@ -615,7 +706,7 @@ corner where the cube is fixed.</p>
 </div>
 </div>
 <div class="section" id="kinetic-energy">
-<h2>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this headline">#</a></h2>
+<h2>Kinetic Energy<a class="headerlink" href="#kinetic-energy" title="Permalink to this headline">¶</a></h2>
 <p>Kinetic energy because the point of rotation is fixed,</p>
 <p><span class="math notranslate nohighlight">\(T_O = \frac{1}{2}\mathbf{\omega I_O \omega}\)</span></p>
 <div class="cell docutils container">
@@ -662,7 +753,7 @@ corner where the cube is fixed.</p>
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./quiz_work"
         },
         predefinedOutput: true
@@ -670,106 +761,44 @@ corner where the cube is fixed.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="making-quiz_05.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Building Quiz_05</p>
-      </div>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="making-quiz_05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Building Quiz_05</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="making-quiz_07.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="making-quiz_07.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Building Quiz 07</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div></div>
-  
-</div>
-
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-axis-theorem">Parallel axis theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy">Kinetic Energy</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By <a href = https://cooperrc.github.io> Ryan C. Cooper</a>
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
     </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By <a href = https://cooperrc.github.io> Ryan C. Cooper</a><br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
-  <footer class="bd-footer">
-  </footer>
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
   </body>
 </html>

@@ -1,0 +1,1947 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework #7 Kinematics &#8212; Advanced Dynamics</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/spiderman-favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/dyn_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Advanced Dynamics</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Welcome to ME 5180 - Dynamics
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../syllabus.html">
+   Syllabus: ME 5180 Spring 2023
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../module_00/overview.html">
+   Orientation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_00/meet_cooper.html">
+     About the Instructor
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_00/participation.html">
+     Participation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_00/submit.html">
+     Submitting and tracking your assignments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_00.html">
+     Homework_00 - Jupyter and Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../getting-started/README.html">
+   Review materials for Physics and Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_00/ode_review.html">
+     Review: solving linear second order differential equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../getting-started/01_interactions.html">
+     Interacting with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../getting-started/02_Working_with_Python.html">
+     Working with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../getting-started/03_Numerical_error.html">
+     Numerical Error
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../module_01/README.html">
+   Module_01 - Definitions of motion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_01/01_vectors.html">
+     Lecture_01 - Dynamic Measurements - vectors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_01/02_calculus.html">
+     Lecture-02 calculus with vector
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_01/03_ref-frames.html">
+     Lecture-03 Reference frames and Newton’s second law
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_01/04_dofs.html">
+     Lecture-04_degrees-of-freedom
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_01/example_01.html">
+     Example: Describing 3D circular motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_01.html">
+     Homework #1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_02.html">
+     Homework #2
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../module_02/README.html">
+   Module_02 - Variational methods
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/01_variational.html">
+     Lecture_01 variational calculus
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/02_virtual-work.html">
+     Lecture_02 - virtual work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/02b_virtual-work.html">
+     Lecture_02 - virtual work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/03_catenary.html">
+     Lecture_03-hanging chain
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/example_01.html">
+     Example: Sliding pendulum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_02/example_02.html">
+     Example: Pendulum support by spring has two stable positions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_03.html">
+     HW_03 - Nonlinear solutions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_04.html">
+     Homework #4
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../module_03/README.html">
+   Module_03 - Equations of motion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/01_rotate-pendulum.html">
+     Lecture_01 - pendulum in a rotating frame
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/rotating_pendulum.html">
+     Rotating Pendulum solution - integrating equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/02_conservative.html">
+     Lecture_02 - conservative systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/03_nonconservative.html">
+     Lecture_03 - nonconservative systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/04_lagrangian.html">
+     Lecture_04 - conservative Lagrangian system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/05_top.html">
+     Lecture_05 - spinning top equation of motion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_03/05_spring-pendulum.html">
+     Lecture_05 - Spring pendulum equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/spring-pendulum.html">
+     Compound pendulum with spring supports
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/spinning_top-nonlinear.html">
+     Solving the equations of motion for a spinning top
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_05.html">
+     Homework #5
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_06.html">
+     Homework #6
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../module_04/README.html">
+   Module_04 - Computational Methods in Dynamics
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/01_pin.html">
+     Lecture_01 - Computational Pin Constraint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/02_slider-crank.html">
+     Lecture_02 - Kinematic analysis of slider crank
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/03_embedding.html">
+     Lecture 03 - Embedding technique for computational methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/04_symbolic.html">
+     Building Constraints in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/05_lagrange.html">
+     Lecture 05 - Lagrange Multipliers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../module_04/06_augment.html">
+     Lecture 06 - Augmented technique
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/pin-constraint.html">
+     Creating a pin constraint
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/embed-solution.html">
+     Embedding technique: solution of link pinned to ground at origin
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/symbolic_constraints.html">
+     Building Constraints in SymPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../model_results/augment-solution.html">
+     Augmented solution for one-bar linkage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_07.html">
+     Homework #7  Kinematics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../homeworks/HW_08.html">
+     Homework #8
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../quiz_work/quizzes.html">
+   Quiz Review Material
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../quiz_work/making-quiz_04.html">
+     Building Quiz_04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../quiz_work/making-quiz_05.html">
+     Building Quiz_05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../quiz_work/making-quiz_06.html">
+     Building Quiz_06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../quiz_work/making-quiz_07.html">
+     Building Quiz 07
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/.old_build/jupyter_execute/homeworks/HW_07.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/cooperrc/advanced-dynamics"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/cooperrc/advanced-dynamics/issues/new?title=Issue%20on%20page%20%2F.old_build/jupyter_execute/homeworks/HW_07.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/cooperrc/advanced-dynamics/master?urlpath=tree/.old_build/jupyter_execute/homeworks/HW_07.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://compmech.uconn.edu/hub/user-redirect/git-pull?repo=https://github.com/cooperrc/advanced-dynamics&urlpath=tree/advanced-dynamics/.old_build/jupyter_execute/homeworks/HW_07.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computational-kinematics-of-slider-crank">
+   Computational Kinematics of Slider crank
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
+   Problem 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-solution-for-mathbf-c-mathbf-q-t">
+     Set up solution for
+     <span class="math notranslate nohighlight">
+      \(\mathbf{C}(\mathbf{q},~t)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solve-for-mathbf-q-t">
+     Solve for
+     <span class="math notranslate nohighlight">
+      \(\mathbf{q(t)}\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-2">
+   Problem 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#animate-the-motion-for-constant-dot-theta-1">
+   Animate the motion for constant
+   <span class="math notranslate nohighlight">
+    \(\dot{\theta}^1\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-the-lines-and-coordinate-system">
+     2. initialize the lines and coordinate system
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot">
+     3. and 4. create your
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       init
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       animation
+      </span>
+     </code>
+     functions to update the lines on the plot
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#display-the-result-in-an-html-video">
+       4. display the result in an HTML video
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#velocity-and-acceleration">
+   Velocity and Acceleration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recreate-the-plots-with-your-solution">
+     Recreate the plots with your solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-3">
+   Problem 3
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span><span class="n">cos</span><span class="p">,</span><span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span><span class="p">,</span><span class="n">root</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;-A1w46iqUlE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/-A1w46iqUlE"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="section" id="homework-7-kinematics">
+<h1>Homework #7  Kinematics<a class="headerlink" href="#homework-7-kinematics" title="Permalink to this headline">¶</a></h1>
+<p><strong>Kinematics</strong> is the study of the geometry of motion e.g. definitions of position, velocity, and acceleration</p>
+<p>In this notebook we will explore kinematically-driven systems where the system degrees of freedom, <span class="math notranslate nohighlight">\(n_{d}=0 = 3\times n_b -n_c\)</span>, for planar problems. <span class="math notranslate nohighlight">\(n_b\)</span> bodies moving in a plane have <span class="math notranslate nohighlight">\(3\times n_b\)</span> degrees of freedom and the number of constraints is <span class="math notranslate nohighlight">\(n_c\)</span>.</p>
+<p><img alt="Coordinate system of rigid body" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0303.png" /></p>
+<p>In the figure above, there are three position vectors, <span class="math notranslate nohighlight">\(\mathbf{r}^{i}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{R}^{i}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{u}^{i}\)</span> and two coordinate systems, <span class="math notranslate nohighlight">\(X\)</span>-<span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(X^{i}\)</span>-<span class="math notranslate nohighlight">\(Y^{i}\)</span>.</p>
+<p>The <span class="math notranslate nohighlight">\(X^{i}\)</span>-<span class="math notranslate nohighlight">\(Y^{i}\)</span> coordinate system moves with the rigid body and the point P is always in a fixed position <span class="math notranslate nohighlight">\(\mathbf{\bar{u}}^{i}_{P}=\bar{x}^{i}_{P}\hat{i}^{i}+\bar{y}^{i}_{P}\hat{j}^{i}\)</span> in this coordinate system.</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{u}^{i}_{P} = \left[ \begin{array}{cc}
+\cos \theta^i &amp; -\sin \theta^i \\
+\sin \theta^i &amp; \cos \theta^i \\
+\end{array} \right]
+\left[\begin{array}{c} 
+\bar{x}^{i}_{P} \\ 
+\bar{y}^{i}_{P}\end{array}\right]\)</span></p>
+<p>or</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{u}_{P}^{i}=\mathbf{A}^{i}\mathbf{\bar{u}}^{i}_{P}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rotA</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function returns a 2x2 rotation matrix to convert the </span>
+<span class="sd">    rotated coordinate to the global coordinate system</span>
+<span class="sd">    input is angle in radians</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : angle in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A : 2x2 array to rotate a coordinate system at angle theta to global x-y</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span>
+               <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotA</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.5      , -0.8660254],
+       [ 0.8660254,  0.5      ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="Slider crank 3-body mechanism" src=".old_build/jupyter_execute/images/slider-crank.svg" /></p>
+<p>Figs. Slider crank mechanism and body coordinate systems.</p>
+<div class="section" id="computational-kinematics-of-slider-crank">
+<h2>Computational Kinematics of Slider crank<a class="headerlink" href="#computational-kinematics-of-slider-crank" title="Permalink to this headline">¶</a></h2>
+<p>Here you will create the computational kinematics of the slider crank in Fig. 3.35-3.36 above.</p>
+<p>The first kinematic problem will drive the slider crank with a constraint
+$<span class="math notranslate nohighlight">\(\theta^{1} = \omega t +\theta_0\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(\omega = 150~rad/s\)</span> and <span class="math notranslate nohighlight">\(\theta_0=\pi/6~rad\)</span>.</p>
+<p>Below you set up the function to return the constraint equations,</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},t)\)</span> = <code class="docutils literal notranslate"><span class="pre">C_slidercrank(q,t)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">links</span><span class="p">(</span><span class="n">l1</span> <span class="o">=</span> <span class="mf">0.075</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="mf">0.175</span><span class="o">*</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;function to define lengths of links for bodies 2 and 3 </span>
+<span class="sd">    in Fig. 3.35-3.36</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    l1 : length of body one, default 0.150 m</span>
+<span class="sd">    l2 : lenght of body two, default 0.250 m</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    l1, l2 : link lengths for bodies 1 and 2 </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">return</span> <span class="n">l1</span><span class="p">,</span><span class="n">l2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">C_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;9 constraint equations for 9 generalized coords</span>
+<span class="sd">       q=[R1x,R1y,a1,R2x,R2y,a2,R3x,R3y,a3]</span>
+<span class="sd">       q=[R1,     a1,  R2,  ,a2,  R3,  ,a3]</span>
+<span class="sd">         [0,1     2    3,4   5    6,7   8 ]</span>
+<span class="sd">         </span>
+<span class="sd">          1/\2</span>
+<span class="sd">          /  \    slider-crank mechanism</span>
+<span class="sd">         O   |3| </span>
+<span class="sd">        ^^^-------------</span>
+<span class="sd">            </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    q : numpy array for 9 generalized coordinates for bodies 1-3 in the slider crank</span>
+<span class="sd">        q = [q1, q2, q3]</span>
+<span class="sd">    t : current time</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    C : 9 constraint equation evaluations</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="o">=</span><span class="n">links</span><span class="p">()</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+
+    <span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">q1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">rotA</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">q1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">q2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">rotA</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">rotA</span><span class="p">(</span><span class="n">q2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">q2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">q3</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">rotA</span><span class="p">(</span><span class="n">q2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="n">rotA</span><span class="p">(</span><span class="n">q3</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">q3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">q3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">C</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">150</span><span class="o">*</span><span class="n">t</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
+<p>Solve for <span class="math notranslate nohighlight">\(\mathbf{q}(t=0) = [R_x^1,~R_y^1, \theta^1,~R_x^2,~R_y^2, \theta^2,~R_x^3,~R_y^3, \theta^3]\)</span> using the given system definitions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l_1 = 0.15~m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(l_2 = 0.25~m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta^1(t) = 150t+\frac{\pi}{6}\)</span></p></li>
+</ul>
+<p>Show that <code class="docutils literal notranslate"><span class="pre">C_slidercrank(q0,</span> <span class="pre">0)</span></code> <span class="math notranslate nohighlight">\(=\mathbf{0}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your work here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="set-up-solution-for-mathbf-c-mathbf-q-t">
+<h3>Set up solution for <span class="math notranslate nohighlight">\(\mathbf{C}(\mathbf{q},~t)\)</span><a class="headerlink" href="#set-up-solution-for-mathbf-c-mathbf-q-t" title="Permalink to this headline">¶</a></h3>
+<p>Next, set up the <span class="math notranslate nohighlight">\(9\times 9\)</span> Jacobian of</p>
+<ol class="simple">
+<li><p>Set up the <span class="math notranslate nohighlight">\(\mathbf{A}_\theta\)</span> function as <code class="docutils literal notranslate"><span class="pre">A_theta</span></code></p></li>
+<li><p>each pin <span class="math notranslate nohighlight">\(\mathbf{C_{q,~pin}}=\frac{\partial\mathbf{C_{pin}}}{\partial\mathbf{q}}\)</span>=<code class="docutils literal notranslate"><span class="pre">Cq_pin</span></code></p></li>
+<li><p>the total system: <span class="math notranslate nohighlight">\(\mathbf{C_{q}}=\frac{\partial\mathbf{C}}{\partial\mathbf{q}}\)</span>=<code class="docutils literal notranslate"><span class="pre">Cq_slidercrank</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">A_theta</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;This function returns a 2x2 rotation matrix derivative </span>
+<span class="sd">    input is angle in radians</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta : angle in radians</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dAda : 2x2 array derivative of `rotA`</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dAda</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span>
+                   <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+    <span class="k">return</span> <span class="n">dAda</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cq_pin</span><span class="p">(</span><span class="n">qi</span><span class="p">,</span> <span class="n">qj</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="n">uj</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Jacobian of a pinned constraint for planar motion</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    qi : generalized coordinates of the first body, i [Rxi, Ryi, thetai]</span>
+<span class="sd">    qj : generalized coordinates of the 2nd body, i [Rxj, Ryj, thetaj]</span>
+<span class="sd">    ui : position of the pin the body-i coordinate system</span>
+<span class="sd">    uj : position of the pin the body-j coordinate system</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Cq_pin : 2 rows x 6 columns Jacobian of pin constraint Cpin</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">Cq_1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">A_theta</span><span class="p">(</span><span class="n">qi</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@ui</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="p">])</span>
+    <span class="n">Cq_2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="n">A_theta</span><span class="p">(</span><span class="n">qj</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@uj</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="p">])</span>
+    <span class="n">Cq_pin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">Cq_1</span><span class="p">,</span> <span class="n">Cq_2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Cq_pin</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cq_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;return Jacobian of C_slidercrank(q,t) = dC/dq_i</span>
+<span class="sd">       |dC1/dR1x dC1/dR1y ... dC9/da3 |</span>
+<span class="sd">       |dC2/dR1x dC2/dR1y ... dC9/da3 |</span>
+<span class="sd">       |... ..     .           ...    |</span>
+<span class="sd">       |            .                 |</span>
+<span class="sd">       |             .                |</span>
+<span class="sd">       |dC9/dR1x ...         dC9/da3  |</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    q : numpy array for 9 generalized coordinates for bodies 1-3 in the slider crank</span>
+<span class="sd">        q = [q1, q2, q3]</span>
+<span class="sd">    t : current time</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Cq : 9 rows x 9 columns Jacobian of constraints `C_slidercrank`   </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">links</span><span class="p">()</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+    
+    <span class="n">Cq</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cq_pin</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cq_pin</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cq_pin</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span> <span class="n">q3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Cq</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">Cq</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solve-for-mathbf-q-t">
+<h3>Solve for <span class="math notranslate nohighlight">\(\mathbf{q(t)}\)</span><a class="headerlink" href="#solve-for-mathbf-q-t" title="Permalink to this headline">¶</a></h3>
+<p>Now, you solve for 1 full rotation of the driven crank.</p>
+<p>t= 0-360<span class="math notranslate nohighlight">\(^o\)</span> = 0-2<span class="math notranslate nohighlight">\(\pi\)</span>/150</p>
+<p>The solution requires an initial guess for the generalized coordinates, <span class="math notranslate nohighlight">\(\mathbf{q}\)</span>, set as <code class="docutils literal notranslate"><span class="pre">q0</span></code>. It is updated at each timestep to find the next solution. Here, you use the Jacobian of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C_q}\)</span>, by specifying the <code class="docutils literal notranslate"><span class="pre">fprime</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">q:</span> <span class="pre">Cq_slidercrank</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">q0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">q0</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+<span class="n">q</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">q0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">C_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">tt</span><span class="p">),</span><span class="n">q0</span><span class="p">,</span>\
+                    <span class="n">fprime</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">Cq_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">tt</span><span class="p">))</span> <span class="c1"># &lt;-- use the Jacobian to speed up solution</span>
+    <span class="n">q0</span><span class="o">=</span><span class="n">q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, you can create the same figures as Shabana ch 3</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337a.png" /></p>
+<p>Fig. 3.37. Orientation of the connecting rod</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0337b.png" /></p>
+<p>Fig. 3.37. Displacement of the slider block</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span><span class="n">q</span><span class="p">[</span><span class="mi">6</span><span class="p">,:])</span>
+<span class="c1">#plt.plot(t,q[5,:]/pi*180)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f488202b5e0&gt;]
+</pre></div>
+</div>
+<img alt="../../../_images/HW_07_18_1.png" src="../../../_images/HW_07_18_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h2>
+<p>Recreate the displacement of the slider block graph in Fig. 3.38 from your solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your work here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="animate-the-motion-for-constant-dot-theta-1">
+<h2>Animate the motion for constant <span class="math notranslate nohighlight">\(\dot{\theta}^1\)</span><a class="headerlink" href="#animate-the-motion-for-constant-dot-theta-1" title="Permalink to this headline">¶</a></h2>
+<p>Next, you animate the motion of the system. Below, you create</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_shape</span></code> to create lines and markers to represent links and the sliding base</p></li>
+<li><p>a figure that shows the path of the two link centers of mass
+3.<code class="docutils literal notranslate"><span class="pre">init</span></code> to initialize the animation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">animate</span></code> to update the two links and sliding base</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FuncAnimation</span></code> to display the motion of the slidercrank system</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span><span class="n">dims</span><span class="p">,</span><span class="n">q</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    function to plot a shape based upon the shape dimensions and coordinates</span>
+<span class="sd">    arguments:</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape: either &#39;link&#39; or &#39;base&#39;,</span>
+<span class="sd">            - the link returns two points to plot as a line</span>
+<span class="sd">            - the base returns one point to plot as a marker</span>
+<span class="sd">            - if neither &#39;link&#39; or &#39;base&#39; are chosen, then 0 is returned and warning printed </span>
+<span class="sd">            `choose a \&#39;link\&#39; or \&#39;base\&#39; please`</span>
+<span class="sd">    dims: the dimensions of the shape</span>
+<span class="sd">            - the link uses the first value as the length</span>
+<span class="sd">            - the base ignores the `dims`</span>
+<span class="sd">    q: generalized coordinates in the form [Rx, Ry, theta]</span>
+<span class="sd">            - the link returns the center of the link at (Rx, Ry) and oriented at theta</span>
+<span class="sd">            - the base returns the center at (Rx, Ry) and ignores theta</span>
+<span class="sd">    returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    datax: coordinates to plot the x-positions</span>
+<span class="sd">    datay: coordinates to plot the y-positions</span>
+<span class="sd">            - the link returns array of length 2</span>
+<span class="sd">            - the base returns array of length 1</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">if</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;link&#39;</span><span class="p">:</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="n">rotA</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="n">rotA</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">Px</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">Py</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">right</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">datax</span> <span class="o">=</span> <span class="n">Px</span>
+        <span class="n">datay</span> <span class="o">=</span> <span class="n">Py</span>
+        <span class="c1">#l,= plt.plot(Px,Py,&#39;o-&#39;)</span>
+        <span class="k">return</span> <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span>
+    <span class="k">elif</span> <span class="n">shape</span><span class="o">==</span><span class="s1">&#39;base&#39;</span><span class="p">:</span>
+        <span class="n">Px</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">Py</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">Px</span><span class="p">,</span> <span class="n">Py</span><span class="p">]</span>
+        <span class="c1">#l,=plt.plot(Px,Py,&#39;s&#39;,markersize=20)</span>
+        <span class="k">return</span> <span class="n">data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;choose a </span><span class="se">\&#39;</span><span class="s1">link</span><span class="se">\&#39;</span><span class="s1"> or </span><span class="se">\&#39;</span><span class="s1">base</span><span class="se">\&#39;</span><span class="s1"> please&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="initialize-the-lines-and-coordinate-system">
+<h3>2. initialize the lines and coordinate system<a class="headerlink" href="#initialize-the-lines-and-coordinate-system" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">q3</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">links</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">link1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">link2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">body3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">path1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">q1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">path2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">q2</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X-axis (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y-axis (m)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Slider crank motion and paths&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Slider crank motion and paths&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/HW_07_24_1.png" src="../../../_images/HW_07_24_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot">
+<h3>3. and 4. create your <code class="docutils literal notranslate"><span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">animation</span></code> functions to update the lines on the plot<a class="headerlink" href="#and-4-create-your-init-and-animation-functions-to-update-the-lines-on-the-plot" title="Permalink to this headline">¶</a></h3>
+<p>Create an initializing (<code class="docutils literal notranslate"><span class="pre">init</span></code>) function that clears the previous lines and markers</p>
+<p>Create an animating (<code class="docutils literal notranslate"><span class="pre">animate</span></code>) function that updates the link, base, and path</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">link1</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">link2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="n">body3</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">link1</span><span class="p">,</span> <span class="n">link2</span><span class="p">,</span> <span class="n">body3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;function that updates the line and marker data</span>
+<span class="sd">    arguments:</span>
+<span class="sd">    ----------</span>
+<span class="sd">    i: index of timestep</span>
+<span class="sd">    outputs:</span>
+<span class="sd">    --------</span>
+<span class="sd">    link1: the line object plotted in the above ax.plot(...)</span>
+<span class="sd">    link2: the line object plotted in the above ax.plot(...)</span>
+<span class="sd">    body3: the marker for the piston in the slider-crank</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">links</span><span class="p">()</span>
+    <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">plot_shape</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="p">]),</span> <span class="n">q1</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">link1</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)</span>
+    <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">plot_shape</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l2</span><span class="p">]),</span> <span class="n">q2</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
+    <span class="n">link2</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)</span>
+    <span class="n">pinx</span><span class="p">,</span> <span class="n">piny</span> <span class="o">=</span> <span class="n">plot_shape</span><span class="p">(</span><span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="n">q3</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">body3</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">pinx</span><span class="p">,</span> <span class="n">piny</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">link1</span><span class="p">,</span> <span class="n">link2</span><span class="p">,</span> <span class="n">body3</span><span class="p">,</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="display-the-result-in-an-html-video">
+<h4>4. display the result in an HTML video<a class="headerlink" href="#display-the-result-in-an-html-video" title="Permalink to this headline">¶</a></h4>
+<p>Import the <code class="docutils literal notranslate"><span class="pre">animation</span></code> and <code class="docutils literal notranslate"><span class="pre">HTML</span></code> functions. Then, create an animation (<code class="docutils literal notranslate"><span class="pre">anim</span></code>) variable using the <code class="docutils literal notranslate"><span class="pre">animation.FuncAnimation</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                               <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">anim</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><video width="432" height="288" controls autoplay loop>
+  <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAi2BtZGF0AAACrgYF//+q
+3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCByMzA5NSBiYWVlNDAwIC0gSC4yNjQvTVBF
+Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMiAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
+b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFs
+eXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVk
+X3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBk
+ZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTkg
+bG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRl
+cmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJf
+cHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9
+MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTIwIHNjZW5lY3V0PTQwIGludHJhX3Jl
+ZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAu
+NjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAe
+dWWIhAA7//73Tr8Cmx7G6gOSVwlE+C0/i4APMFlJXSRqEoDWxxIk6glvWr40O3D3/LrYGtV+mDjx
+69v9mCpJngSgHB7b2srPin2C3zSUftCSBt324HU9vctYDIn7mzzcWEN3PXDlcL0XdCVD49hBxBm1
+hZdtA8W0SVfkziMxEEcPth1N+FUP9Kz5GQHTmseigxcenW0DbPnZF391g0F7OqU73baPk7h32uBb
+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
+LjI3LjEwMA==
+">
+  Your browser does not support the video tag.
+</video></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="velocity-and-acceleration">
+<h2>Velocity and Acceleration<a class="headerlink" href="#velocity-and-acceleration" title="Permalink to this headline">¶</a></h2>
+<p>Differentiating the constraint equations, <span class="math notranslate nohighlight">\(\mathbf{Cq}=\mathbf{0}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C_q \dot{q}}+\mathbf{C}_t=\mathbf{0}\)</span> (3.119)</p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C}_t = \left[\frac{\partial C_1}{\partial t} \frac{\partial C_2}{\partial t}
+... \frac{\partial C_n}{\partial t}\right]^T\)</span> (3.120)</p>
+<p>Solve for velocity <span class="math notranslate nohighlight">\(\mathbf{\dot{q}_i}\)</span>  as such</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C_q \dot{q}}=-\mathbf{C}_t\)</span> (3.121)</p>
+<p>Differentiating <span class="math notranslate nohighlight">\(\mathbf{Cq}=\mathbf{0}\)</span> twice leads to the acceleration equation</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C_q \ddot{q}}+
+\left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}+
+2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}+
+\mathbf{C}_{tt}=\mathbf{0}\)</span> (3.123)</p>
+<p>Solve for acceleration <span class="math notranslate nohighlight">\(\mathbf{\ddot{q}}\)</span> as such</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{C_q \ddot{q}}=\mathbf{Q}_d\)</span></p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{Q}_d=-\left(\mathbf{C_q \dot{q}}\right)_{\mathbf{q}}\mathbf{\dot{q}}-
+2\mathbf{C}_{\mathbf{q}t}\mathbf{\dot{q}}-
+\mathbf{C}_{tt}\)</span></p>
+<p>For the current slider crank system,</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{Q}_d=
+\left[\begin{array}
+~(\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{A}\\
+(\dot{\theta}^1)^2\mathbf{A}^1\mathbf{\bar{u}}^{1}_{B}-(\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{2}_{B}\\
+(\dot{\theta}^2)^2\mathbf{A}^2\mathbf{\bar{u}}^{i}_{C}\\
+0\\
+0\\
+0\end{array}\right]\)</span></p>
+<p>Here, you set up <code class="docutils literal notranslate"><span class="pre">vel_acc(q,t)</span></code> to return velocity and acceleration of <span class="math notranslate nohighlight">\(\mathbf{q_{i}}\)</span> components as <span class="math notranslate nohighlight">\(\frac{d\mathbf{q}}{dt}\)</span> and <span class="math notranslate nohighlight">\(\frac{d^2\mathbf{q}}{dt^2}\)</span> (<code class="docutils literal notranslate"><span class="pre">dq</span></code> and <code class="docutils literal notranslate"><span class="pre">ddq</span></code>, respectively)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Qd_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">dq</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;return slidercrank Qd = Cq@ddq</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    q : numpy array for 9 generalized coordinates for bodies 1-3 in the slider crank</span>
+<span class="sd">        q = [q1, q2, q3]</span>
+<span class="sd">    t : current time</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Qd : 1D array with length 9     </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">links</span><span class="p">()</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+    <span class="n">dq1</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">dq2</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">dq3</span> <span class="o">=</span> <span class="n">dq</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+    
+    <span class="n">Qd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">Qd</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dq1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">rotA</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">Qd</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">dq1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">rotA</span><span class="p">(</span><span class="n">q1</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span>\
+              <span class="n">dq2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">rotA</span><span class="p">(</span><span class="n">q2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">Qd</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">dq2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">rotA</span><span class="p">(</span><span class="n">q2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="nd">@np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">Qd</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">Qd</span> 
+
+<span class="k">def</span> <span class="nf">Ct_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;return slidercrank partial derivative of constraints dC/dt</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    q : numpy array for 9 generalized coordinates for bodies 1-3 in the slider crank</span>
+<span class="sd">        q = [q1, q2, q3]</span>
+<span class="sd">    t : current time</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Ct : 1D array with length 9</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+    <span class="n">Ct</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">150</span>
+    <span class="k">return</span> <span class="n">Ct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">q0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">q0</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+<span class="n">dq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">ddq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">q</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">q0</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ti</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">q</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">C_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">ti</span><span class="p">),</span><span class="n">q0</span><span class="p">,</span>\
+                    <span class="n">fprime</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">Cq_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">ti</span><span class="p">))</span> <span class="c1"># &lt;-- use the Jacobian to speed up solution</span>
+    <span class="n">dq</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Cq_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">ti</span><span class="p">),</span> <span class="o">-</span><span class="n">Ct_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">ti</span><span class="p">))</span>
+    <span class="n">Qd</span> <span class="o">=</span> <span class="n">Qd_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">dq</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">ti</span><span class="p">)</span>
+    <span class="n">ddq</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Cq_slidercrank</span><span class="p">(</span><span class="n">q</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">ti</span><span class="p">),</span> <span class="n">Qd</span><span class="p">)</span>
+    <span class="n">q0</span><span class="o">=</span><span class="n">q</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338a.png" />
+<img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0338b.png" /></p>
+<p>Fig. 3.38 velocity components</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339a.png" />
+<img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0339b.png" /></p>
+<p>Fig. 3.39 acceleration components</p>
+<div class="section" id="recreate-the-plots-with-your-solution">
+<h3>Recreate the plots with your solution<a class="headerlink" href="#recreate-the-plots-with-your-solution" title="Permalink to this headline">¶</a></h3>
+<p>Here, you can plot the terms <span class="math notranslate nohighlight">\(\dot{\mathbf{q}}\)</span> and <span class="math notranslate nohighlight">\(\ddot{\mathbf{q}}\)</span> to compare to the Shabana solutions shown above in Figs 3.38-39. <strong>Try plotting <span class="math notranslate nohighlight">\(\dot{\theta}^2,~\ddot{\theta}^2,~\dot{R}^3_x,~and~\ddot{R}^3_x\)</span></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">ddq</span><span class="p">[</span><span class="mi">6</span><span class="p">,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;crank angle (rad)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;crank angle (rad)&#39;)
+</pre></div>
+</div>
+<img alt="../../../_images/HW_07_38_1.png" src="../../../_images/HW_07_38_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">¶</a></h2>
+<p>Change the constraints for the slidercrank such that</p>
+<p><span class="math notranslate nohighlight">\(R^4_x-f(t)=0\)</span></p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(f(t)=0.35-0.8l^2\sin150t\)</span></p>
+<p>Recreate Figs. 3.43-3.48 for the slidercrank.</p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340a.png" />
+<img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0340b.png" /></p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341a.png" />
+<img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0341b.png" /></p>
+<p><img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342a.png" />
+<img alt="" src="https://learning.oreilly.com/library/view/computational-dynamics-3rd/9780470686157/figs/0342b.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./.old_build/jupyter_execute/homeworks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href = https://cooperrc.github.io> Ryan C. Cooper</a><br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
