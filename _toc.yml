@@ -19,6 +19,7 @@ parts:
     - file: getting-started/02_Working_with_Python
     - file: getting-started/03_Numerical_error
 - caption: Course Content
+  chapters:
   - file: module_01/README
     sections:
     - file: module_01/01_vectors

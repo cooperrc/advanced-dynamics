@@ -14,13 +14,12 @@
 
 **Office Hours/Availability:** by appointment
 [Calendly](https://calendly.com/ryan-c-cooper/30min) *post questions on
-Campuswire (the preferred contact)* I will respond to questions within
+GitHub Discussions (the preferred contact)* I will respond to questions within
 one business day (Mon-Fri 9am-5pm)
 
 **Preferred Contact:** Post course-related questions and comments
-Campuswire
-> Personal questions should be communicated privately via Campuswire DM
-> or email
+GitHub Discussions
+> Personal questions should be communicated privately via email
 
 ## Course Assignments and Discussions
 
@@ -80,7 +79,7 @@ Students will
 - ...
 
 **Lectures**: Videos posted on the course website - watch the lecture
-and ask/answer questions in Campuswire
+and ask/answer questions in GitHub Discussions
 
 **Instructor**: Prof. Ryan C. Cooper (ryan.c.cooper@uconn.edu)
 
@@ -121,7 +120,7 @@ Engineering Dynamics, Jeremy Kasdin and Derek Paley, Princeton University Press.
 
 ### Course Discussion
 
-**Campuswire:** This session we will be using GitHub Discussions. The
+**GitHub Discussions:** This session we will be using GitHub Discussions. The
 system is catered to getting you help fast and efficiently from
 classmates and myself. Rather than emailing questions, I prefer you to
 post your questions on GitHub. This way everyone benefits from
@@ -130,11 +129,6 @@ clarifying course content, logistics, and our process.
 ## Schedule
 
 The course schedule is maintained on HuskyCT
-
-<iframe
-src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&mode=AGENDA&title=ME5180%20%2F3295%20calendar&src=c2NrcGI2YnI0YnFrcTBwMTJqbzg1YmxramhwaG9uZTFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23C0CA33"
-style="border:solid 1px #777" width="500" height="400" frameborder="0"
-scrolling="no"></iframe>
 
 Assignments are due by 11:59pm on the specified due dates. 
 
@@ -158,7 +152,8 @@ You can participate in a variety of ways e.g.
 
 1.  The videos are recorded lectures and tutorials. For each video, try
     to answer the discussion questions, or come up with your own. I
-    encourage you to share your thoughts and questions on Campuswire
+    encourage you to share your thoughts and questions on GitHub
+    Discussions 
 2. You can connect with other students and discuss the Homework and
    readings. You should dedicate at least 1 hour per week to reviewing
    content, so it helps to have others to talk through concepts
@@ -192,10 +187,15 @@ progresses. *All changes will be communicated via the calendar or
 another appropriate notification.*
 
 **Late Policy:** If you need more time for an assignment or experience
-technical difficulties, reach out via Campuswire or email. The
-instructor can make accommodations for work, family, and personal
+technical difficulties, leave a note in the assignment submission with
+two pieces of information:
+1. What is your new submission date
+2. What help do you need and how and you getting it (discussion post,
+   colleague, Prof. Cooper, TA, etc.)?
+
+The instructor can make accommodations for work, family, and personal
 reasons. *We ask that you be respectful of the instructors' limited time
-and resources.*
+and resources.* 
 
 ### Feedback and Grades
 
@@ -285,7 +285,7 @@ provides a guide to technical and academic assistance.
 To be successful in this course, you will need the following technical
 skills:
 
--   Use the Campuswire class discussions
+-   Use the class discussions
 -   Create graphics and graphs and include them in Jupyter notebooks
 -   Work within two or more browser windows simultaneously.
 -   Open and access PDF files
